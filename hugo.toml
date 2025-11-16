@@ -8,7 +8,7 @@ title = "I'm Ghost Basenji"
 author = "Ghost Basenji"
 description = "Начинающий программист"
 profilePicture = "images/profile.png"
-contentratio = 0.77
+contentratio = 0.75
 
 displayMode = "light"
 disableThemeSwitcher = true
@@ -18,7 +18,7 @@ enableMediumZoom = false
 reversepagetitle = true
 disableTitleCapitalization = true
 disableArchiveTitleStyling = true
-hidesidebar = true
+hidesidebar = false
 
 summarylength = 10
 readMore = true

@@ -18,7 +18,7 @@ enableMediumZoom = false
 reversepagetitle = true
 disableTitleCapitalization = true
 disableArchiveTitleStyling = true
-hidesidebar = false
+hidesidebar = true
 
 summarylength = 10
 readMore = true

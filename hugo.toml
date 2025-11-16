@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://ghostbasenji.github.io/"
 languageCode = "ru-ru"
 title = "Записки начинаюшего программиста"
 theme = "anatole"

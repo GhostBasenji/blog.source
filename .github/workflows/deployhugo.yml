@@ -3,7 +3,7 @@ name: Deploy Hugo Site
 on:
   push:
     branches: [ "master" ]
-  workflow_dispatch:  # Разрешает ручной запуск
+  workflow_dispatch:
 
 jobs:
   build-deploy:
@@ -37,3 +37,6 @@ jobs:
           external_repository: GhostBasenji/ghostbasenji.github.io
           publish_branch: master
           publish_dir: ./public
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          force_orphan: true

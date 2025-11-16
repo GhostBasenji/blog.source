@@ -52,7 +52,7 @@ url = "https://github.com/GhostBasenji"
   url = "/"
 
   [[menu.main]]
-  name = "Записки"
+  name = "Записи"
   weight = 200
   identifier = "posts"
   url = "/post/"

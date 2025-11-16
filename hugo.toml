@@ -1,0 +1,93 @@
+baseURL = "/"
+languageCode = "ru-ru"
+title = "Записки начинаюшего программиста"
+theme = "anatole"
+
+[params]
+title = "I'm Ghost Basenji"
+author = "Ghost Basenji"
+description = "Начинающий программист"
+profilePicture = "images/profile.png"
+contentratio = 0.77
+
+displayMode = "light"
+disableThemeSwitcher = true
+doNotLoadAnimations = true
+enableMediumZoom = false
+
+reversepagetitle = true
+disableTitleCapitalization = true
+disableArchiveTitleStyling = true
+hidesidebar = false
+
+summarylength = 10
+readMore = true
+mainSections = ["post"]
+
+enableEmoji = true
+enableRobotsTXT = true
+
+customCss = ["css/syntax.css"]
+
+[[params.socialIcons]]
+icon = "fab fa-telegram"
+title = "Telegram"
+url = "https://t.me/ghostbasenji"
+
+[[params.socialIcons]]
+icon = "fa fa-envelope"
+title = "e-mail"
+url = "petr.and.vic@gmail.com"
+
+[[params.socialIcons]]
+title = "github"
+icon = "fa-brands fa-github"
+url = "https://github.com/GhostBasenji"
+
+[menu]
+  [[menu.main]]
+  name = "Главная"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Записки"
+  weight = 200
+  identifier = "posts"
+  url = "/post/"
+
+  [[menu.main]]
+  name = "Теги"
+  weight = 300
+  identifier = "tags"
+  url = "/tags/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 400
+  identifier = "about"
+  url = "/about/"
+
+copyright = "{{ YEAR }}"
+
+# Mermaid
+[params.mermaid]
+enable = true
+
+# Markdown / Goldmark
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+
+  [markup.highlight]
+    noClasses = false           # ❌ Используем CSS-классы, а не inline-стили
+    style = "vs" # 🎨 Стиль подсветки Chroma
+    guessSyntax = false

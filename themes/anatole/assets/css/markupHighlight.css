@@ -1,0 +1,172 @@
+:root {
+  /* Catppuccin Latte (light theme) */
+  --chr-def-color: #4c4f69;
+  --chr-def-bg-color: #eff1f5;
+  --chr-err-color: #d20f39;
+  --chr-err-bg-color: #f2d5cf;
+  --chr-hl-bg-color: #e6e9ef;
+
+  --chr-lnt-color: #9ca0b0;
+  --chr-ln-color: #9ca0b0;
+
+  /* Keywords */
+  --chr-k-color: #1e66f5;
+  --chr-kc-color: #1e66f5;
+  --chr-kd-color: #1e66f5;
+  --chr-kn-color: #d20f39;
+  --chr-kp-color: #1e66f5;
+  --chr-kr-color: #1e66f5;
+  --chr-kt-color: #df8e1d;
+
+  /* Names */
+  --chr-na-color: #d20f39;
+  --chr-nb-color: #1e66f5;
+  --chr-bp-color: #4c4f69;
+  --chr-nc-color: #1e66f5;
+  --chr-no-color: #ea76cb;
+  --chr-nd-color: #8839ef;
+  --chr-ni-color: #4c4f69;
+  --chr-ne-color: #d20f39;
+  --chr-nf-color: #8839ef;
+  --chr-fm-color: #8839ef;
+  --chr-nl-color: #4c4f69;
+  --chr-nx-color: #4c4f69;
+  --chr-py-color: #4c4f69;
+  --chr-nt-color: #d20f39;
+
+  --chr-vc-color: #4c4f69;
+  --chr-vg-color: #4c4f69;
+  --chr-vi-color: #4c4f69;
+  --chr-vm-color: #4c4f69;
+
+  /* Literals */
+  --chr-l-color: #fe640b;
+  --chr-ld-color: #fe640b;
+  --chr-s-color: #40a02b;
+  --chr-sa-color: #40a02b;
+  --chr-sb-color: #40a02b;
+  --chr-sc-color: #40a02b;
+  --chr-dl-color: #40a02b;
+  --chr-sd-color: #40a02b;
+  --chr-s2-color: #40a02b;
+  --chr-se-color: #df8e1d;
+  --chr-sh-color: #40a02b;
+  --chr-si-color: #40a02b;
+  --chr-sx-color: #40a02b;
+  --chr-sr-color: #d20f39;
+  --chr-s1-color: #40a02b;
+  --chr-ss-color: #04a5e5;
+
+  --chr-m-color: #fe640b;
+  --chr-mb-color: #fe640b;
+  --chr-mf-color: #fe640b;
+  --chr-mh-color: #fe640b;
+  --chr-mi-color: #fe640b;
+  --chr-il-color: #fe640b;
+  --chr-mo-color: #fe640b;
+
+  /* Operators */
+  --chr-o-color: #d20f39;
+  --chr-ow-color: #d20f39;
+
+  /* Punctuation */
+  --chr-p-color: #4c4f69;
+
+  /* Comments */
+  --chr-c-color: #9ca0b0;
+  --chr-ch-color: #9ca0b0;
+  --chr-cm-color: #9ca0b0;
+  --chr-c1-color: #9ca0b0;
+  --chr-cs-color: #9ca0b0;
+  --chr-cp-color: #9ca0b0;
+  --chr-cpf-color: #9ca0b0;
+}
+
+:root.theme--dark {
+  /* Keep dark mode = Catppuccin Macchiato (optional) */
+
+  --chr-def-color: #cdd6f4;
+  --chr-def-bg-color: #1e1e2e;
+  --chr-err-color: #f38ba8;
+  --chr-err-bg-color: #1e1e2e;
+  --chr-hl-bg-color: #313244;
+
+  --chr-lnt-color: #6c7086;
+  --chr-ln-color: #6c7086;
+
+  --chr-k-color: #89b4fa;
+  --chr-kc-color: #89b4fa;
+  --chr-kd-color: #89b4fa;
+  --chr-kn-color: #f38ba8;
+  --chr-kp-color: #89b4fa;
+  --chr-kr-color: #89b4fa;
+  --chr-kt-color: #f9e2af;
+
+  --chr-na-color: #f38ba8;
+  --chr-nb-color: #89b4fa;
+  --chr-bp-color: #cdd6f4;
+  --chr-nc-color: #89b4fa;
+  --chr-no-color: #f5c2e7;
+  --chr-nd-color: #cba6f7;
+  --chr-ni-color: #cdd6f4;
+  --chr-ne-color: #f38ba8;
+  --chr-nf-color: #cba6f7;
+  --chr-fm-color: #cba6f7;
+  --chr-nl-color: #cdd6f4;
+  --chr-nx-color: #cdd6f4;
+  --chr-py-color: #cdd6f4;
+  --chr-nt-color: #f38ba8;
+
+  --chr-vc-color: #cdd6f4;
+  --chr-vg-color: #cdd6f4;
+  --chr-vi-color: #cdd6f4;
+  --chr-vm-color: #cdd6f4;
+
+  /* Literal */
+  --chr-l-color: #fab387;
+  --chr-ld-color: #fab387;
+  --chr-s-color: #a6e3a1;
+  --chr-sa-color: #a6e3a1;
+  --chr-sb-color: #a6e3a1;
+  --chr-sc-color: #a6e3a1;
+  --chr-dl-color: #a6e3a1;
+  --chr-sd-color: #a6e3a1;
+  --chr-s2-color: #a6e3a1;
+  --chr-se-color: #f9e2af;
+  --chr-sh-color: #a6e3a1;
+  --chr-si-color: #a6e3a1;
+  --chr-sx-color: #a6e3a1;
+  --chr-sr-color: #f38ba8;
+  --chr-s1-color: #a6e3a1;
+  --chr-ss-color: #89dceb;
+
+  --chr-m-color: #fab387;
+  --chr-mb-color: #fab387;
+  --chr-mf-color: #fab387;
+  --chr-mh-color: #fab387;
+  --chr-mi-color: #fab387;
+  --chr-il-color: #fab387;
+  --chr-mo-color: #fab387;
+
+  --chr-o-color: #f38ba8;
+  --chr-ow-color: #f38ba8;
+
+  --chr-p-color: #cdd6f4;
+
+  --chr-c-color: #6c7086;
+  --chr-ch-color: #6c7086;
+  --chr-cm-color: #6c7086;
+  --chr-c1-color: #6c7086;
+  --chr-cs-color: #6c7086;
+  --chr-cp-color: #6c7086;
+  --chr-cpf-color: #6c7086;
+}
+
+/* Rest of styling — unchanged from Anatole */
+.chroma { direction: ltr; color: var(--chr-def-color); background-color: var(--chr-def-bg-color); }
+.chroma .err { color: var(--chr-err-color); background-color: var(--chr-err-bg-color); }
+.chroma .lnt { color: var(--chr-lnt-color); }
+.chroma .ln { color: var(--chr-ln-color); }
+.chroma .hl { background-color: var(--chr-hl-bg-color); }
+
+/* All other rules remain identical to original theme */

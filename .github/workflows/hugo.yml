@@ -33,10 +33,8 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
           external_repository: GhostBasenji/ghostbasenji.github.io
           publish_branch: master
           publish_dir: ./public
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
           force_orphan: true

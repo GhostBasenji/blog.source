@@ -12,7 +12,6 @@ categories = [
     "Pet Projects",
     "Blazor",
     "Educational Platforms",
-    "Testing Systems",
     "EduTest"
     ]
 

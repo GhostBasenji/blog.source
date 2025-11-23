@@ -12,7 +12,6 @@ categories = [
     "Pet Projects",
     "Blazor",
     "Educational Platforms",
-    "Testing Systems",
     "EduTest"
     ]
 
@@ -251,5 +250,8 @@ series = ["Система тестирования знаний на Blazor + C#
 * а также работу с Git и историю изменений.
 
 Добро пожаловать в процесс разработки!
+<<<<<<< HEAD
 
 ---
+=======
+>>>>>>> 9f21408459610b47ef590162c382d301d5b41a15

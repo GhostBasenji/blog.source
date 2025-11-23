@@ -71,7 +71,7 @@ url = "https://github.com/GhostBasenji"
 
   [[menu.main]]
   name = "About"
-  weight = 400
+  weight = 500
   identifier = "about"
   url = "/about/"
 

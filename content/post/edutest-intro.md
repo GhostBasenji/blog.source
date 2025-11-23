@@ -12,9 +12,9 @@ categories = [
     "Pet Projects",
     "Blazor",
     "Educational Platforms",
-    "Testing Systems"
+    "Testing Systems",
     "EduTest"
-]
+    ]
 
 tags = [
   "введение",

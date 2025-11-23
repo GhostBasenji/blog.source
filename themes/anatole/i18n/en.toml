@@ -49,7 +49,7 @@ other = "Info"
 other = "Update"
 
 [series_posts]
-other = "Posts in this series"
+other = "Посты в этой серии"
 
 [related_posts]
 other = "Related Posts"

@@ -58,20 +58,14 @@ url = "https://github.com/GhostBasenji"
   url = "/post/"
 
   [[menu.main]]
-  name = "Серии"
-  weight = 300
-  identifier = "series"
-  url = "/series/"
-
-  [[menu.main]]
   name = "Теги"
-  weight = 400
+  weight = 300
   identifier = "tags"
   url = "/tags/"
 
   [[menu.main]]
   name = "About"
-  weight = 500
+  weight = 400
   identifier = "about"
   url = "/about/"
 

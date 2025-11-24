@@ -16,14 +16,11 @@ categories = [
     ]
 
 tags = [
-  "введение",
   "обзор проекта",
   "Blazor Server",
   "C#",
   "MSSQL",
-  "pet-проект",
-  "дорожная карта",
-  "roadmap"
+  "pet-проект"
 ]
 +++
 

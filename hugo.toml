@@ -71,11 +71,6 @@ url = "https://github.com/GhostBasenji"
 
 copyright = "{{ YEAR }}"
 
-[taxonomies]
-    category = "categories"
-    series = "series"
-    tag = "tags"
-
 ## Math settings
 [params.math]
 enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.

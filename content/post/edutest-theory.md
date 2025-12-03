@@ -292,7 +292,7 @@ release/*     → подготовка релизов
 ### Пример рабочего процесса
 
 **1. Разработка новой функции**
-```bash
+```
 git checkout dev
 git checkout -b feature/tests
 ```

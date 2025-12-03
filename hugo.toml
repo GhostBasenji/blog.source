@@ -1,7 +1,7 @@
 baseURL = "https://ghostbasenji.github.io/"
 languageCode = "ru-ru"
 title = "Записки начинающего программиста"
-theme = "anatole"
+theme = "monochrome"
 
 [params]
 title = "I'm Ghost Basenji"

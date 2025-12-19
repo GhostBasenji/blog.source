@@ -15,7 +15,10 @@ categories = [
     "EduTest",
     "C#",
     "MSSQL",
-    "Архитектура"
+    "Архитектура",
+    ".NET Backend",
+    "ASP.NET Core",
+    "Node.js"
     ]
 
 tags = [
@@ -27,7 +30,10 @@ tags = [
   "Git workflow",
   "Тестирование знаний",
   "Разработка ПО",
-  "Архитектура приложений"
+  "Архитектура приложений",
+      ".NET Backend",
+    "ASP.NET Core",
+    "Node.js"
 ]
 +++
 

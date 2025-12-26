@@ -1,0 +1,73 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  {{ if .IsHome }}
+    {{ .Site.Title }}
+  {{ else }}
+    {{ .Title }} — {{ .Site.Title }}
+  {{ end }}
+</title>
+
+<!-- =========================================================
+     SEO: Description & Keywords
+========================================================= -->
+{{ $description := .Params.description | default .Site.Params.siteDescription }}
+<meta name="description" content="{{ $description }}">
+
+{{ with .Params.keywords }}
+<meta name="keywords" content="{{ delimit . "," }}">
+{{ end }}
+
+<!-- =========================================================
+     Open Graph / Facebook
+========================================================= -->
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ .Title | default .Site.Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with .Params.featured_image }}
+<meta property="og:image" content="{{ . | relURL }}">
+{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- =========================================================
+     Twitter Card
+========================================================= -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ with .Params.featured_image }}
+<meta name="twitter:image" content="{{ . | relURL }}">
+{{ end }}
+
+<!-- =========================================================
+     CSS
+========================================================= -->
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/monokailight.css" | relURL }}">
+<link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | relURL }}">
+
+<!-- Тема по умолчанию -->
+{{ $theme := .Site.Params.defaultTheme | default "light" }}
+{{ if eq $theme "dark" }}
+<link rel="stylesheet" href="{{ "css/dark.css" | relURL }}" id="dark-theme">
+{{ end }}
+
+<!-- =========================================================
+     Math Engine
+========================================================= -->
+{{ if eq .Site.Params.mathEngine "katex" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+{{ else if eq .Site.Params.mathEngine "mathjax" }}
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+{{ end }}

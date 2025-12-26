@@ -1,0 +1,17 @@
+<div class="sidebar-social">
+  {{ with .Site.Params.social.email }}
+    <a href="mailto:{{ . }}" title="Email" target="_blank" rel="noopener">
+      <i class="fas fa-envelope"></i>
+    </a>
+  {{ end }}
+  {{ with .Site.Params.social.telegram }}
+    <a href="{{ . }}" title="Telegram" target="_blank" rel="noopener">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+  {{ end }}
+  {{ with .Site.Params.social.github }}
+    <a href="{{ . }}" title="GitHub" target="_blank" rel="noopener">
+      <i class="fab fa-github"></i>
+    </a>
+  {{ end }}
+</div>

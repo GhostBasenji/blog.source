@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="post-list">
+
+  {{ $paginator := .Paginator }}
+  {{ range $paginator.Pages }}
+    <article class="post-item">
+      <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <div class="post-meta">{{ .Date.Format "02 Jan 2006" }}</div>
+      {{ if .Summary }}<p class="post-summary">{{ .Summary }}</p>{{ end }}
+
+      {{ partial "post-taxonomies.html" . }}
+    </article>
+  {{ end }}
+
+</section>
+
+{{ partial "pagination.html" . }}
+{{ end }}

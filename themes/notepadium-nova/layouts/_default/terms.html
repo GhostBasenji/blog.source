@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<h1 class="page-title">{{ i18n .Title }}</h1>
+
+<section class="terms-grid">
+
+  {{ range .Data.Terms }}
+    {{ $count := len .Page.Pages }}
+
+    <a class="term-card" href="{{ .Page.RelPermalink }}">
+
+      <div class="term-title">
+        {{ .Page.Title }}
+      </div>
+
+      <div class="term-count">
+        {{ $count }} пост{{ if ne $count 1 }}ов{{ end }}
+      </div>
+
+    </a>
+  {{ end }}
+
+</section>
+
+{{ end }}

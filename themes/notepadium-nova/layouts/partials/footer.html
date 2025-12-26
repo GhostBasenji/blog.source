@@ -1,0 +1,32 @@
+{{ with .Site.Params.footer }}
+{{ if .enable }}
+<footer class="site-footer">
+  <div class="footer-divider"></div>
+
+  <div class="footer-content">
+    <div class="footer-line">
+      © {{ .author }}
+      {{ if .showYear }}, {{ now.Year }}{{ end }}
+    </div>
+
+    <div class="footer-line">
+      {{ .hugoText }}
+      {{ if .showHeart }}
+        <span class="footer-heart">❤</span>
+      {{ end }}
+      —
+      тема
+      <a href="{{ .themeLink }}" target="_blank" rel="noopener">
+        {{ .themeName }}
+      </a>
+    </div>
+
+    {{ if $.Site.Params.enableThemeToggle }}
+    <div class="theme-toggle-footer" style="text-align:center; cursor:pointer;">
+      <span id="theme-toggle">🌙</span>
+    </div>
+    {{ end }}
+  </div>
+</footer>
+{{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+<div class="post-taxonomies">
+
+  {{ with .GetTerms "categories" }}
+  <div class="post-categories">
+    {{ range . }}
+      <a class="post-category" href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ with .GetTerms "tags" }}
+  <div class="post-tags">
+    {{ range . }}
+      <a class="post-tag" href="{{ .RelPermalink }}">
+        #{{ .Title }}
+      </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</div>

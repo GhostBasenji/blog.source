@@ -79,15 +79,15 @@ theme = "notepadium-nova"             # Имя темы
   hugoText = "Сделано на Hugo"         # Текст о движке Hugo
   hugoLink = "https://gohugo.io/"
   themeName = "notepadium-nova"         # Имя темы
-  themeLink = ""
+  themeLink = " "
   showHeart = true                       # Показывать сердечко
 
 # =========================================================
 # Социальные сети
 # =========================================================
 [params.social]
-  email = "pet.and.vic@gmail.com"
-  telegram = "https://t.me/@ghostbasenji"
+  email = "petr.and.vic@gmail.com"
+  telegram = "https://t.me/ghostbasenji"
   github = "https://github.com/GhostBasenji"
 
 # =========================================================

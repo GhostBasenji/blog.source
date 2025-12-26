@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+<style>
+  :root {
+    --content-width: {{ .Site.Params.contentWidth }}px;
+    --sidebar-width: {{ .Site.Params.sidebarWidth }}px;
+    --sidebar-padding: {{ .Site.Params.sidebarPadding }}px;
+    --logo-size: {{ .Site.Params.logoSize }}px;
+  }
+</style>
+
+<div class="layout">
+
+  <main class="content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "sidebar.html" . }}
+
+</div>
+
+{{ partial "footer.html" . }}
+
+<script src="{{ "js/theme-toggle.js" | relURL }}"></script>
+
+</body>
+</html>

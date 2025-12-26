@@ -1,98 +1,100 @@
+# =========================================================
+# Основные настройки сайта
+# =========================================================
 baseURL = "https://ghostbasenji.github.io/"
 languageCode = "ru-ru"
 title = "Записки начинающего программиста"
-theme = "anatole"
+theme = "notepadium-nova"             # Имя темы
 
+# =========================================================
+# Пагинация
+# =========================================================
+[pagination]
+  pagerSize = 11                       # Количество постов на странице
+
+# =========================================================
+# Параметры сайта
+# =========================================================
 [params]
-title = "I'm Ghost Basenji"
-author = "Ghost Basenji"
-description = "Начинающий программист"
-profilePicture = "images/profile.png"
-contentratio = 0.75
+  siteDescription = "Minimal flat blog about code and ideas"   # Описание сайта (используется для SEO)
 
-displayMode = "light"
-disableThemeSwitcher = true
-doNotLoadAnimations = true
-enableMediumZoom = false
+  # Layout
+  contentWidth = 1000                   # Ширина основного контента
+  enableThemeToggle = false             # true — включить переключение тем, false — отключить
+  defaultTheme = "light"                # Тема по умолчанию, если переключение отключено ("light" или "dark")
 
-reversepagetitle = true
-disableTitleCapitalization = true
-disableArchiveTitleStyling = true
-hidesidebar = false
+  # Sidebar (правая панель)
+  sidebarWidth = 340                    # Ширина сайдбара
+  sidebarPadding = 32                   # Отступы внутри сайдбара
 
-summarylength = 10
-readMore = true
-mainSections = ["post"]
+  # Логотип
+  logo = "images/logo.png"              # Путь к логотипу
+  logoSize = 120                        # Размер логотипа в пикселях
 
-enableEmoji = true
-enableRobotsTXT = true
+  # Math engine: "katex", "mathjax", или пусто (не использовать)
+  mathEngine = "katex"
 
-customCss = ["css/syntax.css"]
-
-[[params.socialIcons]]
-icon = "fab fa-telegram"
-title = "Telegram"
-url = "https://t.me/ghostbasenji"
-
-[[params.socialIcons]]
-icon = "fa fa-envelope"
-title = "e-mail"
-url = "petr.and.vic@gmail.com"
-
-[[params.socialIcons]]
-title = "github"
-icon = "fa-brands fa-github"
-url = "https://github.com/GhostBasenji"
-
+# =========================================================
+# Главное меню
+# =========================================================
 [menu]
   [[menu.main]]
-  name = "Главная"
-  identifier = "home"
-  weight = 100
-  url = "/"
+    name = "Home"                       # Название пункта
+    url = "/"                           # Ссылка
+    weight = 1                          # Порядок в меню
 
   [[menu.main]]
-  name = "Посты"
-  weight = 200
-  identifier = "posts"
-  url = "/post/"
+    name = "About"
+    url = "/about/"
+    weight = 2
 
-  [[menu.main]]
-  name = "Теги"
-  weight = 300
-  identifier = "tags"
-  url = "/tags/"
+# Примечание: категории и теги скрыты из меню, но остаются кликабельными под постами
 
-  [[menu.main]]
-  name = "About"
-  weight = 400
-  identifier = "about"
-  url = "/about/"
+# =========================================================
+# Подсветка кода
+# =========================================================
+[markup.highlight]
+  noClasses = false                     # Использовать классы CSS вместо встроенных стилей
 
-copyright = "{{ YEAR }}"
-
-## Math settings
-[params.math]
-enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
-use = "katex"  # options: "katex", "mathjax". default is "katex".
-
-# Mermaid
-[params.mermaid]
-enable = true
-
-# Markdown / Goldmark
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = true                     # Разрешаем raw HTML в контенте
     [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)']]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
 
-  [markup.highlight]
-    noClasses = false           # ❌ Используем CSS-классы, а не inline-стили
-    style = "vs" # 🎨 Стиль подсветки Chroma
-    guessSyntax = false
+# =========================================================
+# Футер
+# =========================================================
+[params.footer]
+  enable = true                         # Включить футер
+  author = "Ghost Basenji"                     # Автор сайта
+  showYear = true                        # Показать текущий год
+  hugoText = "Сделано на Hugo"         # Текст о движке Hugo
+  hugoLink = "https://gohugo.io/"
+  themeName = "notepadium-nova"         # Имя темы
+  themeLink = ""
+  showHeart = true                       # Показывать сердечко
+
+# =========================================================
+# Социальные сети
+# =========================================================
+[params.social]
+  email = "pet.and.vic@gmail.com"
+  telegram = "https://t.me/@ghostbasenji"
+  github = "https://github.com/GhostBasenji"
+
+# =========================================================
+# Таксономии
+# =========================================================
+[taxonomies]
+  category = "categories"               # Таксономия категорий
+  tag = "tags"                          # Таксономия тегов
+# Примечание: эти таксономии используются для организации контента
+# и отображаются под постами, но их можно скрыть из навигации

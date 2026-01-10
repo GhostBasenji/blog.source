@@ -1,29 +1,32 @@
 {{ define "main" }}
 
-<h1 class="page-title">{{ .Title }}</h1>
+<h1>{{ if eq .Data.Plural "categories" }}Категории{{ else }}Теги{{ end }}</h1>
 
-<section class="post-list">
+{{ if eq .Data.Plural "categories" }}
 
-  {{ range .Pages }}
-    <article class="post-item">
+  {{ range .Data.Terms.Alphabetical }}
+    <section class="taxonomy-group">
+      <h2>{{ .Page.Title }}</h2>
 
-      <h2 class="post-title">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </h2>
-
-      <div class="post-meta">
-        {{ .Date.Format "02 Jan 2006" }}
-      </div>
-
-      {{ if .Summary }}
-        <p class="post-summary">{{ .Summary }}</p>
-      {{ end }}
-
-      {{ partial "post-taxonomies.html" . }}
-
-    </article>
+      <ul>
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
   {{ end }}
 
-</section>
+{{ else }}
+
+  <!-- ПРОСТОЕ ОБЛАКО ТЕГОВ -->
+  <p class="tag-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a>
+    {{ end }}
+  </p>
+
+{{ end }}
 
 {{ end }}

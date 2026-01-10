@@ -5,7 +5,7 @@
   {{ if .IsHome }}
     {{ .Site.Title }}
   {{ else }}
-    {{ .Title }} — {{ .Site.Title }}
+    {{ .Title }} | {{ .Site.Title }}
   {{ end }}
 </title>
 
@@ -47,6 +47,9 @@
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/monokailight.css" | relURL }}">
 <link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/404.css" | relURL }}">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
 
 <!-- Тема по умолчанию -->
 {{ $theme := .Site.Params.defaultTheme | default "light" }}

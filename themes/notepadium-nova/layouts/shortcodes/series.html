@@ -1,0 +1,26 @@
+{{ with .Page.Params.series }}
+
+<section class="series-box">
+
+  <div class="series-title">
+    Серия: {{ index . 0 }}
+  </div>
+
+  {{ $name := index . 0 }}
+  {{ $pages := where site.RegularPages "Params.series" "intersect" (slice $name) }}
+
+  <ol class="series-list">
+    {{ range sort $pages "Date" }}
+      <li>
+        {{ if eq .Permalink $.Page.Permalink }}
+          <span class="series-current">{{ .Title }}</span>
+        {{ else }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ol>
+
+</section>
+
+{{ end }}

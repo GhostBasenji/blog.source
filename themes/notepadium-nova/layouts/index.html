@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section class="post-list">
 
-  {{ $posts := where .Site.RegularPages "Section" "posts" }}  {{/* выбираем только контент из папки posts */}}
-  {{ $paginator := .Paginate $posts }}                         {{/* пагинация */}}
+  {{ $post := where .Site.RegularPages "Section" "post" }}  {{/* выбираем только контент из папки posts */}}
+  {{ $paginator := .Paginate $post }}                         {{/* пагинация */}}
 
   {{ range $paginator.Pages }}
     <article class="post-item">

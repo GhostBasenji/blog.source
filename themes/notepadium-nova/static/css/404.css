@@ -1,0 +1,40 @@
+.page-404 {
+  text-align: center;
+  padding: 80px 20px;
+  color: #222; /* основной цвет текста */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.page-404 h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.page-404 h2 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.page-404 p {
+  margin-bottom: 40px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.page-404 .btn-home {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ccc; /* нейтральный цвет под твою тему */
+  color: #222;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+.page-404 .btn-home:hover {
+  background: #bbb;
+  color: #111;
+}

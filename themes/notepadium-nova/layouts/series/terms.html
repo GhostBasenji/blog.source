@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<h1 class="page-title">Серии</h1>
+
+<section class="series-terms">
+
+  {{ range .Data.Terms }}
+    <div class="series-item">
+
+      <h2 class="series-name">
+        <a href="{{ .Page.RelPermalink }}">
+          {{ .Page.Title }}
+        </a>
+      </h2>
+
+      <div class="series-count">
+        {{ len .Pages }} частей
+      </div>
+
+    </div>
+  {{ end }}
+
+</section>
+
+{{ end }}

@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<h1 class="page-title">Категории</h1>
+
+{{ range .Data.Terms.Alphabetical }}
+
+  <section class="taxonomy-group">
+
+    <h2 class="taxonomy-title">
+      {{ .Page.Title }}
+    </h2>
+
+    <ul class="taxonomy-posts">
+      {{ range .Pages.ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+
+  </section>
+
+{{ end }}
+
+{{ end }}

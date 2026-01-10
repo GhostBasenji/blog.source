@@ -1,9 +1,9 @@
 # =========================================================
 # Основные настройки сайта
 # =========================================================
-baseURL = "https://ghostbasenji.github.io/"
-languageCode = "ru-ru"
-title = "Ghost Basenji"
+baseURL = "http://localhost:1313/"       # Базовый URL сайта
+languageCode = "ru"                    # Язык сайта
+title = "My Minimal Blog"              # Заголовок сайта
 theme = "notepadium-nova"             # Имя темы
 
 # =========================================================
@@ -16,7 +16,7 @@ theme = "notepadium-nova"             # Имя темы
 # Параметры сайта
 # =========================================================
 [params]
-  siteDescription = "Записки начинающего программиста"   # Описание сайта (используется для SEO)
+  siteDescription = "Minimal flat blog about code and ideas"   # Описание сайта (используется для SEO)
 
   # Layout
   contentWidth = 1000                   # Ширина основного контента
@@ -44,9 +44,19 @@ theme = "notepadium-nova"             # Имя темы
     weight = 1                          # Порядок в меню
 
   [[menu.main]]
+    name = "Категории"
+    url = "/categories/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Теги"
+    url = "/tags/"
+    weight = 3
+
+  [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 2
+    weight = 4
 
 # Примечание: категории и теги скрыты из меню, но остаются кликабельными под постами
 
@@ -74,21 +84,21 @@ theme = "notepadium-nova"             # Имя темы
 # =========================================================
 [params.footer]
   enable = true                         # Включить футер
-  author = "Ghost Basenji"                     # Автор сайта
+  author = "Andrey"                     # Автор сайта
   showYear = true                        # Показать текущий год
   hugoText = "Сделано на Hugo"         # Текст о движке Hugo
   hugoLink = "https://gohugo.io/"
   themeName = "notepadium-nova"         # Имя темы
-  themeLink = " "
+  themeLink = "https://github.com/ghostbasenji/notepadium-nova"
   showHeart = true                       # Показывать сердечко
 
 # =========================================================
 # Социальные сети
 # =========================================================
 [params.social]
-  email = "petr.and.vic@gmail.com"
-  telegram = "https://t.me/ghostbasenji"
-  github = "https://github.com/GhostBasenji"
+  email = "your@email.com"
+  telegram = "https://t.me/YourTelegram"
+  github = "https://github.com/YourGitHub"
 
 # =========================================================
 # Таксономии
@@ -96,5 +106,6 @@ theme = "notepadium-nova"             # Имя темы
 [taxonomies]
   category = "categories"               # Таксономия категорий
   tag = "tags"                          # Таксономия тегов
+  series = "series"                     # Таксономия серий
 # Примечание: эти таксономии используются для организации контента
 # и отображаются под постами, но их можно скрыть из навигации

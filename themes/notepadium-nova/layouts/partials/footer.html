@@ -9,8 +9,7 @@
 
   <div class="footer-content">
     <div class="footer-line">
-      ©{{ .author }}
-      {{ if .showYear }},
+      ©{{ .author }}{{ if .showYear }},
         {{ if eq $startYear $currentYear }}
           {{ $currentYear }}
         {{ else }}

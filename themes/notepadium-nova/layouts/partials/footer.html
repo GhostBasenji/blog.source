@@ -1,11 +1,22 @@
 {{ with .Site.Params.footer }}
 {{ if .enable }}
+
+{{ $currentYear := now.Format "2006" }}
+{{ $startYear := printf "%d" .startYear }}
+
 <footer class="site-footer">
   <div class="footer-divider"></div>
 
   <div class="footer-content">
     <div class="footer-line">
-      ©{{ .author }}{{ if .showYear }}, since {{ .firstYear }}{{ end }}
+      ©{{ .author }}
+      {{ if .showYear }},
+        {{ if eq $startYear $currentYear }}
+          {{ $currentYear }}
+        {{ else }}
+          {{ $startYear }}-{{ $currentYear }}
+        {{ end }}
+      {{ end }}
     </div>
 
     <div class="footer-line">
@@ -27,5 +38,6 @@
     {{ end }}
   </div>
 </footer>
+
 {{ end }}
 {{ end }}

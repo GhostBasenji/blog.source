@@ -5,7 +5,14 @@
 
   <div class="footer-content">
     <div class="footer-line">
-      ©{{ .author }}{{ if .showYear }}, {{ now.Year }}{{ end }}
+      {{ $firstYear := index (sort .Site.RegularPages "Date") 0 | .Date.Format "2006" }}
+      {{ $currentYear := now.Format "2006" }}
+      ©{{ .author }}, 
+      {{ if eq $firstYear $currentYear }}
+        {{ $currentYear }}
+      {{ else }}
+        {{ $firstYear }}-{{ $currentYear }}
+      {{ end }}
     </div>
 
     <div class="footer-line">

@@ -1,24 +1,13 @@
 {{ with .Site.Params.footer }}
 {{ if .enable }}
-
-{{ $currentYear := now.Format "2006" }}
-{{ $firstYear := .firstYear }}
-
 <footer class="site-footer">
   <div class="footer-divider"></div>
 
   <div class="footer-content">
-    {{/* Первая линия: автор и годы */}}
     <div class="footer-line">
-      ©{{ .author }},
-      {{ if eq $firstYear $currentYear }}
-        {{ $currentYear }}
-      {{ else }}
-        {{ $firstYear }}-{{ $currentYear }}
-      {{ end }}
+      ©{{ .author }}{{ if .showYear }}, {{ now.Year }}{{ end }}
     </div>
 
-    {{/* Вторая линия: текст Hugo + тема */}}
     <div class="footer-line">
       {{ .hugoText }}
       {{ if .showHeart }}
@@ -31,7 +20,6 @@
       </a>
     </div>
 
-    {{/* Переключатель темы, если включен */}}
     {{ if $.Site.Params.enableThemeToggle }}
     <div class="theme-toggle-footer" style="text-align:center; cursor:pointer;">
       <span id="theme-toggle">🌙</span>
@@ -39,6 +27,5 @@
     {{ end }}
   </div>
 </footer>
-
 {{ end }}
 {{ end }}

@@ -1,12 +1,10 @@
 {{ define "main" }}
 
-<h1 class="page-title">
-  Серия: {{ .Title }}
-</h1>
+<h1 class="page-title">{{ .Title }}</h1>
 
 <section class="post-list">
 
-  {{ range sort .Pages "Date" }}
+  {{ range .Pages }}
     <article class="post-item">
 
       <h2 class="post-title">
@@ -20,6 +18,8 @@
       {{ if .Summary }}
         <p class="post-summary">{{ .Summary }}</p>
       {{ end }}
+
+      {{ partial "post-taxonomies.html" . }}
 
     </article>
   {{ end }}

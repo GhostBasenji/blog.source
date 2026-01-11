@@ -1,18 +1,8 @@
 {{ with .Site.Params.footer }}
 {{ if .enable }}
 
-{{/* ----------------- ДИНАМИЧЕСКИЙ ДИАПАЗОН ГОДОВ ----------------- */}}
 {{ $currentYear := now.Format "2006" }}
-{{ $firstYear := $currentYear }}
-
-{{/* Проверяем, что .Site и .Site.RegularPages существуют */}}
-{{ if and .Site (.Site.RegularPages) }}
-  {{/* Берём все посты из content/post */}}
-  {{ $pages := where .Site.RegularPages "Section" "post" }}
-  {{ if gt (len $pages) 0 }}
-    {{ $firstYear = (index (sort $pages "Date") 0).Date.Format "2006" }}
-  {{ end }}
-{{ end }}
+{{ $firstYear := .firstYear }}
 
 <footer class="site-footer">
   <div class="footer-divider"></div>

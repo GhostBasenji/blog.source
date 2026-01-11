@@ -7,6 +7,8 @@ date = 2025-11-23T04:00:00
 
 draft = false
 
+series: ["EduTest"]
+
 categories = [
     "C# Development",
     "Pet Projects",
@@ -111,5 +113,6 @@ tags = [
 
 ---
 ### Серия постов
+{{< series >}}
 * [EduTest: создаём систему тестирования на Blazor + C# + MSSQL (вводная статья)](https://ghostbasenji.github.io/post/edutest-intro/)
 * [EduTest: проектирование и архитектура проекта](https://ghostbasenji.github.io/post/edutest-theory/)

@@ -7,7 +7,7 @@ date = 2025-11-23T04:00:00
 
 draft = false
 
-series: ["EduTest"]
+series = ["EduTest"]
 
 categories = [
     "C# Development",

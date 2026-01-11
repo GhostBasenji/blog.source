@@ -91,7 +91,6 @@ theme = "notepadium-nova"             # Имя темы
   themeName = "notepadium-nova"         # Имя темы
   themeLink = "https://github.com/ghostbasenji/notepadium-nova"
   showHeart = true                       # Показывать сердечко
-  # firstYear = 2025   # Жёстко задаём первый год
 
 # =========================================================
 # Социальные сети

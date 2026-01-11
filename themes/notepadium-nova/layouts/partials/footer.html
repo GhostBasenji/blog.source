@@ -1,13 +1,23 @@
 {{ with .Site.Params.footer }}
 {{ if .enable }}
+
+{{/* ---- ГОДЫ: БЕЗ ПАДЕНИЙ ---- */}}
+{{ $currentYear := now.Format "2006" }}
+{{ $firstYear := $currentYear }}
+
+{{ if .Site }}
+  {{ $pages := where .Site.RegularPages "Date" "!=" nil }}
+  {{ if gt (len $pages) 0 }}
+    {{ $firstYear = (index (sort $pages "Date") 0).Date.Format "2006" }}
+  {{ end }}
+{{ end }}
+
 <footer class="site-footer">
   <div class="footer-divider"></div>
 
   <div class="footer-content">
     <div class="footer-line">
-      {{ $firstYear := index (sort .Site.RegularPages "Date") 0 | .Date.Format "2006" }}
-      {{ $currentYear := now.Format "2006" }}
-      ©{{ .author }}, 
+      ©{{ .author }},
       {{ if eq $firstYear $currentYear }}
         {{ $currentYear }}
       {{ else }}
@@ -34,5 +44,6 @@
     {{ end }}
   </div>
 </footer>
+
 {{ end }}
 {{ end }}

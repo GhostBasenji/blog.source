@@ -5,10 +5,13 @@
 {{ $currentYear := now.Format "2006" }}
 {{ $firstYear := $currentYear }}
 
-{{/* Берём все посты из content/post */}}
-{{ $pages := where .Site.RegularPages "Section" "post" }}
-{{ if gt (len $pages) 0 }}
-  {{ $firstYear = (index (sort $pages "Date") 0).Date.Format "2006" }}
+{{/* Проверяем, что .Site и .Site.RegularPages существуют */}}
+{{ if and .Site (.Site.RegularPages) }}
+  {{/* Берём все посты из content/post */}}
+  {{ $pages := where .Site.RegularPages "Section" "post" }}
+  {{ if gt (len $pages) 0 }}
+    {{ $firstYear = (index (sort $pages "Date") 0).Date.Format "2006" }}
+  {{ end }}
 {{ end }}
 
 <footer class="site-footer">

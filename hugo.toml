@@ -84,7 +84,7 @@ theme = "notepadium-nova"             # Имя темы
 # =========================================================
 [params.footer]
   enable = true                         # Включить футер
-  author = "Andrey"                     # Автор сайта
+  author = "Ghost Basenji"                     # Автор сайта
   showYear = true                        # Показать текущий год
   hugoText = "Сделано на Hugo"         # Текст о движке Hugo
   hugoLink = "https://gohugo.io/"

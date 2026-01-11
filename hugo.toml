@@ -1,9 +1,9 @@
 # =========================================================
 # Основные настройки сайта
 # =========================================================
-baseURL = "http://localhost:1313/"       # Базовый URL сайта
+baseURL = "https://ghostbasenji.github.io"       # Базовый URL сайта
 languageCode = "ru"                    # Язык сайта
-title = "My Minimal Blog"              # Заголовок сайта
+title = "Ghost Basenji"              # Заголовок сайта
 theme = "notepadium-nova"             # Имя темы
 
 # =========================================================
@@ -16,7 +16,7 @@ theme = "notepadium-nova"             # Имя темы
 # Параметры сайта
 # =========================================================
 [params]
-  siteDescription = "Minimal flat blog about code and ideas"   # Описание сайта (используется для SEO)
+  siteDescription = "Записки начинающего программиста"   # Описание сайта (используется для SEO)
 
   # Layout
   contentWidth = 1000                   # Ширина основного контента

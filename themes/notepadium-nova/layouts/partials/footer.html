@@ -1,34 +1,13 @@
 {{ with .Site.Params.footer }}
 {{ if .enable }}
-
-{{/* ----------------- ДИНАМИЧЕСКИЙ ДИАПАЗОН ГОДОВ ----------------- */}}
-{{ $currentYear := now.Format "2006" }}
-{{ $firstYear := $currentYear }}
-
-{{/* Проверяем, что .Site и .Site.RegularPages существуют */}}
-{{ if and .Site (.Site.RegularPages) }}
-  {{/* Берём все посты из content/post */}}
-  {{ $pages := where .Site.RegularPages "Section" "post" }}
-  {{ if gt (len $pages) 0 }}
-    {{ $firstYear = (index (sort $pages "Date") 0).Date.Format "2006" }}
-  {{ end }}
-{{ end }}
-
 <footer class="site-footer">
   <div class="footer-divider"></div>
 
   <div class="footer-content">
-    {{/* Первая линия: автор и годы */}}
     <div class="footer-line">
-      ©{{ .author }},
-      {{ if eq $firstYear $currentYear }}
-        {{ $currentYear }}
-      {{ else }}
-        {{ $firstYear }}-{{ $currentYear }}
-      {{ end }}
+      ©{{ .author }}{{ if .showYear }}, {{ now.Year }}{{ end }}
     </div>
 
-    {{/* Вторая линия: текст Hugo + тема */}}
     <div class="footer-line">
       {{ .hugoText }}
       {{ if .showHeart }}
@@ -41,7 +20,6 @@
       </a>
     </div>
 
-    {{/* Переключатель темы, если включен */}}
     {{ if $.Site.Params.enableThemeToggle }}
     <div class="theme-toggle-footer" style="text-align:center; cursor:pointer;">
       <span id="theme-toggle">🌙</span>
@@ -49,6 +27,5 @@
     {{ end }}
   </div>
 </footer>
-
 {{ end }}
 {{ end }}

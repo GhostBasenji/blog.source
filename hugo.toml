@@ -90,16 +90,16 @@ theme = "notepadium-nova"             # Имя темы
   hugoText = "Сделано на Hugo"         # Текст о движке Hugo
   hugoLink = "https://gohugo.io/"
   themeName = "notepadium-nova"         # Имя темы
-  themeLink = "https://github.com/ghostbasenji/notepadium-nova"
+  themeLink = "https://github.com/GhostBasenji/notepadium-nova"
   showHeart = true                       # Показывать сердечко
   
 # =========================================================
 # Социальные сети
 # =========================================================
 [params.social]
-  email = "your@email.com"
-  telegram = "https://t.me/YourTelegram"
-  github = "https://github.com/YourGitHub"
+  email = "petr.and.vic@gmail.com"
+  telegram = "https://t.me/ghostbasenji"
+  github = "https://github.com/GhostBasenji"
 
 # =========================================================
 # Таксономии

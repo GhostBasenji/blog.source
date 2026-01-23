@@ -690,3 +690,27 @@ body {
   font-size: 0.9rem;
   opacity: 0.6;
 }
+
+/* =========================================================
+   TAXONOMY GROUPS (Categories / Tags)
+   ========================================================= */
+.taxonomy-group {
+  margin-bottom: 2em; /* пространство между блоками категорий/тегов */
+}
+
+.taxonomy-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 0.5em; /* отступ под заголовком */
+}
+
+.taxonomy-posts {
+  list-style: disc;
+  padding-left: 1.25em;
+  margin-top: 0;
+  margin-bottom: 1em; /* отступ под списком */
+}
+
+.taxonomy-posts li {
+  margin-bottom: 0.5em; /* пространство между элементами списка */
+}

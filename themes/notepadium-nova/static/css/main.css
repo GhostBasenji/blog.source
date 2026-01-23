@@ -735,7 +735,7 @@ body {
 }
 
 #scrollTopBtn:hover {
-  background-color: #005fa3;
+  background-color: #ccc;
   transform: translateY(-1px);
 }
 

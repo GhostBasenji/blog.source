@@ -110,6 +110,6 @@ tags = [
 Добро пожаловать в процесс разработки пет-проекта!
 
 ---
-### Серия постов
+### Серия постов: EduTest
 * [EduTest: создаём систему тестирования на Blazor + C# + MSSQL (вводная статья)](https://ghostbasenji.github.io/post/edutest-intro/)
 * [EduTest: проектирование и архитектура проекта](https://ghostbasenji.github.io/post/edutest-theory/)

@@ -86,12 +86,13 @@ theme = "notepadium-nova"             # Имя темы
   enable = true                         # Включить футер
   author = "Ghost Basenji"                     # Автор сайта
   showYear = true                        # Показать текущий год
+  startYear = 2026
   hugoText = "Сделано на Hugo"         # Текст о движке Hugo
   hugoLink = "https://gohugo.io/"
   themeName = "notepadium-nova"         # Имя темы
   themeLink = "https://github.com/ghostbasenji/notepadium-nova"
   showHeart = true                       # Показывать сердечко
-
+  
 # =========================================================
 # Социальные сети
 # =========================================================

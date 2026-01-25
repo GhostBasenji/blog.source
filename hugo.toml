@@ -19,7 +19,7 @@ theme = "notepadium-nova"             # Имя темы
   siteDescription = "Записки начинающего программиста"   # Описание сайта (используется для SEO)
 
   # Layout
-  contentWidth = 1200                  # Ширина основного контента
+  contentWidth = 1100                  # Ширина основного контента
   enableThemeToggle = false             # true — включить переключение тем, false — отключить
   defaultTheme = "light"                # Тема по умолчанию, если переключение отключено ("light" или "dark")
 

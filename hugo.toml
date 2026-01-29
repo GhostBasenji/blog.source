@@ -64,7 +64,7 @@ theme = "notepadium-nova"             # Имя темы
 # Подсветка кода
 # =========================================================
 [markup.highlight]
-  noClasses = false                     # Использовать классы CSS вместо встроенных стилей
+  noClasses = true                     # Использовать классы CSS вместо встроенных стилей
 
 [markup]
   [markup.goldmark]

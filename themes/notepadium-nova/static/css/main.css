@@ -573,7 +573,7 @@ body {
 }
 
 .post-tag:hover {
-  /*text-decoration: underline;*/
+  text-decoration: none;
 }
 
 .post-single .post-taxonomies {

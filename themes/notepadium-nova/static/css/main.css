@@ -16,6 +16,7 @@ body {
   color: #222;
   font-size: 16px;
   line-height: 1.75;
+  src: url(https://fonts.gstatic.com/s/firacode/v9/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJV37MOzlojwUKaJO.woff) format('woff');
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

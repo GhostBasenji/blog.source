@@ -572,11 +572,9 @@ body {
   text-decoration: none;
 }
 
-/* ==============================================
  .post-tag:hover {
   text-decoration: underline;
 }
-================================================= */
 
 .post-single .post-taxonomies {
   margin-top: 32px;

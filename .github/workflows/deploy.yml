@@ -1,52 +1,31 @@
-name: Deploy Hugo to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # запускается при пуше в main ветку
+    branches: [main]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Клонируем blog.source
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          submodules: false
-          fetch-depth: 0
+          submodules: recursive
 
-      # 2. Устанавливаем Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
-          extended: false
+          hugo-version: '0.125.0'
+          extended: true
 
-      # 3. Устанавливаем Node.js (для Pagefind)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      # 4. Собираем сайт
       - name: Build
         run: hugo --minify
 
-      # 5. Индексируем поиск через Pagefind
-      - name: Index search (Pagefind)
-        run: npx pagefind --site public
-
-      # 6. Деплоим в ghostbasenji.github.io
-      - name: Deploy to GitHub Pages
+      - name: Deploy to ghostbasenji.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # Токен для записи в другой репозиторий
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
           external_repository: ghostbasenji/ghostbasenji.github.io
           publish_branch: main
           publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'
+          personal_token: ${{ secrets.PAT_TOKEN }}
+          commit_message: "Deploy from ${{ github.sha }}"

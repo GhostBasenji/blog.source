@@ -1,5 +1,5 @@
 # Полный URL твоего сайта — обязательно менять перед деплоем
-baseURL = "https://your-domain.com"
+baseURL = "ghostbasenji.github.io"
 
 # Язык сайта (влияет на атрибут lang в <html>)
 languageCode = "en"

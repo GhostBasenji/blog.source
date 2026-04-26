@@ -1,0 +1,23 @@
+- name: Home
+  subtitle: Index
+  href: /
+
+- name: Writing
+  subtitle: Blog
+  href: /posts
+
+- name: Projects
+  subtitle: Works
+  href: /projects
+
+# - name: Tools
+#  subtitle: Stack
+#  href: /tools
+
+#- name: Friends
+#  subtitle: Links
+#  href: /friends
+
+- name: About
+  subtitle: Me
+  href: /about

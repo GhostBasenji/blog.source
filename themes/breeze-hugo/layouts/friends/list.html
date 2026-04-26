@@ -1,0 +1,89 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+
+      <header class="page-header">
+        <h2 class="page-title">{{ .Site.Params.labels.friendsTitle }}</h2>
+        <p class="page-description">{{ .Site.Params.labels.friendsDescription }}</p>
+      </header>
+
+      <div class="friends-grid">
+        {{ if hugo.Data.friends }}
+          {{ range hugo.Data.friends }}
+          <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" class="friend-card">
+            <img src="{{ .avatar }}" alt="{{ .name }}" class="friend-card__avatar" width="48" height="48" loading="lazy" onerror="this.style.display='none'" />
+            <div class="friend-card__info">
+              <span class="friend-card__name">{{ .name }}</span>
+              <span class="friend-card__desc">{{ .description }}</span>
+            </div>
+          </a>
+          {{ end }}
+        {{ else }}
+          <p class="friends-empty">No friends yet.</p>
+        {{ end }}
+      </div>
+
+      <div class="my-card-section">
+        <p class="my-card-section__intro">
+          Below is my site info. If you write a blog too, feel free to say hi.
+          {{ range hugo.Data.social }}
+            {{ if hasPrefix .href "mailto:" }}
+            You can also <a href="{{ .href }}" class="my-card-section__link">send an email</a> if you prefer.
+            {{ end }}
+          {{ end }}
+        </p>
+
+        <div class="my-card">
+          <div class="my-card__header">
+            <img src="{{ .Site.Params.friendCard.avatar }}" alt="{{ .Site.Params.friendCard.name }}" class="my-card__avatar" width="52" height="52" loading="lazy" />
+            <div>
+              <h3 class="my-card__name">{{ .Site.Params.friendCard.name }}</h3>
+              <p class="my-card__desc">{{ .Site.Params.friendCard.description }}</p>
+            </div>
+          </div>
+          <div class="my-card__fields">
+            <div class="my-card__field">
+              <span class="my-card__label">Name</span>
+              <span>{{ .Site.Params.friendCard.name }}</span>
+            </div>
+            <div class="my-card__field">
+              <span class="my-card__label">Link</span>
+              <a href="{{ .Site.Params.friendCard.link }}" class="my-card__field-link">{{ .Site.Params.friendCard.link }}</a>
+            </div>
+            <div class="my-card__field">
+              <span class="my-card__label">Description</span>
+              <span>{{ .Site.Params.friendCard.description }}</span>
+            </div>
+            <div class="my-card__field">
+              <span class="my-card__label">Avatar</span>
+              <a href="{{ .Site.Params.friendCard.avatar }}" class="my-card__field-link">{{ .Site.Params.friendCard.avatar }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ if .Site.Params.comments.enabled }}
+      <div class="my-card-section">
+        <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.75rem;">Leave a note</h3>
+          <p style="font-size:0.875rem; font-weight:300; color:var(--muted-fg); margin-bottom:1.5rem;">
+               If you want to swap links or just chat, you can leave a comment below.
+          </p>
+
+          <div class="comments">
+              <script src="https://utteranc.es/client.js"
+                  repo="{{ .Site.Params.comments.utterances.repo }}"
+                  issue-term="pathname"
+                  theme="{{ .Site.Params.comments.utterances.theme }}"
+                  crossorigin="anonymous"
+                async>
+              </script>
+          </div>
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ end }}

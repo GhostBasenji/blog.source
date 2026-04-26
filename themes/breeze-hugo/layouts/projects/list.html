@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+
+      <header class="page-header">
+        <h2 class="page-title">{{ .Site.Params.labels.projectsTitle }}</h2>
+        <p class="page-description">{{ .Site.Params.labels.projectsDescription }}</p>
+      </header>
+
+      <div class="projects-grid">
+        {{ range .Site.RegularPages }}
+          {{ if eq .Section "projects" }}
+          <div class="project-card">
+
+            <div class="project-card__top">
+              <div class="project-card__icon">
+                {{ if .Params.image }}
+                  <img src="{{ .Params.image }}" alt="{{ .Title }}" width="28" height="28" loading="lazy" />
+                {{ else }}
+                  <span>✦</span>
+                {{ end }}
+              </div>
+              {{ with .Params.status }}
+              <span class="project-card__status">{{ . }}</span>
+              {{ end }}
+            </div>
+
+            <h3 class="project-card__title">{{ .Title }}</h3>
+
+            <p class="project-card__desc">{{ .Params.description }}</p>
+
+            {{ with .Params.tech }}
+            <div class="project-card__tech">
+              {{ range . }}
+              <span class="project-card__tag">#{{ . }}</span>
+              {{ end }}
+            </div>
+            {{ end }}
+
+            {{ with .Params.links }}
+            <div class="project-card__links">
+              {{ with .homepage }}
+              <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                <span class="iconify" data-icon="mdi:web" style="font-size:0.75rem;"></span>
+                Website
+              </a>
+              {{ end }}
+              {{ with .github }}
+              <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                <span class="iconify" data-icon="mdi:github" style="font-size:0.75rem;"></span>
+                Source
+              </a>
+              {{ end }}
+              {{ with .demo }}
+              <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                <span class="iconify" data-icon="mdi:open-in-new" style="font-size:0.75rem;"></span>
+                Demo
+              </a>
+              {{ end }}
+            </div>
+            {{ end }}
+
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}

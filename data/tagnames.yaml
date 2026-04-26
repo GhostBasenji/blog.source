@@ -1,0 +1,35 @@
+# Маппинг slug → красивое название
+# В frontmatter поста пишешь slug (без спецсимволов)
+# Здесь указываешь как это отображается на сайте
+#
+# Пример в frontmatter поста:
+#   tags = ["csharp", "aspnet-core", "dotnet"]
+#   categories = ["csharp-development", "pet-projects"]
+
+tags:
+  csharp: "C#"
+  aspnet-core: "ASP.NET Core"
+  dotnet: ".NET"
+  dotnet-backend: ".NET Backend"
+  blazor-server: "Blazor Server"
+  ef-core: "EF Core"
+  node-js: "Node.js"
+  mssql: "MSSQL"
+  git: "Git"
+  avalonia: "Avalonia"
+  ui: "UI"
+
+categories:
+  csharp-development: "C# Development"
+  csharp: "C#"
+  aspnet-core: "ASP.NET Core"
+  dotnet-backend: ".NET Backend"
+  pet-projects: "Pet Projects"
+  blazor: "Blazor"
+  ubuntu: "Ubuntu"
+  avalonia: "Avalonia"
+  technology: "Technology"
+  edutest: "EduTest"
+  educational-platforms: "Educational Platforms"
+  node-js: "Node.js"
+  mssql: "MSSQL"

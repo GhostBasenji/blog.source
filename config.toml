@@ -1,0 +1,165 @@
+# Полный URL твоего сайта — обязательно менять перед деплоем
+baseURL = "https://your-domain.com"
+
+# Язык сайта (влияет на атрибут lang в <html>)
+languageCode = "en"
+
+theme = 'breeze-hugo'
+
+# Название сайта — отображается в заголовке вкладки и сайдбаре
+title = "Breeze"
+
+# Автоматически генерировать robots.txt
+enableRobotsTXT = true
+
+# Разрешить эмодзи в контенте
+enableEmoji = true
+
+# Таксономии — категории и теги для постов
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Настройки рендеринга Markdown
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2  # с какого уровня заголовков строить TOC (h2)
+    endLevel = 4    # до какого уровня (h4)
+    ordered = false # маркированный список, не нумерованный
+  [markup.highlight]
+    noClasses = false       # использовать CSS-классы для подсветки
+    lineNos = false         # номера строк (true/false)
+    lineNumbersInTable = false
+    tabWidth = 2
+  [markup.goldmark.renderer]
+    unsafe = true # разрешить встроенный HTML в Markdown (нужно для hero.description)
+
+# Форматы вывода страниц
+[outputs]
+  home     = ["HTML", "RSS"] # главная: HTML + RSS-лента
+  section  = ["HTML"]        # секции (/posts, /projects)
+  taxonomy = ["HTML"]        # /categories, /tags
+  term     = ["HTML"]        # /categories/technology, /tags/hugo
+
+[params]
+  # Рендерер математических формул
+  # Варианты: "katex" (быстрее, по умолчанию) или "mathjax" (больше возможностей)
+  mathRenderer = "katex"
+  
+  # Цвет темы — число от 0 до 360 (оттенок в цветовой системе OKLch)
+  # Пресеты:
+  #   165 = Sage Green (зелёный, по умолчанию)
+  #   250 = Ocean Blue (синий)
+  #   280 = Lavender Purple (фиолетовый)
+  #   330 = Rose Pink (розовый)
+  #    30 = Warm Orange (оранжевый)
+  #    45 = Golden Yellow (жёлтый)
+  #   200 = Teal (бирюзовый)
+  hue = 250
+
+  # Количество последних постов на главной странице
+  # В /posts всегда показываются все посты
+  recentPostsCount = 3
+
+  # Описание сайта — используется в <meta description> и сайдбаре
+  description  = "A minimal Hugo theme for personal websites"
+
+  # Автор сайта — используется в <meta author>
+  author       = "Your Name"
+
+  # Логотип сайта
+  # Для разных тем можно указать разные файлы
+  logo      = "/light.png"       # светлая тема (тёмный логотип)
+  logoDark  = "/dark.png"      # тёмная тема (светлый логотип)
+
+  # Путь к логотипу (файл кладётся в папку static)
+  # logo         = "/logo.png"
+
+  # Путь к картинке для Open Graph (превью при шаринге в соцсетях)
+  ogImage      = "/og-image.png"
+
+  # Сколько дней показывать значок "New" у свежих постов (0 = отключить)
+  newPostDays  = 7
+
+  # --- Блок Hero на главной странице ---
+  [params.hero]
+    # Приветственный заголовок
+    greeting    = "👋 Hello, I'm Breeze"
+
+    # Описание под заголовком. Можно использовать HTML-тег <span class="hl"> для выделения слов
+    description = 'A minimal personal website theme built with <span class="hl">Hugo</span> and <span class="hl">pure CSS</span>.'
+
+    # Карточки с информацией (иконки — из Iconify, например mdi:github)
+    [[params.hero.cards]]
+      icon  = "compass"
+      label = "Status"
+      value = "Building something cool"
+
+    [[params.hero.cards]]
+      icon  = "map-marker"
+      label = "Location"
+      value = "Earth"
+
+  # --- Подвал сайта ---
+  [params.footer]
+   enabled = false   # показать или скрыть футер
+   copyright = "© 2025 Breeze" # текст копирайта
+   builtWith = "Built with Hugo" # текст справа
+   themeLink = "https://github.com/your-username/hugo-theme-breeze" # ссылка на тему
+
+  [params.comments]
+    enabled  = false
+    provider = "utterances"
+
+  [params.comments.utterances]
+    repo = "USERNAME/REPO"   # например: andrey/blog
+    issueTerm = "pathname"
+    label = "comment"
+    theme = "preferred-color-scheme"
+
+  # --- Аналитика (Umami) ---
+  [params.umami]
+    enabled   = false       # true — включить аналитику
+    url       = ""          # URL Umami-инстанса
+    websiteId = ""          # ID сайта в Umami
+
+  # --- Текстовые метки интерфейса (можно переводить) ---
+  [params.labels]
+    postsTitle          = "Writing"
+    postsDescription    = "Notes, thoughts, and technical musings"
+    projectsTitle       = "Projects"
+    projectsDescription = "Small tools built for fun or to solve real problems."
+    friendsTitle        = "Friends"
+    friendsDescription  = "Like-minded folks around the web."
+    toolsTitle          = "Stack"
+    aboutTitle          = "About"
+    backToPosts         = "Back to posts"        # кнопка возврата в конце поста
+    endOfPost           = "End of Post"          # метка в конце поста
+    tableOfContents     = "Table of Contents"    # заголовок оглавления
+    searchPlaceholder   = "Search..." # текст в строке поиска
+    notFoundTitle       = "Page not found"
+    notFoundDescription = "The page you're looking for may have been removed or the link is broken."
+
+  # --- Твоя карточка для страницы Friends у других людей ---
+  [params.friendCard]
+    name        = "Breeze"
+    description = "A minimal Hugo theme for personal websites"
+    link        = "https://your-domain.com"  # ссылка на твой сайт
+    avatar      = "https://your-domain.com/logo.svg" # ссылка на твой аватар
+
+  # --- Соцсети ---
+  # icon — имя файла из assets/icons/ (без .svg)
+  [[params.social]]
+    name = "Email"
+    href = "mailto:hello@example.com"
+    icon = "email"
+  
+  [[params.social]]
+    name = "Telegram"
+    href = "https://t.me/your-username"
+    icon = "telegram"
+ 
+  [[params.social]]
+    name = "GitHub"
+    href = "https://github.com/your-username"
+    icon = "github"

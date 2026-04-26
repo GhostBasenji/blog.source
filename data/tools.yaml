@@ -1,0 +1,14 @@
+- name: Development
+  items:
+    - name: GitHub
+      link: https://github.com
+      logo: github
+    - name: VS Code
+      link: https://code.visualstudio.com/
+      logo: vscode
+
+- name: Design
+  items:
+    - name: Figma
+      link: https://figma.com
+      logo: figma

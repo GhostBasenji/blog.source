@@ -1,0 +1,10 @@
+{{/* partials/footer.html */}}
+{{ if ne .Site.Params.footer.enabled false }}
+<footer class="site-footer">
+  <span>{{ .Site.Params.footer.copyright }}</span>
+  <span class="site-footer__sep">·</span>
+  <span>{{ .Site.Params.footer.builtWith }}</span>
+  <span class="site-footer__sep">·</span>
+  <a href="{{ .Site.Params.footer.themeLink }}" target="_blank" rel="noopener noreferrer" class="site-footer__link">Breeze Theme</a>
+</footer>
+{{ end }}

@@ -1,0 +1,24 @@
+<div class="sidebar-card">
+
+    <div class="site-logo">
+        <a href="/">{{ .Site.Params.sidebar.params.logo }}</a>
+    </div>
+
+    <div class="avatar">
+        <img src="{{ .Site.Params.sidebar.params.avatar }}" alt="avatar">
+    </div>
+
+    <nav class="sidebar-menu">
+        {{ range .Site.Params.sidebar.params.menu }}
+            <a href="{{ .link }}">{{ .name }}</a>
+        {{ end }}
+    </nav>
+
+    <div class="contacts">
+        {{ range .Site.Params.sidebar.params.contacts }}
+            {{ $parts := split . ":" }}
+            <a href="{{ index $parts 1 }}">{{ index $parts 0 }}</a>
+        {{ end }}
+    </div>
+
+</div>

@@ -1,0 +1,146 @@
+/* Сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* База */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+/* Центрированный "лист" */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+
+/* Контент */
+.content {
+    background: #ffffff;
+    padding: 20px;
+}
+
+/* Заголовок сайта */
+.site-title a {
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Слоган */
+.site-tagline {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Меню */
+.menu {
+    margin-top: 15px;
+}
+
+.menu a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Общий layout */
+.layout {
+    display: flex;
+    justify-content: center; /* Центрируем всё */
+    gap: 40px;
+    padding: 40px;
+}
+
+/* Общий layout */
+.layout {
+    display: flex;
+    justify-content: center; /* центрируем всё */
+    gap: 40px;
+    padding: 40px;
+}
+
+/* Основной блок */
+.main {
+    width: 700px; /* потом вынесем в config */
+}
+
+/* Сайдбар */
+.sidebar {
+    width: 250px;
+}
+
+/* Внутренности сайдбара */
+.sidebar-inner {
+    position: sticky;
+    top: 40px;
+}
+
+/* Карточки постов */
+.post-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Лого */
+.site-logo a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Аватар */
+.avatar img {
+    width: 100%;
+    margin: 15px 0;
+}
+
+/* Меню */
+.sidebar-menu a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Контакты */
+.contacts {
+    margin-top: 20px;
+}
+
+.contacts a {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Sidebar как карточка */
+.sidebar-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}

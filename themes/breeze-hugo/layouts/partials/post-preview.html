@@ -1,0 +1,31 @@
+{{ $post := . }}
+{{ $isNew := false }}
+{{ $newPostDays := $post.Site.Params.newPostDays | default 0 }}
+{{ if and (not $post.Params.draft) (gt $newPostDays 0) }}
+  {{ $age := div (sub now.Unix $post.Date.Unix) 86400 }}
+  {{ if le $age $newPostDays }}{{ $isNew = true }}{{ end }}
+{{ end }}
+
+<article class="post-preview">
+  <div>
+    <a href="{{ $post.RelPermalink }}" class="post-preview__title">
+      {{ $post.Title }}
+      {{ if $isNew }}<span class="badge badge--new">New</span>{{ end }}
+      {{ if $post.Params.draft }}<span class="badge badge--draft">Draft</span>{{ end }}
+    </a>
+    <p class="post-preview__meta">
+      {{ $post.Date.Format "2006.01.02" }}
+      {{ with $post.Params.categories }}
+        —
+        {{ range first 1 . }}
+        {{ $slug := . }}
+        {{ $display := index hugo.Data.tagnames.categories $slug | default $slug }}
+        <a href="/categories/{{ $slug }}">{{ $display }}</a>
+        {{ end }}
+      {{ end }}
+    </p>
+  </div>
+  <span class="post-preview__arrow">
+    <span class="iconify" data-icon="mdi:arrow-right"></span>
+  </span>
+</article>

@@ -31,4 +31,4 @@ jobs:
           git add .
           git commit -m "Deploy site"
 
-          git push --force https://${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git main
+          git push --force https://${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git master

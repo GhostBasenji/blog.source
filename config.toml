@@ -131,13 +131,13 @@ enableEmoji = true
     projectsDescription = "Small tools built for fun or to solve real problems."
     friendsTitle        = "Friends"
     friendsDescription  = "Like-minded folks around the web."
-    toolsTitle          = "Стэк"
+    toolsTitle          = "Stack"
     aboutTitle          = "About"
     backToPosts         = "Back to posts"        # кнопка возврата в конце поста
     endOfPost           = "End of Post"          # метка в конце поста
     tableOfContents     = "Table of Contents"    # заголовок оглавления
-    searchPlaceholder   = "Поиск..." # текст в строке поиска
-    notFoundTitle       = "Страница не найдена"
+    searchPlaceholder   = "Search..." # текст в строке поиска
+    notFoundTitle       = "Page not found"
     notFoundDescription = "The page you're looking for may have been removed or the link is broken."
 
   # --- Твоя карточка для страницы Friends у других людей ---

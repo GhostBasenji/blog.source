@@ -7,8 +7,11 @@
       link: https://code.visualstudio.com/
       logo: vscode
 
-- name: Design
+- name: graphics & 3d
   items:
-    - name: Figma
-      link: https://figma.com
-      logo: figma
+    - name: Blender
+      link: https://www.blender.org/
+      logo: blender
+    - name: Inkscape
+      link: https://inkscape.org/
+      logo: inkscape      

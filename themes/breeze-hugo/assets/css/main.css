@@ -1678,7 +1678,36 @@ mark {
 .dark .brand__logo-light { display: none; }
 
 /* ------------------------------------------------------------
-   33. Tool icons — тёмная тема
+   33. Theme transition effects
+   ------------------------------------------------------------ */
+
+/* View Transitions API — плавная анимация для effect="transition" */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ------------------------------------------------------------
+   34. Tool icons — тёмная тема
    ------------------------------------------------------------ */
 .dark .tool-item__icon img {
   background-color: white;
@@ -1687,7 +1716,7 @@ mark {
 }
 
 /* ------------------------------------------------------------
-   34. Tool icons — сохранять оригинальные цвета в любой теме
+   35. Tool icons — сохранять оригинальные цвета в любой теме
    ------------------------------------------------------------ */
 .tool-item__icon img {
   filter: none;

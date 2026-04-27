@@ -7,11 +7,17 @@
       link: https://code.visualstudio.com/
       logo: vscode
 
-- name: graphics & 3d
+- name: Graphics & 3d
   items:
     - name: Blender
       link: https://www.blender.org/
       logo: blender
     - name: Inkscape
       link: https://inkscape.org/
-      logo: inkscape      
+      logo: inkscape
+
+- name: Environment
+  items:
+    - name: Ubuntu
+      link: https://ubuntu.com/
+      logo: ubuntu

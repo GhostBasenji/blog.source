@@ -1333,7 +1333,7 @@ button:focus-visible {
 .tools {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .tools__category-name {

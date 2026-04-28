@@ -1,11 +1,41 @@
-- name: Development
+-name: Programming Languages
   items:
-    - name: GitHub
-      link: https://github.com
-      logo: github
+    - name: C#
+      link: https://dotnet.microsoft.com/en-us/languages/csharp
+      logo: csharp
+    - name: SQL
+      link: 
+      logo: sql
+
+- name: Frameworks & Platforms
+  items:
+  - name: .NET
+    link: https://dotnet.microsoft.com/ru-ru/
+    logo: dotnet
+  - name: Blazor
+    link: 
+    logo: blazor
+
+- name: Databases
+  items:
+    - name: MS SQL
+      link: 
+      logo: sqlserver
+
+- name: Development Tools
+  items:
     - name: VS Code
       link: https://code.visualstudio.com/
       logo: vscode
+    - name: Visual Studio
+      link: https://visualstudio.microsoft.com/
+      logo: visualstudio
+    - name: git
+      link: https://git-scm.com/
+      logo: git
+    - name: GitHub
+      link: https://github.com
+      logo: github 
 
 - name: Graphics & 3d
   items:
@@ -21,3 +51,6 @@
     - name: Ubuntu
       link: https://ubuntu.com/
       logo: ubuntu
+    - name: Windows 10
+      link:
+      logo: windows10

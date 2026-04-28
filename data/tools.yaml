@@ -1,25 +1,25 @@
--name: Programming Languages
+- name: Programming Languages
   items:
-    - name: csharp
+    - name: CSharp
       link: https://dotnet.microsoft.com/en-us/languages/csharp
       logo: csharp
     - name: SQL
-      link: 
+      link:
       logo: sql
 
 - name: Frameworks & Platforms
   items:
-  - name: .NET
-    link: https://dotnet.microsoft.com/ru-ru/
-    logo: dotnet
-  - name: Blazor
-    link: 
-    logo: blazor
+    - name: .NET
+      link: https://dotnet.microsoft.com/ru-ru/
+      logo: dotnet
+    - name: Blazor
+      link:
+      logo: blazor
 
 - name: Databases
   items:
     - name: MS SQL
-      link: 
+      link:
       logo: sqlserver
 
 - name: Development Tools
@@ -30,14 +30,14 @@
     - name: Visual Studio
       link: https://visualstudio.microsoft.com/
       logo: visualstudio
-    - name: git
+    - name: Git
       link: https://git-scm.com/
       logo: git
     - name: GitHub
       link: https://github.com
-      logo: github 
+      logo: github
 
-- name: Graphics & 3d
+- name: Graphics & 3D
   items:
     - name: Blender
       link: https://www.blender.org/

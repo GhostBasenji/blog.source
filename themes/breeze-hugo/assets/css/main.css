@@ -589,7 +589,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ------------------------------------------------------------
    15. Posts list page
    ------------------------------------------------------------ */
-.page-header { margin-bottom: 3rem; }
+.page-header { margin-bottom: 2rem; }
 
 .page-title {
   font-size: 1.625rem;

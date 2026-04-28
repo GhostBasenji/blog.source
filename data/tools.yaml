@@ -1,6 +1,6 @@
 - name: Programming Languages
   items:
-    - name: CSharp
+    - name: C#
       link: https://dotnet.microsoft.com/en-us/languages/csharp
       logo: csharp
     - name: SQL

@@ -11,7 +11,7 @@
   items:
     - name: .NET
       link: https://dotnet.microsoft.com/ru-ru/
-      logo: dotnet
+      logo: netcore
     - name: Blazor
       link:
       logo: blazor

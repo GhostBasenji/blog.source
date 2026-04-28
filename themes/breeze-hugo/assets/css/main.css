@@ -589,7 +589,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ------------------------------------------------------------
    15. Posts list page
    ------------------------------------------------------------ */
-.page-header { margin-bottom: 1.5rem; }
+.page-header { margin-bottom: 2rem; }
 
 .page-title {
   font-size: 1.625rem;
@@ -605,7 +605,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-style: italic;
 }
 
-.year-group { margin-bottom: 4rem; }
+.year-group { margin-bottom: 3rem; }
 
 .year-heading {
   font-size: 2.5rem;

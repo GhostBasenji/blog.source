@@ -87,7 +87,7 @@ enableEmoji = true
     greeting    = "👋 Hello, I'm Ghost Basenji"
 
     # Описание под заголовком. Можно использовать HTML-тег <span class="hl"> для выделения слов
-    description = 'Я — начинающий C# разработчик, обожающий изучать новые технологии. Здесь я делюсь своими констпектами по разработке, заметками о своих экспериментах и ​​мыслями.'
+    description = 'Я — начинающий C# разработчик. Здесь записываю свои конспекты по разработке, заметки о своих экспериментах и ​​мысли'
 
     # Карточки с информацией (иконки — из Iconify, например mdi:github)
     [[params.hero.cards]]
@@ -98,7 +98,7 @@ enableEmoji = true
     [[params.hero.cards]]
       icon  = "map-marker"
       label = "Location:"
-      value = "Tbilisi"
+      value = "Тбилиси"
 
   # --- Подвал сайта ---
   [params.footer]

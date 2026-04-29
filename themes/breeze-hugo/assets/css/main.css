@@ -165,7 +165,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .brand__text { display: flex; flex-direction: column; }
 
 .brand__title {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--foreground);
@@ -425,7 +425,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero__description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75;
   font-weight: 300;
   color: var(--muted-fg);
@@ -1333,7 +1333,7 @@ button:focus-visible {
 .tools {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .tools__category-name {
@@ -1342,7 +1342,7 @@ button:focus-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .tools__grid {

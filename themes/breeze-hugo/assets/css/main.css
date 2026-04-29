@@ -165,7 +165,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .brand__text { display: flex; flex-direction: column; }
 
 .brand__title {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--foreground);

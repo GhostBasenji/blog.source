@@ -92,12 +92,12 @@ enableEmoji = true
     # Карточки с информацией (иконки — из Iconify, например mdi:github)
     [[params.hero.cards]]
       icon  = "compass"
-      label = "Status:"
+      label = "Status"
       value = "Учусь"
 
     [[params.hero.cards]]
       icon  = "map-marker"
-      label = "Location:"
+      label = "Location"
       value = "Тбилиси"
 
   # --- Подвал сайта ---

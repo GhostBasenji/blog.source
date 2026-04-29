@@ -7,7 +7,7 @@ languageCode = "en"
 theme = 'breeze-hugo'
 
 # Название сайта — отображается в заголовке вкладки и сайдбаре
-title = "Breeze"
+title = "Ghost Basenji"
 
 # Автоматически генерировать robots.txt
 enableRobotsTXT = true
@@ -62,7 +62,7 @@ enableEmoji = true
   recentPostsCount = 3
 
   # Описание сайта — используется в <meta description> и сайдбаре
-  description  = "A minimal Hugo theme for personal websites"
+  description  = "Записки начинающего программиста"
 
   # Автор сайта — используется в <meta author>
   author       = "Your Name"
@@ -84,21 +84,21 @@ enableEmoji = true
   # --- Блок Hero на главной странице ---
   [params.hero]
     # Приветственный заголовок
-    greeting    = "👋 Hello, I'm Breeze"
+    greeting    = "👋 Hello, I'm Ghost Basenji"
 
     # Описание под заголовком. Можно использовать HTML-тег <span class="hl"> для выделения слов
-    description = 'A minimal personal website theme built with <span class="hl">Hugo</span> and <span class="hl">pure CSS</span>.'
+    description = 'Я — начинающий C# разработчик, обожающий изучать новые технологии. Здесь я делюсь своими констпектами по разработке, заметками о своих экспериментах и ​​мыслями.'
 
     # Карточки с информацией (иконки — из Iconify, например mdi:github)
     [[params.hero.cards]]
       icon  = "compass"
-      label = "Status"
-      value = "Building something cool"
+      label = "Status:"
+      value = "Учусь"
 
     [[params.hero.cards]]
       icon  = "map-marker"
-      label = "Location"
-      value = "Earth"
+      label = "Location:"
+      value = "Tbilisi"
 
   # --- Подвал сайта ---
   [params.footer]
@@ -135,7 +135,7 @@ enableEmoji = true
     aboutTitle          = "About"
     backToPosts         = "Back to posts"        # кнопка возврата в конце поста
     endOfPost           = "End of Post"          # метка в конце поста
-    tableOfContents     = "Table of Contents"    # заголовок оглавления
+    tableOfContents     = "Содержание"    # заголовок оглавления
     searchPlaceholder   = "Search..." # текст в строке поиска
     notFoundTitle       = "Page not found"
     notFoundDescription = "The page you're looking for may have been removed or the link is broken."
@@ -151,15 +151,15 @@ enableEmoji = true
   # icon — имя файла из assets/icons/ (без .svg)
   [[params.social]]
     name = "Email"
-    href = "mailto:hello@example.com"
+    href = "mailto:petr.and.vic@gmail.com"
     icon = "email"
   
   [[params.social]]
     name = "Telegram"
-    href = "https://t.me/your-username"
+    href = "https://t.me/ghostbasenji"
     icon = "telegram"
  
   [[params.social]]
     name = "GitHub"
-    href = "https://github.com/your-username"
+    href = "https://github.com/GhostBasenji"
     icon = "github"

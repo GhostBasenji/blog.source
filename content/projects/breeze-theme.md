@@ -4,6 +4,6 @@ description: Минималистичная тема Hugo для личных в
 tech: [Hugo, CSS]
 links:
   github: https://github.com/GhostBasenji/hugo-breeze
-  demo: 
+  demo: https://ghostbasenji.github.io/
 status: completed
 ---

@@ -127,8 +127,8 @@ enableEmoji = true
   [params.labels]
     postsTitle          = "Writing"
     postsDescription    = "Notes, thoughts, and technical musings"
-    projectsTitle       = "Projects"
-    projectsDescription = "Small tools built for fun or to solve real problems."
+    projectsTitle       = "Проекты"
+    projectsDescription = "Небольшие проекты, созданные для развлечения или для решения реальных проблем."
     friendsTitle        = "Friends"
     friendsDescription  = "Like-minded folks around the web."
     toolsTitle          = "Stack"

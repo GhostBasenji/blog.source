@@ -12,6 +12,7 @@ tags:
   dotnet: ".NET"
   dotnet-backend: ".NET Backend"
   blazor-server: "Blazor Server"
+  blazor: "Blazor"
   ef-core: "EF Core"
   node-js: "Node.js"
   mssql: "MSSQL"

@@ -9,10 +9,9 @@
         <p class="page-description">{{ . }}</p>
         {{ end }}
       </header>
-      <div class="prose" style="margin-top: 2rem;">{{ .Content }}</div>
-
-      {{ partial "comments.html" . }}
+      <div class="prose" data-pagefind-body style="margin-top: 2rem;">{{ .Content }}</div>
     </div>
+  {{ partial "footer.html" . }}
   </div>
 </div>
 {{ end }}

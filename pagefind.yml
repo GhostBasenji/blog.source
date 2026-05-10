@@ -3,3 +3,4 @@
 
 # Папка с собранным сайтом
 site: public
+languages: [ru, en]

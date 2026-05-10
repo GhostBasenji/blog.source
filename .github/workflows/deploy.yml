@@ -30,29 +30,21 @@ jobs:
         with:
           node-version: '20'
 
+      # 5. Индексация поиска Pagefind
+      - name: Index search (Pagefind)
+        run: npx pagefind --site public
+        
       # 4. Сборка сайта
       - name: Build Hugo site
         run: hugo --minify
 
-      # 5. Индексация поиска Pagefind
-      - name: Index search (Pagefind)
-        run: npx pagefind --site public
-
-      # 6. Деплой в ghostbasenji.github.io
-      - name: Deploy site
-        run: |
-          cd public
-
-          touch .nojekyll
-
-          git init
-          git checkout -b master
-
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-
-          git add .
-          git commit -m "Deploy site" || echo "No changes to commit"
-
-          git remote add origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git
-          git push --force origin master
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: ghostbasenji/ghostbasenji.github.io
+          publish_branch: master
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'

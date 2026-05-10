@@ -1,0 +1,10 @@
+{{/* partials/icon.html
+     Использование: {{ partial "icon.html" (dict "name" "github" "class" "icon") }}
+     Файл должен лежать в assets/icons/NAME.svg
+*/}}
+{{ $name := .name }}
+{{ $class := .class | default "icon" }}
+{{ $icon := resources.Get (printf "icons/%s.svg" $name) }}
+{{ if $icon }}
+<span class="{{ $class }}">{{ $icon.Content | safeHTML }}</span>
+{{ end }}

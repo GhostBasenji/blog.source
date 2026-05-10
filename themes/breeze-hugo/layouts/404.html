@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:20rem; text-align:center;">
+      <p style="font-size:4rem; font-weight:700; color: color-mix(in oklch, var(--foreground) 10%, transparent); letter-spacing:-0.05em; line-height:1;">404</p>
+      <h2 style="font-size:1.25rem; font-weight:700; margin-top:1rem; margin-bottom:0.5rem;">{{ .Site.Params.labels.notFoundTitle }}</h2>
+      <p style="font-size:0.875rem; color:var(--muted-fg); margin-bottom:2rem; max-width:24rem;">{{ .Site.Params.labels.notFoundDescription }}</p>
+      <a href="/" class="back-link">
+        <span class="iconify" data-icon="mdi:arrow-left" style="font-size:0.875rem;"></span>
+        {{ .Site.Params.labels.goHome | default "Go Home" }}
+      </a>
+    </div>
+  </div>
+</div>
+{{ end }}

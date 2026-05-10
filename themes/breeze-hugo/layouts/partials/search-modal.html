@@ -1,0 +1,33 @@
+{{/* partials/search-modal.html */}}
+<div id="search-modal" class="search-modal">
+  <div id="modal-overlay" class="search-modal__overlay"></div>
+  <div class="search-modal__content">
+
+    <!-- Поиск -->
+    <div class="search-modal__input-wrap">
+      <span class="iconify search-modal__icon" data-icon="mdi:magnify"></span>
+      <input
+        id="search-input"
+        type="text"
+        class="search-modal__input"
+        placeholder="{{ .Site.Params.labels.searchPlaceholder }}"
+        autocomplete="off"
+      />
+      <kbd class="search-modal__esc">Esc</kbd>
+    </div>
+
+    <!-- Результаты -->
+    <div id="search-results" class="search-modal__results"></div>
+
+    <!-- Быстрые ссылки -->
+    <div class="search-modal__navigate">
+      <p class="search-modal__navigate-label">Navigate</p>
+      <div class="search-modal__navigate-links">
+        <a href="/categories" class="search-modal__nav-link">categories</a>
+        <a href="/tags" class="search-modal__nav-link">tags</a>
+        <a href="/tools" class="search-modal__nav-link">tools</a>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="brand">
+  <div class="brand__logo">
+    <!-- Светлая тема -->
+    <img
+      src="{{ .Site.Params.logo | relURL }}"
+      alt="Site logo"
+      width="100"
+      height="100"
+      loading="eager"
+      class="brand__logo-light"
+    />
+    <!-- Тёмная тема -->
+    <img
+      src="{{ .Site.Params.logoDark | relURL }}"
+      alt="Site logo"
+      width="100"
+      height="100"
+      loading="eager"
+      class="brand__logo-dark"
+    />
+  </div>
+  <div class="brand__text">
+    <span class="brand__title">{{ .Site.Title }}</span>
+    <span class="brand__desc">{{ .Site.Params.description }}</span>
+  </div>
+</div>

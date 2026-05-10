@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+
+      <header class="page-header">
+        <p class="section-label" style="margin-bottom: 0.5rem;">{{ .Data.Singular }}</p>
+        {{/* Красивое название из tagnames.yaml */}}
+        {{ $slug := .Title | urlize }}
+        {{ $display := "" }}
+        {{ if eq .Data.Singular "tag" }}
+          {{ $display = index hugo.Data.tagnames.tags $slug | default .Title }}
+        {{ else }}
+          {{ $display = index hugo.Data.tagnames.categories $slug | default .Title }}
+        {{ end }}
+        <h2 class="page-title">{{ $display }}</h2>
+        <p class="page-description">{{ len .Pages }} posts</p>
+      </header>
+
+      <div>
+        {{ range .Pages.ByDate.Reverse }}
+          {{ partial "post-preview.html" . }}
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}

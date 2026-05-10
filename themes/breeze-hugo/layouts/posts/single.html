@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <article class="page">
+
+      <header class="post-header">
+        <div class="post-breadcrumb">
+          <a href="/posts">Writing</a>
+          <span class="post-breadcrumb__sep">/</span>
+          <span>Detail</span>
+        </div>
+
+        <h1 class="post-title">{{ .Title }}</h1>
+
+        <div class="post-meta">
+          <div class="post-meta__pill">
+            <span class="post-meta__icon iconify" data-icon="mdi:calendar-blank"></span>
+            <span>{{ .Date.Format "2006.01.02" }}</span>
+            {{ with .Params.categories }}
+            <span class="post-meta__sep"></span>
+            {{ range first 1 . }}
+            {{ $slug := . }}
+            {{ $display := index hugo.Data.tagnames.categories $slug | default $slug }}
+            <span class="post-meta__icon iconify" data-icon="mdi:tag-outline"></span>
+            <a href="/categories/{{ $slug }}">{{ $display }}</a>
+            {{ end }}
+            {{ end }}
+          </div>
+
+          <div class="post-meta__pill post-meta__pill--dim">
+            <span>{{ .WordCount }} Words</span>
+          </div>
+        </div>
+      </header>
+
+      {{ if .TableOfContents }}
+      <details class="toc">
+        <summary>{{ .Site.Params.labels.tableOfContents }}</summary>
+        <div class="toc__inner">{{ .TableOfContents }}</div>
+      </details>
+      {{ end }}
+
+      <div class="prose">{{ .Content }}</div>
+
+      {{ with .Params.tags }}
+      <div class="tags">
+        {{ range . }}
+        {{ $slug := . }}
+        {{ $display := index hugo.Data.tagnames.tags $slug | default $slug }}
+        <a href="/tags/{{ $slug }}" class="tag">
+          <span class="tag__hash">#</span>
+          <span class="tag__name">{{ $display }}</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+    </article>
+
+    <footer class="post-footer">
+      <div class="post-footer__bar">
+        <a href="/posts" class="back-link">
+          <span class="back-link__icon iconify" data-icon="mdi:arrow-left"></span>
+          {{ .Site.Params.labels.backToPosts }}
+        </a>
+        <span class="end-of-post">{{ .Site.Params.labels.endOfPost }}</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+{{ end }}

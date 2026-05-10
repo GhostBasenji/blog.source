@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+      <header class="page-header">
+        <h2 class="page-title" style="text-transform: capitalize;">{{ .Title }}</h2>
+      </header>
+      <div class="tags">
+        {{ range .Data.Terms.ByCount }}
+        <a href="{{ .Page.RelPermalink }}" class="tag">
+          <span class="tag__hash">#</span>
+          <span class="tag__name">{{ .Page.Title }}</span>
+          <span style="font-size:0.625rem; color: color-mix(in oklch, var(--muted-fg) 40%, transparent);">{{ .Count }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -3,14 +3,14 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - master   # или main — проверь свою ветку
+      - master
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout
+      # 1. Checkout source
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -21,33 +21,42 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: latest
           extended: true
 
-      # 3. Setup Node (Pagefind)
+      # 3. Setup Node (for Pagefind)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      # 4. Build Hugo
+      # 4. Build Hugo site
       - name: Build site
         run: hugo --minify
 
-      # 5. Debug (очень советую оставить)
-      - name: Check output
+      # 5. Debug output (очень советую оставить)
+      - name: Verify build output
         run: ls -la public
 
-      # 6. Pagefind index
-      - name: Pagefind
+      # 6. Build Pagefind index
+      - name: Pagefind index
         run: npx pagefind --site public
 
-      # 7. Deploy to GitHub Pages root repo
-      - name: Deploy to GitHub Pages (root repo)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: master   # ВАЖНО: та же ветка, что Pages использует
-          force_orphan: true
-          enable_jekyll: false
+      # 7. Deploy to GitHub Pages (master branch)
+      - name: Deploy
+        run: |
+          cd public
+          git init
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .
+
+          git commit -m "Deploy: ${{ github.event.head_commit.message }}" || echo "No changes"
+
+          git branch -M master
+
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ghostbasenji/ghostbasenji.github.io.git
+
+          git push --force origin master

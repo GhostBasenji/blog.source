@@ -2,39 +2,52 @@ name: Deploy Hugo Site
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master   # или main — проверь свою ветку
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 0
 
+      # 2. Setup Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: latest
+          hugo-version: 'latest'
           extended: true
 
-      - name: Setup Node
+      # 3. Setup Node (Pagefind)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Build
+      # 4. Build Hugo
+      - name: Build site
         run: hugo --minify
 
+      # 5. Debug (очень советую оставить)
+      - name: Check output
+        run: ls -la public
+
+      # 6. Pagefind index
       - name: Pagefind
         run: npx pagefind --site public
 
-      - name: Deploy
+      # 7. Deploy to GitHub Pages root repo
+      - name: Deploy to GitHub Pages (root repo)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pages
+          publish_branch: master   # ВАЖНО: та же ветка, что Pages использует
           force_orphan: true
+          enable_jekyll: false

@@ -1,23 +1,20 @@
-name: Deploy Hugo to GitHub Pages
+name: Deploy Hugo Site
 
 on:
   push:
     branches:
       - master
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем blog.source
-      - name: Checkout source
+      # 1. Получаем код
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: false
+          submodules: recursive
           fetch-depth: 0
 
       # 2. Устанавливаем Hugo
@@ -25,30 +22,37 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-          extended: false
+          extended: true
 
-      # 3. Устанавливаем Node.js (для Pagefind)
+      # 3. Node.js нужен для Pagefind
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
 
-      # 4. Собираем сайт
-      - name: Build
+      # 4. Сборка сайта
+      - name: Build Hugo site
         run: hugo --minify
 
-      # 5. Индексируем поиск через Pagefind (русский + английский)
+      # 5. Индексация поиска Pagefind
       - name: Index search (Pagefind)
-        run: npx pagefind
+        run: npx pagefind --site public
 
-      # 6. Деплоим в ghostbasenji.github.io
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: ghostbasenji/ghostbasenji.github.io
-          publish_branch: master
-          publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'
+      # 6. Деплой в ghostbasenji.github.io
+      - name: Deploy site
+        run: |
+          cd public
+
+          touch .nojekyll
+
+          git init
+          git checkout -b master
+
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+          git add .
+          git commit -m "Deploy site" || echo "No changes to commit"
+
+          git remote add origin https://${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git
+          git push --force origin master

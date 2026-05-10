@@ -39,7 +39,7 @@ jobs:
 
       # 5. Индексируем поиск через Pagefind (русский + английский)
       - name: Index search (Pagefind)
-        run: npx pagefind --site public --language ru --language en
+        run: npx pagefind --site public --languages ru,en
 
       # 6. Деплоим в ghostbasenji.github.io
       - name: Deploy to GitHub Pages

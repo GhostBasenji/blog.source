@@ -41,7 +41,7 @@
       </details>
       {{ end }}
 
-      <div class="prose">{{ .Content }}</div>
+      <div class="prose" data-pagefind-body>{{ .Content }}</div>
 
       {{ with .Params.tags }}
       <div class="tags">
@@ -67,6 +67,8 @@
         <span class="end-of-post">{{ .Site.Params.labels.endOfPost }}</span>
       </div>
     </footer>
+
+    {{ partial "footer.html" . }}
 
   </div>
 </div>

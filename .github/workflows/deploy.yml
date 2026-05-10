@@ -13,35 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем source
       - name: Checkout source
         uses: actions/checkout@v4
         with:
           submodules: false
           fetch-depth: 0
 
-      # 2. Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: false
 
-      # 3. Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
 
-      # 4. Build Hugo
       - name: Build
         run: hugo --minify
 
-      # 5. Pagefind indexing
       - name: Index search (Pagefind)
         run: npx pagefind --site public
 
-      # 6. Deploy
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

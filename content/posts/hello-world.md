@@ -5,4 +5,4 @@ categories: ["Technology"]
 tags: ["hugo"]
 ---
 
-Привет, это тестовый пост.
+Привет, это тестовый пост. Test

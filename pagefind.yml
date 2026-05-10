@@ -1,0 +1,5 @@
+# Конфигурация Pagefind
+# Документация: https://pagefind.app/docs/config-options/
+
+# Папка с собранным сайтом
+site: public

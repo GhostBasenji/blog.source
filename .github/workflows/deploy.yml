@@ -20,11 +20,11 @@ jobs:
           submodules: false
           fetch-depth: 0
 
-      # 2. Устанавливаем Hugo
+      # 2. Устанавливаем Hugo (фиксированная стабильная версия)
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.145.0'  # ← ИЗМЕНИТЕ ЭТУ СТРОКУ
           extended: false
 
       # 3. Устанавливаем Node.js (для Pagefind)
@@ -37,9 +37,9 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      # 5. Индексируем поиск через Pagefind (русский + английский)
+      # 5. Индексируем поиск через Pagefind
       - name: Index search (Pagefind)
-        run: npx pagefind
+        run: npx pagefind --site public
 
       # 6. Деплоим в ghostbasenji.github.io
       - name: Deploy to GitHub Pages

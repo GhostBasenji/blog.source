@@ -28,6 +28,6 @@ description: О сайте и его владельце
 
 ## О сайте
 
-Блог работает на [`Hugo`](https://gohugo.io/) с темой [`breeze-hugo`](https://github.com/GhostBasenji/hugo-breeze) (порта [`astro-theme-breeze`](https://github.com/linftyz/astro-theme-breeze)).
+Блог работает на [`Hugo`](https://gohugo.io/) с темой [`breeze-hugo`](https://github.com/GhostBasenji/hugo-breeze) (порт [`astro-theme-breeze`](https://github.com/linftyz/astro-theme-breeze)).
 
 Дизайн намеренно минималистичный. Чем меньше отвлекающих элементов — тем проще думать, писать и возвращаться к материалу позже. Это рабочий инструмент, а не витрина.

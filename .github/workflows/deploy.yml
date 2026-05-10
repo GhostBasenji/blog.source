@@ -54,5 +54,5 @@ jobs:
           git add .
           git commit -m "Deploy site" || echo "No changes to commit"
 
-          git remote add origin https://${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git
+          git remote add origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/ghostbasenji/ghostbasenji.github.io.git
           git push --force origin master

@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Clean build
+        run: rm -rf public .pagefind
+  
       - name: Build
         run: hugo --minify
 

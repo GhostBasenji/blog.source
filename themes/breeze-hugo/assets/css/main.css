@@ -1707,3 +1707,48 @@ mark {
   width: 100%;
   border: none;
 }
+
+/* ------------------------------------------------------------
+   33. Search results (Pagefind API)
+   ------------------------------------------------------------ */
+.search-result {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+ 
+.search-result:last-child { border-bottom: none; }
+ 
+.search-result:hover {
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+}
+ 
+.search-result__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+ 
+.search-result__excerpt {
+  font-size: 0.8rem;
+  color: var(--muted-fg);
+  line-height: 1.7;
+}
+ 
+.search-result__excerpt mark {
+  background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+ 
+.search-result__empty {
+  padding: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--muted-fg);
+  text-align: center;
+}

@@ -203,40 +203,46 @@
         await pf.init();
         pagefindReady = true;
 
-        document.getElementById('search-input').addEventListener('input', async function () {
+        var searchTimer = null;
+
+        document.getElementById('search-input').addEventListener('input', function () {
           var query = this.value.trim();
           var results = document.getElementById('search-results');
           if (!results) return;
 
-          if (!query) {
+          // Очищаем если запрос пустой или короткий
+          if (query.length < 2) {
             results.innerHTML = '';
             return;
           }
 
-          var search = await pf.search(query, { ranking: { pageLength: 0 } });
-          var html = '';
-          var allResults = search.results.slice(0, 30);
-          var count = 0;
-          var q = query.toLowerCase().trim();
-          var wordRegex = new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+          // Debounce — ждём 300ms после последнего нажатия
+          clearTimeout(searchTimer);
+          var currentQuery = query;
+          searchTimer = setTimeout(async function() {
+            var search = await pf.search(currentQuery, { ranking: { pageLength: 0 } });
+            var html = '';
+            var allResults = search.results.slice(0, 30);
+            var count = 0;
+            var q = currentQuery.toLowerCase().trim();
+            var wordRegex = new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
 
-          for (var i = 0; i < allResults.length; i++) {
-            var data = await allResults[i].data();
-            // Исключаем теги и категории
-            if (data.url.indexOf('/tags/') !== -1) continue;
-            if (data.url.indexOf('/categories/') !== -1) continue;
-            // Проверяем точное совпадение в заголовке или полном тексте
-            var fullContent = data.meta.title + ' ' + (data.content || '') + ' ' + data.excerpt;
-            if (!wordRegex.test(fullContent)) continue;
-            html += '<a href="' + data.url + '" class="search-result" onclick="closeSearch()">';
-            html += '<div class="search-result__title">' + data.meta.title + '</div>';
-            html += '<div class="search-result__excerpt">' + data.excerpt + '</div>';
-            html += '</a>';
-            count++;
-            if (count >= 8) break;
-          }
-          if (!html) html = '<div class="search-result__empty">Ничего не найдено</div>';
-          results.innerHTML = html;
+            for (var i = 0; i < allResults.length; i++) {
+              var data = await allResults[i].data();
+              if (data.url.indexOf('/tags/') !== -1) continue;
+              if (data.url.indexOf('/categories/') !== -1) continue;
+              var fullContent = data.meta.title + ' ' + (data.content || '') + ' ' + data.excerpt;
+              if (!wordRegex.test(fullContent)) continue;
+              html += '<a href="' + data.url + '" class="search-result" onclick="closeSearch()">';
+              html += '<div class="search-result__title">' + data.meta.title + '</div>';
+              html += '<div class="search-result__excerpt">' + data.excerpt + '</div>';
+              html += '</a>';
+              count++;
+              if (count >= 8) break;
+            }
+            if (!html) html = '<div class="search-result__empty">Ничего не найдено</div>';
+            results.innerHTML = html;
+          }, 300);
         });
 
       } catch(e) {

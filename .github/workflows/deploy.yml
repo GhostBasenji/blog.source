@@ -4,52 +4,48 @@ on:
   push:
     branches:
       - master
-      
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Клонируем blog.source
+      # 1. Checkout
       - name: Checkout source
         uses: actions/checkout@v4
         with:
           submodules: false
           fetch-depth: 0
 
-      # 2. Устанавливаем Hugo
+      # 2. Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: latest
           extended: false
 
-     # 3. Устанавливаем Node.js (для Pagefind)
+      # 3. Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      # 4. Собираем сайт
-      - name: Build
+      # 4. Build
+      - name: Build site
         run: hugo --minify
 
-      # 5. Индексируем поиск через Pagefind
-      - name: Index search (Pagefind)
+      # 5. Pagefind
+      - name: Index search
         run: npx pagefind --site public
 
-      # 6. Деплоим в ghostbasenji.github.io
+      # 6. Deploy (ВАЖНО: без external_repository)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # Токен для записи в другой репозиторий
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: ghostbasenji/ghostbasenji.github.io
-          publish_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'
+          publish_branch: master
+          force_orphan: true

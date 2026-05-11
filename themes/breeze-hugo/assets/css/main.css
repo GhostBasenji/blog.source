@@ -625,8 +625,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    16. Single post
    ------------------------------------------------------------ */
 .post-header {
-  margin-bottom: 4rem;
-  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
 }
 
@@ -765,7 +765,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .prose h4 { font-size: 1.125rem; }
 
 .prose p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   font-weight: 300;
   color: var(--muted-fg);
   text-align: justify;
@@ -911,7 +911,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    20. Post footer
    ------------------------------------------------------------ */
 .post-footer {
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding: 0 2rem;
 }
 

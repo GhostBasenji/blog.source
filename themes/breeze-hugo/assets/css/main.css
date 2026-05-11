@@ -1372,6 +1372,20 @@ button:focus-visible {
   font-size: 1rem;
   flex-shrink: 0;
   color: color-mix(in oklch, var(--primary) 60%, transparent);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tool-item__icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: none;
 }
 
 /* ------------------------------------------------------------

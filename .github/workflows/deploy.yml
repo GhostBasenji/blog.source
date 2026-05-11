@@ -1,54 +1,54 @@
-name: Deploy Hugo Site
+name: Deploy Hugo to GitHub Pages
 
 on:
   push:
     branches:
       - master
 
-permissions:
-  contents: write
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      # 1. Клонируем blog.source
+      - name: Checkout source
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false
           fetch-depth: 0
 
+      # 2. Устанавливаем Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: latest
-          extended: true
+          hugo-version: 'latest'
+          extended: false
 
+      # 3. Устанавливаем Node.js (для Pagefind)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '24'
 
-      - name: Build site
+      # 4. Собираем сайт
+      - name: Build
         run: hugo --minify
 
-      - name: Pagefind index
-        run: npx pagefind --site public
+      # 5. Индексируем поиск через Pagefind (русский + английский)
+      - name: Index search (Pagefind)
+        run: npx pagefind --site public --language ru --language en
 
-      - name: Deploy to GitHub Pages repo
-        run: |
-          cd public
-          git init
-
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add .
-          git commit -m "Deploy: ${{ github.event.head_commit.message }}" || echo "No changes"
-
-          git branch -M master
-
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ghostbasenji/ghostbasenji.github.io.git
-
-          git push --force origin master
+      # 6. Деплоим в ghostbasenji.github.io
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: ghostbasenji/ghostbasenji.github.io
+          publish_branch: master
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'

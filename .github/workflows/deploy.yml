@@ -1,10 +1,10 @@
-name: Deploy Hugo to GitHub Pages
+name: Deploy Hugo site
 
 on:
   push:
     branches:
       - master
-
+      
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -27,24 +27,25 @@ jobs:
           hugo-version: 'latest'
           extended: false
 
-      # 3. Устанавливаем Node.js (для Pagefind)
+     # 3. Устанавливаем Node.js (для Pagefind)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
 
       # 4. Собираем сайт
       - name: Build
         run: hugo --minify
 
-      # 5. Индексируем поиск через Pagefind (русский + английский)
+      # 5. Индексируем поиск через Pagefind
       - name: Index search (Pagefind)
-        run: npx pagefind --site public --language ru --language en
+        run: npx pagefind --site public
 
       # 6. Деплоим в ghostbasenji.github.io
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
+          # Токен для записи в другой репозиторий
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           external_repository: ghostbasenji/ghostbasenji.github.io
           publish_branch: master

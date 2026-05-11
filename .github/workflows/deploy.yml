@@ -41,6 +41,11 @@ jobs:
       - name: Index search (Pagefind)
         run: npx pagefind --site public
 
+      # 5.5 Получаем короткий SHA
+      - name: Get short SHA
+        id: sha
+        run: echo "short=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
+
       # 6. Деплоим в ghostbasenji.github.io
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -51,4 +56,4 @@ jobs:
           publish_dir: ./public
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy: ${{ github.event.head_commit.message }}'
+          commit_message: '@${{ steps.sha.outputs.short }}'

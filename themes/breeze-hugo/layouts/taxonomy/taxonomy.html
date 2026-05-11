@@ -3,27 +3,26 @@
   {{ partial "sidebar.html" . }}
   <div class="main-content">
     <div class="page">
-
       <header class="page-header">
-        <p class="section-label" style="margin-bottom: 0.5rem;">{{ .Data.Singular }}</p>
-        {{/* Красивое название из tagnames.yaml */}}
-        {{ $slug := .Title | urlize }}
-        {{ $display := "" }}
-        {{ if eq .Data.Singular "tag" }}
-          {{ $display = index hugo.Data.tagnames.tags $slug | default .Title }}
-        {{ else }}
-          {{ $display = index hugo.Data.tagnames.categories $slug | default .Title }}
-        {{ end }}
-        <h2 class="page-title">{{ $display }}</h2>
-        <p class="page-description">{{ len .Pages }} posts</p>
+        <h2 class="page-title" style="text-transform: capitalize;">{{ .Title }}</h2>
       </header>
-
-      <div>
-        {{ range .Pages.ByDate.Reverse }}
-          {{ partial "post-preview.html" . }}
+      <div class="tags">
+        {{ $singular := .Data.Singular }}
+        {{ range .Data.Terms.ByCount }}
+        {{ $slug := .Page.Title | urlize }}
+        {{ $display := "" }}
+        {{ if eq $singular "tag" }}
+          {{ $display = index hugo.Data.tagnames.tags $slug | default .Page.Title }}
+        {{ else }}
+          {{ $display = index hugo.Data.tagnames.categories $slug | default .Page.Title }}
+        {{ end }}
+        <a href="{{ .Page.RelPermalink }}" class="tag">
+          <span class="tag__hash">#</span>
+          <span class="tag__name">{{ $display }}</span>
+          <span style="font-size:0.625rem; color: color-mix(in oklch, var(--muted-fg) 40%, transparent);">{{ .Count }}</span>
+        </a>
         {{ end }}
       </div>
-
     </div>
   </div>
 </div>

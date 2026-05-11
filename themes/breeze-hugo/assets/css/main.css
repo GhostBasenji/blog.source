@@ -126,7 +126,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 35%;
+    width: 28%;
     padding: 3rem;
     border-bottom: none;
     border-right: 1px solid var(--border);
@@ -389,7 +389,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .page {
-  max-width: 42rem;
+  max-width: 48rem;
   margin: 0 auto;
   padding: 2rem;
   animation: fade-up 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;

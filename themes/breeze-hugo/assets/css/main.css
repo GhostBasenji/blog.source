@@ -979,7 +979,7 @@ button:focus-visible {
   gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
   .projects-grid { grid-template-columns: 1fr 1fr; }
 }
 

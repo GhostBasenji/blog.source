@@ -1739,30 +1739,20 @@ mark {
 }
 
 /* ------------------------------------------------------------
-   34. Tool icons — тёмная тема
-   ------------------------------------------------------------ */
-.dark .tool-item__icon img {
-  background-color: white;
-  border-radius: var(--radius-sm);
-  padding: 3px;
-}
-
-/* ------------------------------------------------------------
-   35. Tool icons — сохранять оригинальные цвета в любой теме
+   34. Tool icons — инверсия в тёмной теме
    ------------------------------------------------------------ */
 .tool-item__icon img {
   filter: none;
 }
-
+ 
 .dark .tool-item__icon img {
-  filter: none;
-  background-color: white;
-  border-radius: var(--radius-sm);
-  padding: 2px;
+  filter: invert(1) hue-rotate(180deg);
+  background-color: transparent;
+  padding: 0;
 }
 
 /* ------------------------------------------------------------
-   36. Search results (Pagefind API)
+   35. Search results (Pagefind API)
    ------------------------------------------------------------ */
 .search-result {
   display: block;
@@ -1807,3 +1797,63 @@ mark {
   width: 100%;
   display: block;
 }
+
+/* ------------------------------------------------------------
+   36. Series list
+   ------------------------------------------------------------ */
+.series-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+ 
+.series-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+  border-radius: var(--radius-lg);
+  background-color: color-mix(in oklch, var(--muted) 20%, transparent);
+  text-decoration: none;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+ 
+.series-item:hover {
+  border-color: color-mix(in oklch, var(--primary) 30%, transparent);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+  transform: translateX(0.25rem);
+}
+ 
+.series-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+ 
+.series-item__name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--foreground);
+  transition: color 0.2s;
+}
+ 
+.series-item:hover .series-item__name { color: var(--primary); }
+ 
+.series-item__count {
+  font-size: 0.75rem;
+  color: var(--muted-fg);
+  font-family: var(--font-mono);
+}
+ 
+.series-item__arrow {
+  color: color-mix(in oklch, var(--muted-fg) 40%, transparent);
+  font-size: 1rem;
+  transition: color 0.2s, transform 0.2s;
+}
+ 
+.series-item:hover .series-item__arrow {
+  color: var(--primary);
+  transform: translateX(0.25rem);
+}
+

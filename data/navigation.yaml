@@ -10,9 +10,9 @@
   subtitle: Works
   href: /projects
 
-- name: Series
-  subtitle: Collections
-  href: /series
+# - name: Series
+#   subtitle: Collections
+#   href: /series
 
 # - name: Tools
 #  subtitle: Stack

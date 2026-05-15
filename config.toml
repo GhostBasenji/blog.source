@@ -19,6 +19,7 @@ enableEmoji = true
 [taxonomies]
   category = "categories"
   tag = "tags"
+  series = "series"
 
 # Настройки рендеринга Markdown
 [markup]

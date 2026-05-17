@@ -19,13 +19,18 @@ tags:
   git: "Git"
   avalonia: "Avalonia"
   ui: "UI"
+  hugo: "Hugo"
+  css: "CSS"
+  html: "HTML"
+  wpf: "WPF"
+  xaml: "XAML"
 
 categories:
   csharp-development: "C# Development"
   csharp: "C#"
   aspnet-core: "ASP.NET Core"
   dotnet-backend: ".NET Backend"
-  pet-projects: "Pet Projects"
+  pet-projects: "Пет-проекты: журнал разработки"
   blazor: "Blazor"
   ubuntu: "Ubuntu"
   avalonia: "Avalonia"
@@ -34,3 +39,8 @@ categories:
   educational-platforms: "Educational Platforms"
   node-js: "Node.js"
   mssql: "MSSQL"
+  hugo: "Hugo"
+  wpf: "WPF"
+  backend: "Backend на C# & .NET"
+
+# series:

@@ -88,7 +88,7 @@ enableEmoji = true
   ogImage      = "/og-image.png"
 
   # Сколько дней показывать значок "New" у свежих постов (0 = отключить)
-  newPostDays  = 7
+  newPostDays  = 3
 
   # --- Блок Hero на главной странице ---
   [params.hero]

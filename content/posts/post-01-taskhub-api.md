@@ -1,7 +1,7 @@
 +++
 title = "Создание проекта ASP.NET Core Web API (.NET 8)"
 
-series = "Практика с ASP.NET Core Web API (.NET 8)"
+series = "Осваиваем ASP.NET Core Web API (.NET 8)"
 
 date = "2026-05-24"
 

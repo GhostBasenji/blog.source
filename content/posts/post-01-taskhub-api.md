@@ -1,5 +1,5 @@
 +++
-title = "Создание проекта ASP.NET Core Web API (.NET 8)"
+title = "Часть 1. Создание проекта ASP.NET Core Web API (.NET 8)"
 
 series = "praktika-s-aspnet-core-web-api-dotnet-8"
 
@@ -294,4 +294,6 @@ CommentsController
 
 В следующей части подготовим структуру проекта для дальнейшего роста: создадим папки, определим соглашения по именованию и заложим основу архитектуры TaskHub API.
 
-Ссылка на репозиторий: [TaskHub](https://github.com/GhostBasenji/TaskHub)
+---
+
+Ссылка на [репозиторий проекта TaskHub](https://github.com/GhostBasenji/TaskHub)

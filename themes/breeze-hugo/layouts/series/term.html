@@ -6,7 +6,13 @@
 
       <header class="page-header">
         <p class="section-label" style="margin-bottom: 0.5rem;">Серия</p>
-        <h2 class="page-title">{{ .Title }}</h2>
+        <h2 class="page-title">
+  {{ with index site.Data.series .Data.Term }}
+    {{ .title }}
+  {{ else }}
+    {{ .Title }}
+  {{ end }}
+</h2>
         <p class="page-description">{{ len .Pages }} {{ if eq (len .Pages) 1 }}статья{{ else if le (len .Pages) 4 }}статьи{{ else }}статей{{ end }}</p>
       </header>
 

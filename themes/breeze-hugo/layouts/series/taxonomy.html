@@ -13,7 +13,13 @@
         {{ range .Data.Terms.ByCount }}
         <a href="{{ .Page.RelPermalink }}" class="series-item">
           <div class="series-item__info">
-            <span class="series-item__name">{{ .Page.Title }}</span>
+            <span class="series-item__name">
+              {{ with index site.Data.series .Term }}
+                {{ .title }}
+                  {{ else }}
+                {{ .Term }}
+              {{ end }}
+            </span>
             <span class="series-item__count">{{ .Count }} {{ if eq .Count 1 }}статья{{ else if le .Count 4 }}статьи{{ else }}статей{{ end }}</span>
           </div>
           <span class="series-item__arrow iconify" data-icon="mdi:arrow-right"></span>

@@ -24,6 +24,8 @@ tags:
   html: "HTML"
   wpf: "WPF"
   xaml: "XAML"
+  web-api: "Web API"
+  vs-code: "VS Code"
 
 categories:
   csharp-development: "C# Development"

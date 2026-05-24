@@ -95,7 +95,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 64rem;
+  max-width: 80rem;
   background-color: var(--card);
   border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
   border-radius: 0;
@@ -108,7 +108,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     flex-direction: row;
     border-radius: var(--radius-2xl);
     min-height: 50rem;
-    max-height: 50rem;
+    max-height: 70rem;
   }
 }
 

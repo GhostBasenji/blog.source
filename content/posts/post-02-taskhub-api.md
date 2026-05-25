@@ -54,7 +54,7 @@ Models
 
 Пока она будет пустой — это нормально.
 
-![Solution Explorer после создания папки `Models`](https://i.postimg.cc/d01dd8g0/0004.png)
+![](https://i.postimg.cc/d01dd8g0/0004.png)
 
 ---
 
@@ -84,7 +84,7 @@ API Controller - Empty
 SystemController
 ```
 
-![Окно выбора controller template.](https://i.postimg.cc/0NQmmphQ/0005.png)
+![](https://i.postimg.cc/0NQmmphQ/0005.png)
 
 Visual Studio создаст файл:
 
@@ -92,7 +92,7 @@ Visual Studio создаст файл:
 SystemController.cs
 ```
 
-![`SystemController.cs` в Solution Explorer.](https://i.postimg.cc/Bv6DDxRt/0006.png)
+![](https://i.postimg.cc/Bv6DDxRt/0006.png)
 
 ---
 
@@ -175,7 +175,7 @@ F5
 GET /api/system/ping
 ```
 
-![Swagger с endpoint `GET /api/system/ping`](https://i.postimg.cc/QMt55pvF/0007.png)
+![](https://i.postimg.cc/QMt55pvF/0007.png)
 
 Нажмите:
 
@@ -195,7 +195,7 @@ Execute
 TaskHub API is running
 ```
 
-![Успешный ответ endpoint](https://i.postimg.cc/Bv6DDxRL/0008.png)
+![](https://i.postimg.cc/Bv6DDxRL/0008.png)
 
 ---
 

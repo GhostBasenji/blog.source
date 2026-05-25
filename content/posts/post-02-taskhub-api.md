@@ -119,13 +119,9 @@ public class SystemController : ControllerBase
 
 Кратко разберём, что здесь происходит.
 
-### `[ApiController]`
+`[ApiController]` - сообщает ASP.NET Core, что это API controller.
 
-Сообщает ASP.NET Core, что это API controller.
-
-### `[Route("api/[controller]")]`
-
-Определяет маршрут controller.
+`[Route("api/[controller]")]` - определяет маршрут controller.
 
 В нашем случае:
 
@@ -133,17 +129,13 @@ public class SystemController : ControllerBase
 api/system
 ```
 
-### `[HttpGet("ping")]`
-
-Создаёт GET endpoint:
+`[HttpGet("ping")]` создаёт GET endpoint:
 
 ```txt
 GET /api/system/ping
 ```
 
-### `Ok()`
-
-Возвращает HTTP-ответ со статусом:
+`Ok()` Возвращает HTTP-ответ со статусом:
 
 ```txt
 200 OK

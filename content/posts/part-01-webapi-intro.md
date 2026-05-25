@@ -31,7 +31,7 @@ tags = [
 
 Представим это так: клиент задаёт вопрос, сервер отвечает.
 
-```
+```txt
 Клиент                          Сервер (наш Web API)
   |                                      |
   |  GET /character/1                    |
@@ -82,7 +82,7 @@ dotnet new webapi
 
 После создания проекта в боковой панели VS Code (Explorer) вижу такой набор файлов:
 
-```
+```txt
 dotnet-rpg/
 ├── .vscode/               ← настройки отладки для VS Code
 ├── Controllers/
@@ -128,7 +128,7 @@ app.Run();
 
 **После `builder.Build()`** — здесь настраивается **конвейер запросов** (middleware pipeline). Каждый входящий HTTP-запрос проходит через цепочку обработчиков по порядку. `UseHttpsRedirection`, `UseAuthorization`, `MapControllers` — это и есть такие обработчики. Цепочку можно представить так:
 
-```
+```txt
 HTTP-запрос
      ↓
 UseHttpsRedirection   ← перенаправляет http → https
@@ -176,7 +176,7 @@ dotnet run --launch-profile http
 
 ASP.NET Web API построен на паттерне **MVC** — Model, View, Controller. Это способ организовать код так, чтобы каждая часть отвечала за своё.
 
-```
+```txt
                     HTTP-запрос
                          ↓
               ┌─────────────────────┐

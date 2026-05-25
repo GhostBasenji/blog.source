@@ -46,11 +46,7 @@ tags = [
 Add → New Folder
 ```
 
-3. Назовите папку:
-
-```txt
-Models
-```
+3. Назовите папку: `Models`
 
 Пока она будет пустой — это нормально.
 
@@ -78,19 +74,11 @@ API Controller - Empty
 ```
 
 4. Нажмите **Add**
-5. Назовите controller:
-
-```txt
-SystemController
-```
+5. Назовите controller: `SystemController`
 
 ![](https://i.postimg.cc/0NQmmphQ/0005.png)
 
-Visual Studio создаст файл:
-
-```txt
-SystemController.cs
-```
+Visual Studio создаст файл: `SystemController.cs`
 
 ![](https://i.postimg.cc/Bv6DDxRt/0006.png)
 
@@ -147,17 +135,7 @@ GET /api/system/ping
 
 Теперь запускаем приложение.
 
-В **Visual Studio** нажмите:
-
-```txt
-F5
-```
-
-или кнопку:
-
-```txt
-▶ HTTPS
-```
+В **Visual Studio** нажмите: **F5**
 
 После запуска откройте Swagger.
 

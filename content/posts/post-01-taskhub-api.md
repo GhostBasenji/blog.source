@@ -45,11 +45,7 @@ cd TaskHub
 dotnet new sln -n TaskHub
 ```
 
-После этого создастся solution:
-
-```txt
-TaskHub.sln
-```
+После этого создастся solution: `TaskHub.sln`
 
 ---
 

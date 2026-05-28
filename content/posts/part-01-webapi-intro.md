@@ -11,6 +11,7 @@ categories = [
 
 tags = [
   "aspnet-core",
+  "csharp",
   "dotnet-backend",
   "web-api",
   "vs-code",

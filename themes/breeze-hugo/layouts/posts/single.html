@@ -34,14 +34,14 @@
         </div>
       </header>
 
-      {{ if .TableOfContents }}
+      {{ if and .TableOfContents (ne .Params.toc false) }}
       <details class="toc">
         <summary>{{ .Site.Params.labels.tableOfContents }}</summary>
         <div class="toc__inner">{{ .TableOfContents }}</div>
       </details>
       {{ end }}
 
-      <div class="prose">{{ .Content }}</div>
+      <div class="prose" data-pagefind-body>{{ .Content }}</div>
 
       {{ with .Params.tags }}
       <div class="tags">
@@ -68,6 +68,7 @@
       </div>
     </footer>
 
+  
   </div>
 </div>
 {{ end }}

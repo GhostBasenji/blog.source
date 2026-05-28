@@ -3,7 +3,7 @@ title = "Часть 2. Атрибутный роутинг, HTTP-методы и
 
 series = "bystriy-start-aspnet-core-web-api-ef"
 
-date = "2026-05-24"
+date = "2026-05-28"
 
 categories = [
     "backend"

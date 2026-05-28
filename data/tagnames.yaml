@@ -26,6 +26,8 @@ tags:
   xaml: "XAML"
   web-api: "Web API"
   vs-code: "VS Code"
+  net8: ".NET 8"
+  net9: ".NET 9"
 
 categories:
   csharp-development: "C# Development"
@@ -44,5 +46,3 @@ categories:
   hugo: "Hugo"
   wpf: "WPF"
   backend: "Backend на C# & .NET"
-
-# series:

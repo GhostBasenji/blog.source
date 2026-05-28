@@ -13,7 +13,8 @@ tags = [
   "aspnet-core",
   "dotnet-backend",
   "web-api",
-  "vs-code"
+  "vs-code",
+  "net9"
 ]
 +++
 

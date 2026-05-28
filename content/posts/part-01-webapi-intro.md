@@ -351,4 +351,4 @@ builder.Services.AddControllers()
 
 ---
 
-*Следующая часть: Атрибутный роутинг, HTTP-методы и сервисный слой.*
+[*Следующая часть: Атрибутный роутинг, HTTP-методы и сервисный слой.*](https://ghostbasenji.github.io/posts/part-02-routing-services/)

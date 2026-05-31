@@ -374,4 +374,4 @@ public class CharacterController : ControllerBase
 
 ---
 
-*Следующая часть: Асинхронные вызовы, Data Transfer Objects и AutoMapper.*
+[*Следующая часть: Асинхронные вызовы, Data Transfer Objects и AutoMapper.*](https://ghostbasenji.github.io/posts/part-03-async-dto-automapper/)

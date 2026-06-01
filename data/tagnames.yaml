@@ -28,6 +28,7 @@ tags:
   vs-code: "VS Code"
   net8: ".NET 8"
   net9: ".NET 9"
+  entityframework: "Entity Framework"
 
 categories:
   csharp-development: "C# Development"
@@ -45,4 +46,4 @@ categories:
   mssql: "MSSQL"
   hugo: "Hugo"
   wpf: "WPF"
-  backend: "Backend на C# & .NET"
+  backend: "C#/.NET Backend"

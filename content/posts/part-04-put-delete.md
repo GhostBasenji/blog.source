@@ -380,4 +380,4 @@ dotnet-rpg/
 
 ---
 
-*Следующая часть: Entity Framework Core, Code First Migration и подключение базы данных.*
+[*Следующая часть: Entity Framework Core, Code First Migration и подключение базы данных.*](https://ghostbasenji.github.io/posts/part-05-ef-core-migration/)

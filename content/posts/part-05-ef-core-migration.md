@@ -1,5 +1,5 @@
 +++
-title = "Часть 5 — Entity Framework Core: ORM, DbContext и первая миграция"
+title = "Часть 5. Entity Framework Core: ORM, DbContext и первая миграция"
 
 series = "bystriy-start-aspnet-core-web-api-ef"
 

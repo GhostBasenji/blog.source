@@ -68,7 +68,7 @@ enableEmoji = true
 
   # Количество последних постов на главной странице
   # В /posts всегда показываются все посты
-  recentPostsCount = 7
+  recentPostsCount = 3
 
   # Описание сайта — используется в <meta description> и сайдбаре
   description  = "Записки начинающего программиста"

@@ -6,7 +6,7 @@
 /* ------------------------------------------------------------
    1. Google Fonts
    ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,450;1,14..32,450&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* ------------------------------------------------------------
    2. CSS Variables — Light Mode
@@ -23,9 +23,9 @@
   --border:            oklch(0.92 0.01  {{ .hue }});
   --shadow-main:       0 10px 40px -10px oklch(0.3 0.05 {{ .hue }} / 0.05);
 
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
   --font-mono: 'Space Mono', monospace;
-  
+
   --radius-sm:  0.25rem;
   --radius-md:  0.5rem;
   --radius-lg:  0.75rem;
@@ -95,7 +95,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 70rem;
+  max-width: 64rem;
   background-color: var(--card);
   border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
   border-radius: 0;
@@ -126,7 +126,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 28%;
+    width: 35%;
     padding: 3rem;
     border-bottom: none;
     border-right: 1px solid var(--border);
@@ -389,7 +389,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .page {
-  max-width: 48rem;
+  max-width: 42rem;
   margin: 0 auto;
   padding: 2rem;
   animation: fade-up 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -625,8 +625,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    16. Single post
    ------------------------------------------------------------ */
 .post-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
   border-bottom: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
 }
 
@@ -765,7 +765,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .prose h4 { font-size: 1.125rem; }
 
 .prose p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
   font-weight: 300;
   color: var(--muted-fg);
   text-align: justify;
@@ -776,6 +776,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.prose strong, .prose b {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.prose em, .prose i {
+  font-style: italic;
 }
 
 .prose code:not(pre code) {
@@ -911,7 +920,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    20. Post footer
    ------------------------------------------------------------ */
 .post-footer {
-  margin-top: 2rem;
+  margin-top: 4rem;
   padding: 0 2rem;
 }
 
@@ -1538,7 +1547,7 @@ button:focus-visible {
 :root {
   --pagefind-ui-primary: var(--primary);
   --pagefind-ui-text: var(--foreground);
-  --pagefind-ui-font: var(--font-sans);
+  --pagefind-ui-font: 'Space Grotesk', sans-serif;
   --pagefind-ui-background: var(--card);
   --pagefind-ui-border-width: 0px;
 }
@@ -1739,12 +1748,21 @@ mark {
 }
 
 /* ------------------------------------------------------------
-   34. Tool icons — инверсия в тёмной теме
+   34. Tool icons — тёмная тема
+   ------------------------------------------------------------ */
+.dark .tool-item__icon img {
+  background-color: white;
+  border-radius: var(--radius-sm);
+  padding: 3px;
+}
+
+/* ------------------------------------------------------------
+   35. Tool icons — сохранять оригинальные цвета в любой теме
    ------------------------------------------------------------ */
 .tool-item__icon img {
   filter: none;
 }
- 
+
 .dark .tool-item__icon img {
   filter: invert(1) hue-rotate(180deg);
   background-color: transparent;
@@ -1752,7 +1770,7 @@ mark {
 }
 
 /* ------------------------------------------------------------
-   35. Search results (Pagefind API)
+   36. Search results (Pagefind API)
    ------------------------------------------------------------ */
 .search-result {
   display: block;
@@ -1799,14 +1817,14 @@ mark {
 }
 
 /* ------------------------------------------------------------
-   36. Series list
+   37. Series list
    ------------------------------------------------------------ */
 .series-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
- 
+
 .series-item {
   display: flex;
   align-items: center;
@@ -1818,42 +1836,41 @@ mark {
   text-decoration: none;
   transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
 }
- 
+
 .series-item:hover {
   border-color: color-mix(in oklch, var(--primary) 30%, transparent);
   background-color: color-mix(in oklch, var(--muted) 40%, transparent);
   transform: translateX(0.25rem);
 }
- 
+
 .series-item__info {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
- 
+
 .series-item__name {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--foreground);
   transition: color 0.2s;
 }
- 
+
 .series-item:hover .series-item__name { color: var(--primary); }
- 
+
 .series-item__count {
   font-size: 0.75rem;
   color: var(--muted-fg);
   font-family: var(--font-mono);
 }
- 
+
 .series-item__arrow {
   color: color-mix(in oklch, var(--muted-fg) 40%, transparent);
   font-size: 1rem;
   transition: color 0.2s, transform 0.2s;
 }
- 
+
 .series-item:hover .series-item__arrow {
   color: var(--primary);
   transform: translateX(0.25rem);
 }
-

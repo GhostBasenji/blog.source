@@ -778,6 +778,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-underline-offset: 2px;
 }
 
+.prose strong, .prose b {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.prose em, .prose i {
+  font-style: italic;
+}
+
 .prose code:not(pre code) {
   font-family: var(--font-mono);
   font-size: 0.875em;

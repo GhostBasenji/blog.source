@@ -314,4 +314,4 @@ Entity Framework сам разберётся, какие именно измен
 
 ---
 
-*Следующая часть: Полный CRUD через Entity Framework Core — GET, POST, PUT, DELETE с настоящей базой данных.*
+[*Следующая часть: Полный CRUD через Entity Framework Core — GET, POST, PUT, DELETE с настоящей базой данных.*](https://ghostbasenji.github.io/posts/part-06-ef-core-crud/)

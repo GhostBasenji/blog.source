@@ -33,12 +33,12 @@ enableEmoji = true
     lineNumbersInTable = false
     tabWidth = 2
   [markup.goldmark.renderer]
+    unsafe = true # разрешить встроенный HTML в Markdown (нужно для hero.description)
   [markup.goldmark.extensions.passthrough]
     enable = true
     [markup.goldmark.extensions.passthrough.delimiters]
       block  = [["$$", "$$"], ["\\[", "\\]"]]
       inline = [["$", "$"], ["\\(", "\\)"]]
-    unsafe = true # разрешить встроенный HTML в Markdown (нужно для hero.description)
     
 
 # Форматы вывода страниц
@@ -79,7 +79,7 @@ enableEmoji = true
   # Логотип сайта
   # Для разных тем можно указать разные файлы
   logo      = "/light.png"       # светлая тема (тёмный логотип)
-  logoDark  = "/dark.png"      # тёмная тема (светлый логотип)
+  logoDark  = "/dark.png"        # тёмная тема (светлый логотип)
 
   # Путь к логотипу (файл кладётся в папку static)
   # logo         = "/logo.png"

@@ -100,7 +100,7 @@ dotnet ef database update
 
 После `database update` в базе данных появятся таблица `Users` и новый столбец `UserId` в таблице `Characters`.
 
-> 📸 gb029
+![](https://i.postimg.cc/0jhbWXGP/gb029.png)
 
 ---
 
@@ -350,7 +350,7 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 }
 ```
 
-> 📸 gb030
+![](https://i.postimg.cc/ZnXC7sPJ/gb030.png)
 
 Ответ:
 
@@ -381,7 +381,7 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 }
 ```
 
-> 📸 gb031
+![](https://i.postimg.cc/2ygVc9dz/gb031.png)
 
 Пока возвращается Id пользователя. В следующей части здесь будет JWT-токен.
 

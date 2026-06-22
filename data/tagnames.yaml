@@ -29,6 +29,7 @@ tags:
   net8: ".NET 8"
   net9: ".NET 9"
   entityframework: "Entity Framework"
+  jwt: "JWT"
 
 categories:
   csharp-development: "C# Development"

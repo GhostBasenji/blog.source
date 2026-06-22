@@ -395,4 +395,4 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 ---
 
-*Следующая часть: JSON Web Tokens — генерируем токен, защищаем эндпоинты, читаем Claims.*
+[*Следующая часть: JSON Web Tokens — генерируем токен, защищаем эндпоинты, читаем Claims.*](https://ghostbasenji.github.io/posts/part-08-jwt/)

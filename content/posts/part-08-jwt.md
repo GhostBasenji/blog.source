@@ -17,7 +17,7 @@ tags = [
   "vs-code",
   "entityframework",
   "ef-core",
-  "mssql"
+  "mssql",
   "jwt"
 ]
 +++

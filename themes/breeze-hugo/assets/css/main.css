@@ -179,12 +179,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
   }
   .brand__logo {
-    width: 6.25rem;
-    height: 6.25rem;
-    margin-bottom: 1rem;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 0.75rem;
   }
   .brand__desc { display: block; }
 }
@@ -225,7 +225,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (min-width: 768px) {
-  .search-box { margin-bottom: 2.5rem; }
+  .search-box { margin-bottom: 1.5rem; }
   .search-box kbd { display: block; }
 }
 
@@ -272,7 +272,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav__item {
     min-width: 0;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.625rem 1rem;
   }
   .nav__item.is-active:hover {
     background-color: color-mix(in oklch, var(--primary) 15%, transparent);
@@ -332,7 +332,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 2rem;
 }
 
-@media (min-width: 768px) { .sidebar__footer { margin-top: 3.5rem; } }
+@media (min-width: 768px) { .sidebar__footer { margin-top: 2.5rem; } }
 
 .social {
   display: flex;

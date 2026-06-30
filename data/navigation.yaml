@@ -6,13 +6,13 @@
   subtitle: Blog
   href: /posts
 
-- name: Projects
-  subtitle: Works
-  href: /projects
-
 - name: Series
   subtitle: Collections
   href: /series
+
+- name: Projects
+  subtitle: Works
+  href: /projects
 
 # - name: Tools
 #  subtitle: Stack

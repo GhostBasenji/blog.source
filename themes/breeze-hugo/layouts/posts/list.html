@@ -7,7 +7,8 @@
       <header class="page-header">
         <h2 class="page-title">{{ .Site.Params.labels.postsTitle }}</h2>
         <p class="page-description">
-          {{ .Site.Params.labels.postsDescription }} — {{ len .Pages }} posts.
+          {{ .Site.Params.labels.postsDescription }} — {{ len .Pages }}
+          {{ if eq (len .Pages) 1 }}запись{{ else if le (len .Pages) 4 }}записи{{ else }}записей{{ end }}.
         </p>
       </header>
 

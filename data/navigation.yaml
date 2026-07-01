@@ -1,17 +1,17 @@
-- name: Home
-  subtitle: Index
+- name: Главная
+  subtitle: Начало
   href: /
 
-- name: Writing
-  subtitle: Blog
+- name: Записи
+  subtitle: Блог
   href: /posts
 
-- name: Series
-  subtitle: Collections
+- name: Серии
+  subtitle: Циклы статей
   href: /series
 
-- name: Projects
-  subtitle: Works
+- name: Проекты
+  subtitle: Работы
   href: /projects
 
 # - name: Tools

@@ -1075,7 +1075,7 @@ button:focus-visible {
 .project-card__tag {
   font-family: var(--font-mono);
   font-size: 0.625rem;
-  color: color-mix(in oklch, var(--primary) 50%, transparent);
+  color: var(--primary);
 }
 
 .project-card__links {

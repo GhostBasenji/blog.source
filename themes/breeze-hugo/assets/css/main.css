@@ -405,7 +405,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ------------------------------------------------------------
    12. Hero
    ------------------------------------------------------------ */
-.hero { margin-bottom: 4rem; }
+.hero { margin-bottom: 2rem; }
 
 .hero__greeting {
   font-size: 1.625rem;
@@ -432,7 +432,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -499,7 +499,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .section-label {

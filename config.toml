@@ -134,8 +134,8 @@ enableEmoji = true
 
   # --- Текстовые метки интерфейса (можно переводить) ---
   [params.labels]
-    postsTitle          = "Writing"
-    postsDescription    = "Notes, thoughts, and technical musings"
+    postsTitle          = "Записи"
+    postsDescription    = "Конспекты, мысли и технические размышления."
     projectsTitle       = "Проекты"
     projectsDescription = "Небольшие проекты, созданные для развлечения или для решения реальных проблем."
     friendsTitle        = "Friends"

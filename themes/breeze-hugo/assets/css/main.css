@@ -4,11 +4,6 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
-   1. Google Fonts
-   ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,450;1,14..32,450&display=swap');
-
-/* ------------------------------------------------------------
    2. CSS Variables — Light Mode
    ------------------------------------------------------------ */
 :root {
@@ -23,7 +18,7 @@
   --border:            oklch(0.92 0.01  {{ .hue }});
   --shadow-main:       0 10px 40px -10px oklch(0.3 0.05 {{ .hue }} / 0.05);
 
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'Space Mono', monospace;
   
   --radius-sm:  0.25rem;

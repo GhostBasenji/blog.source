@@ -18,7 +18,7 @@
   --border:            oklch(0.92 0.01  {{ .hue }});
   --shadow-main:       0 10px 40px -10px oklch(0.3 0.05 {{ .hue }} / 0.05);
 
-  --font-sans: --font-sans: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-sans: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   --font-mono: 'Space Mono', monospace;
   
   --radius-sm:  0.25rem;

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:image" content="{{ .Site.Params.ogImage | absURL }}" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ .Site.Params.logo | relURL }}" />
+
+  <!-- Main CSS (Hugo Pipes + hue из hugo.toml) -->
+  {{ $hue := .Site.Params.hue | default 165 }}
+  {{ $cssTemplate := resources.Get "css/main.css" }}
+  {{ $css := $cssTemplate | resources.ExecuteAsTemplate "css/main.css" (dict "hue" $hue) | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
+
+  <!-- Syntax highlighting (catppuccin-latte / catppuccin-frappe) -->
+  {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" integrity="{{ $syntax.Data.Integrity }}" />
+
+  <!-- Pagefind инициализируется через JS API при открытии поиска -->
+
+  <!-- Математические формулы -->
+  {{ if eq .Site.Params.mathRenderer "mathjax" }}
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath:  [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  {{ else }}
+  <!-- KaTeX (по умолчанию) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true  },
+        { left: '$',  right: '$',  display: false },
+        { left: '\\[', right: '\\]', display: true },
+        { left: '\\(', right: '\\)', display: false }
+      ]
+    });">
+  </script>
+  {{ end }}
+
+  <!-- Iconify (icons only, no build step needed) -->
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+  <!-- Dark mode: run before paint to avoid flash -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  {{ block "main" . }}{{ end }}
+
+  <!-- Search modal -->
+  {{ partial "search-modal.html" . }}
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Закрыть">
+      <span class="iconify" data-icon="mdi:close"></span>
+    </button>
+    <img id="lightbox-img" class="lightbox__img" src="" alt="" />
+  </div>
+
+  <!-- Theme toggle -->
+  <script>
+    var THEME_EFFECT = '{{ .Site.Params.themeEffect | default "fade" }}';
+
+    function toggleTheme() {
+      var isDark = document.documentElement.classList.contains('dark');
+
+      if (THEME_EFFECT === 'fade') {
+        // Плавное затухание всего сайта
+        document.documentElement.style.transition = 'background-color 0.4s ease, color 0.4s ease';
+        document.querySelectorAll('*').forEach(function(el) {
+          el.style.transition = 'background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease';
+        });
+        document.documentElement.classList.toggle('dark');
+        setTimeout(function() {
+          document.documentElement.style.transition = '';
+          document.querySelectorAll('*').forEach(function(el) {
+            el.style.transition = '';
+          });
+        }, 400);
+
+      } else if (THEME_EFFECT === 'ripple') {
+        // Круг расходится от кнопки переключателя
+        var btn = document.querySelector('.theme-toggle');
+        var rect = btn ? btn.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 0, height: 0 };
+        var x = rect.left + rect.width / 2;
+        var y = rect.top + rect.height / 2;
+        var maxR = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+        var ripple = document.createElement('div');
+        ripple.style.cssText = [
+          'position:fixed',
+          'z-index:9999',
+          'pointer-events:none',
+          'border-radius:50%',
+          'transform:scale(0)',
+          'left:' + (x - maxR) + 'px',
+          'top:' + (y - maxR) + 'px',
+          'width:' + (maxR * 2) + 'px',
+          'height:' + (maxR * 2) + 'px',
+          'background:' + (isDark ? '#ffffff' : '#0a0a0a'),
+          'transition:transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+        ].join(';');
+        document.body.appendChild(ripple);
+
+        requestAnimationFrame(function() {
+          ripple.style.transform = 'scale(1)';
+        });
+
+        setTimeout(function() {
+          document.documentElement.classList.toggle('dark');
+          ripple.style.transition = 'opacity 0.3s ease';
+          ripple.style.opacity = '0';
+          setTimeout(function() { ripple.remove(); }, 300);
+        }, 400);
+
+      } else if (THEME_EFFECT === 'transition') {
+        // View Transitions API (Chrome/Edge)
+        if (document.startViewTransition) {
+          document.startViewTransition(function() {
+            document.documentElement.classList.toggle('dark');
+          });
+        } else {
+          // Fallback — fade если не поддерживается
+          document.documentElement.classList.toggle('dark');
+        }
+      }
+
+      var newIsDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
+    }
+  </script>
+
+  <!-- Метка языка на блоках кода -->
+  <script>
+    document.querySelectorAll('.highlight').forEach(function(block) {
+      var code = block.querySelector('code');
+      if (!code) return;
+      var classes = Array.from(code.classList);
+      var langClass = classes.find(function(c) { return c.startsWith('language-'); });
+      if (langClass) {
+        var lang = langClass.replace('language-', '');
+        block.setAttribute('data-lang', lang);
+      }
+    });
+  </script>
+
+  <!-- Search -->
+  <script>
+    var pagefindReady = false;
+
+    function openSearch() {
+      var modal = document.getElementById('search-modal');
+      if (!modal) return;
+      modal.classList.add('is-open');
+      if (!pagefindReady) initPagefind();
+      setTimeout(function () {
+        var input = document.getElementById('search-input');
+        if (input) input.focus();
+      }, 50);
+    }
+
+    function closeSearch() {
+      var modal = document.getElementById('search-modal');
+      if (modal) modal.classList.remove('is-open');
+    }
+
+    async function initPagefind() {
+      if (pagefindReady) return;
+      try {
+        var pf = await import('/pagefind/pagefind.js');
+        await pf.init();
+        pagefindReady = true;
+
+        var searchTimer = null;
+
+        document.getElementById('search-input').addEventListener('input', function () {
+          var query = this.value.trim();
+          var results = document.getElementById('search-results');
+          if (!results) return;
+
+          // Очищаем если запрос пустой или короткий
+          if (query.length < 2) {
+            results.innerHTML = '';
+            return;
+          }
+
+          // Debounce — ждём 300ms после последнего нажатия
+          clearTimeout(searchTimer);
+          var currentQuery = query;
+          searchTimer = setTimeout(async function() {
+            var search = await pf.search(currentQuery, { ranking: { pageLength: 0 } });
+            var html = '';
+            var allResults = search.results.slice(0, 30);
+            var count = 0;
+            var q = currentQuery.toLowerCase().trim();
+
+            for (var i = 0; i < allResults.length; i++) {
+              var data = await allResults[i].data();
+              if (data.url.indexOf('/tags/') !== -1) continue;
+              if (data.url.indexOf('/categories/') !== -1) continue;
+              var fullContent = (data.meta.title + ' ' + (data.content || '') + ' ' + data.excerpt).toLowerCase();
+              if (fullContent.indexOf(q) === -1) continue;
+              html += '<a href="' + data.url + '" class="search-result" onclick="closeSearch()">';
+              html += '<div class="search-result__title">' + data.meta.title + '</div>';
+              html += '<div class="search-result__excerpt">' + data.excerpt + '</div>';
+              html += '</a>';
+              count++;
+              if (count >= 8) break;
+            }
+            if (!html) html = '<div class="search-result__empty">Ничего не найдено</div>';
+            results.innerHTML = html;
+          }, 300);
+        });
+
+      } catch(e) {
+        console.log('Pagefind not available:', e);
+      }
+    }
+
+    // Overlay click — закрыть
+    document.getElementById('modal-overlay').addEventListener('click', closeSearch);
+
+    // Клавиши
+    document.addEventListener('keydown', function (e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        openSearch();
+      }
+      if (e.key === 'Escape') closeSearch();
+    });
+  </script>
+
+  <!-- Umami Analytics -->
+  {{ if .Site.Params.umami.enabled }}
+  <script defer
+    src="{{ .Site.Params.umami.url }}/script.js"
+    data-website-id="{{ .Site.Params.umami.websiteId }}">
+  </script>
+  {{ end }}
+
+  <!-- Lightbox -->
+  <script>
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      var lightboxClose = document.getElementById('lightbox-close');
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      // Клик на картинки в prose
+      document.querySelectorAll('.prose img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          openLightbox(this.src, this.alt);
+        });
+      });
+
+      // Закрыть по кнопке
+      lightboxClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeLightbox();
+      });
+
+      // Закрыть по клику на фон
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Escape — закрыть lightbox (не конфликтует с поиском)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

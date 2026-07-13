@@ -1,0 +1,20 @@
+{{ $currentPath := .RelPermalink }}
+<nav class="nav">
+  {{ range hugo.Data.navigation }}
+    {{ $isActive := false }}
+    {{ if eq .href "/" }}
+      {{ $isActive = eq $currentPath "/" }}
+    {{ else }}
+      {{ $isActive = hasPrefix $currentPath .href }}
+    {{ end }}
+    <a href="{{ .href }}" class="nav__item{{ if $isActive }} is-active{{ end }}">
+      <div class="nav__text">
+        <span class="nav__name">{{ .name }}</span>
+        <span class="nav__subtitle">{{ .subtitle }}</span>
+      </div>
+      <span class="nav__arrow">
+        <span class="iconify" data-icon="mdi:arrow-right"></span>
+      </span>
+    </a>
+  {{ end }}
+</nav>

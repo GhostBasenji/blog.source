@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+
+      <!-- Hero -->
+      <section class="hero">
+        <h2 class="hero__greeting">{{ .Site.Params.hero.greeting }}</h2>
+        <p class="hero__description">{{ .Site.Params.hero.description | safeHTML }}</p>
+        {{ if .Site.Params.hero.cards }}
+        <div class="hero__cards">
+          {{ range .Site.Params.hero.cards }}
+          <div class="hero__card">
+            <div class="hero__card-icon">
+              {{ partial "icon.html" (dict "name" .icon "class" "icon") }}
+            </div>
+            <div>
+              <div class="hero__card-label">{{ .label }}</div>
+              <div class="hero__card-value">{{ .value }}</div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+      </section>
+
+      <!-- Recent posts -->
+      <section>
+        <div class="section-header">
+          <span class="section-label">Latest</span>
+          <a href="/posts" class="section-link">
+            View all
+            <span class="iconify" data-icon="mdi:arrow-right" style="font-size:0.875rem;"></span>
+          </a>
+        </div>
+        <div>
+          {{ $count := .Site.Params.recentPostsCount | default 5 }}
+          {{ range first $count (where .Site.RegularPages "Section" "posts") }}
+            {{ partial "post-preview.html" . }}
+          {{ end }}
+        </div>
+      </section>
+
+    </div>
+  {{ partial "footer.html" . }}
+  </div>
+</div>
+{{ end }}

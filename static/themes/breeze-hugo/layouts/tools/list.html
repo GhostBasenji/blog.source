@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+
+  <div class="main-content">
+    <div class="page">
+      <header class="page-header">
+        <h2 class="page-title">{{ .Title }}</h2>
+      </header>
+
+      <div class="tools">
+        {{ range hugo.Data.tools }}
+          <section>
+            <h3 class="tools__category-name">
+              {{ .name }}
+            </h3>
+
+            <div class="tools__grid">
+              {{ range .items }}
+                {{ if .link }}
+                  <a href="{{ .link }}"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="tool-item tool-item--link">
+
+                    <span class="tool-item__icon">
+                      {{ partial "tool-logo.html" . }}
+                    </span>
+
+                    <span>{{ .name }}</span>
+                  </a>
+                {{ else }}
+                  <div class="tool-item">
+                    <span class="tool-item__icon">
+                      {{ partial "tool-logo.html" . }}
+                    </span>
+
+                    <span>{{ .name }}</span>
+                  </div>
+                {{ end }}
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
+{{ end }}

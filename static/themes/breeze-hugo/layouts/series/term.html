@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="shell">
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+
+      <header class="page-header">
+        <p class="section-label" style="margin-bottom: 0.5rem;">Серия</p>
+        <h2 class="page-title">
+  {{ with index site.Data.series .Data.Term }}
+    {{ .title }}
+  {{ else }}
+    {{ .Title }}
+  {{ end }}
+</h2>
+        <p class="page-description">{{ len .Pages }} {{ if eq (len .Pages) 1 }}статья{{ else if le (len .Pages) 4 }}статьи{{ else }}статей{{ end }}</p>
+      </header>
+
+      <div>
+        {{ range .Pages.ByDate }}
+          {{ partial "post-preview.html" . }}
+        {{ end }}
+      </div>
+
+    </div>
+    {{ partial "footer.html" . }}
+  </div>
+</div>
+{{ end }}

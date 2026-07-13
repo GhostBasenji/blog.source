@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="shell" data-pagefind-ignore>
+  {{ partial "sidebar.html" . }}
+  <div class="main-content">
+    <div class="page">
+      <header class="page-header">
+        <h2 class="page-title" style="text-transform: capitalize;">{{ .Title }}</h2>
+      </header>
+      <div class="tags">
+        {{ $singular := .Data.Singular }}
+        {{ range .Data.Terms.ByCount }}
+        {{ $slug := .Page.Title | urlize }}
+        {{ $display := "" }}
+        {{ if eq $singular "tag" }}
+          {{ $display = index hugo.Data.tagnames.tags $slug | default .Page.Title }}
+        {{ else }}
+          {{ $display = index hugo.Data.tagnames.categories $slug | default .Page.Title }}
+        {{ end }}
+        <a href="{{ .Page.RelPermalink }}" class="tag">
+          <span class="tag__hash">#</span>
+          <span class="tag__name">{{ $display }}</span>
+          <span style="font-size:0.625rem; color: color-mix(in oklch, var(--muted-fg) 40%, transparent);">{{ .Count }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

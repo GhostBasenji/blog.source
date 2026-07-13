@@ -1,0 +1,25 @@
+<aside class="sidebar">
+  {{ partial "brand.html" . }}
+
+  <button class="search-box" onclick="openSearch()" aria-label="Search">
+    <span class="iconify" data-icon="mdi:magnify" style="font-size:1rem;"></span>
+    <span class="search-box__label">{{ .Site.Params.labels.searchPlaceholder }}</span>
+    <kbd>K</kbd>
+  </button>
+
+  {{ partial "nav.html" . }}
+
+  <div class="sidebar__footer">
+    <div class="social">
+      {{ range .Site.Params.social }}
+      <a href="{{ .href }}" class="social__link" aria-label="{{ .name }}">
+        {{ partial "icon.html" (dict "name" .icon "class" "social__icon") }}
+      </a>
+      {{ end }}
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="icon-sun iconify" data-icon="mdi:weather-sunny"></span>
+      <span class="icon-moon iconify" data-icon="mdi:weather-night"></span>
+    </button>
+  </div>
+</aside>

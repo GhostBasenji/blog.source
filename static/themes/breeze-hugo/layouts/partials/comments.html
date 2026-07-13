@@ -1,0 +1,18 @@
+{{ if .Site.Params.comments.enabled }}
+  {{ if eq .Site.Params.comments.provider "utterances" }}
+
+    <div class="comments">
+      <script src="https://utteranc.es/client.js"
+        repo="{{ .Site.Params.comments.utterances.repo }}"
+        issue-term="{{ .Site.Params.comments.utterances.issueTerm | default "pathname" }}"
+        label="{{ .Site.Params.comments.utterances.label | default "comment" }}"
+        theme="{{ .Site.Params.comments.utterances.theme | default "github-dark" }}"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+
+  {{ end }}
+{{ end }}
+
+

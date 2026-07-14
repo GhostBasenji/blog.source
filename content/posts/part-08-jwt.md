@@ -324,4 +324,4 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int u
 
 ---
 
-*Следующая часть: Связи в EF Core — привязываем персонажей к пользователям, связи один-к-одному.*
+[*Следующая часть: Связи в EF Core — привязываем персонажей к пользователям, связи один-к-одному.*](https://ghostbasenji.github.io/posts/part-09-advanced-relationships/)

@@ -306,4 +306,4 @@ public async Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharac
 
 ---
 
-*Следующая часть: Связь один-к-одному — добавляем оружие персонажу.*
+[*Следующая часть: Связь один-к-одному — добавляем оружие персонажу.*](https://ghostbasenji.github.io/posts/part-10-one-to-one/)

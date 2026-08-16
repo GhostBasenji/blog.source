@@ -5,5 +5,5 @@ status: "completed"
 tech: ["Hugo", "CSS"]
 links:
   github: "https://github.com/GhostBasenji/hugo-breeze"
-  demo: "https://ghostbasenji.github.io/"
+  demo: ""
 ---

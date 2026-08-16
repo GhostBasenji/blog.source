@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to ghostbasenji.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          deploy_key: ${{ secrets.KEY_UBUNTU }}
           external_repository: GhostBasenji/ghostbasenji.github.io
           publish_branch: master
           publish_dir: ./public

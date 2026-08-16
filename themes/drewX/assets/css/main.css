@@ -296,6 +296,20 @@ pre code {
     padding: 1.1rem 1rem;
   }
 
+@media (max-width: 640px) {
+  .article-card {
+    padding: 1.2rem 1rem 1.8rem;
+  }
+
+  .article-content {
+    padding: 0.4rem;
+  }
+
+  .post-summary {
+    padding: 1.1rem 1.2rem;
+  }
+}
+
   .site-title {
     font-size: 1.3rem;
   }

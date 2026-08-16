@@ -90,3 +90,38 @@
   });
 })();
 </script>
+
+<button id="back-to-top" class="back-to-top" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  var ticking = false;
+
+  function toggleVisibility() {
+    if (window.scrollY > 400) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(toggleVisibility);
+      ticking = true;
+    }
+  });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>

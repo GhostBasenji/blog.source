@@ -1038,31 +1038,48 @@ pre code {
 
 
 @media (max-width: 640px) {
+  /* Растягиваем контейнеры на всю ширину */
   .content {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 100%;
+    width: 100%;
   }
 
   .home-list {
     gap: 0.5rem;
+    max-width: 100%;
+    width: 100%;
   }
 
   .post-summary {
     border-left: none;
     border-right: none;
     border-radius: 0;
-    padding: 1.2rem 1.1rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    padding: 1.2rem 1rem;
+    margin-bottom: 0.75rem;
+    max-width: 100%;
+    width: 100%;
   }
 
   .article-card {
     border-left: none;
     border-right: none;
     padding: 1.2rem 1rem 1.8rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 0.75rem;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
   }
 
   .article-content {
     padding: 0.4rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Убираем горизонтальный скролл */
+  body {
+    overflow-x: hidden;
   }
 }

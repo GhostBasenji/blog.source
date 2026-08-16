@@ -1074,7 +1074,7 @@ pre code {
   }
 }
 
-/* ===== Кнопка "Наверх" ===== */
+/* ===== Кнопка "Наверх" — прозрачная, круглая ===== */
 .back-to-top {
   position: fixed;
   bottom: 1.5rem;
@@ -1083,17 +1083,18 @@ pre code {
   height: 44px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  background: var(--color-card-bg);
+  background: transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--color-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background-color 0.15s ease, color 0.15s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   z-index: 30;
 }
 
@@ -1104,8 +1105,13 @@ pre code {
 }
 
 .back-to-top:hover {
-  background: var(--color-page-bg);
+  background: rgba(0, 0, 0, 0.05);
   color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 560px) {

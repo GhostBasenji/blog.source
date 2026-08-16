@@ -1052,14 +1052,14 @@ pre code {
     border-right: none;
     border-radius: 0;
     padding: 1.2rem 1.1rem;
-    margin-bottom: 1.1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
   }
 
   .article-card {
     border-left: none;
     border-right: none;
     padding: 1.2rem 1rem 1.8rem;
-    margin-bottom: 1.1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
   }
 
   .article-content {

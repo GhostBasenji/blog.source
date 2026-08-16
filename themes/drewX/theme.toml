@@ -5,7 +5,7 @@ description = "Минималистичная Hugo-тема для технич�
 homepage = "https://github.com/твой-юзернейм/hugo-drewx"
 tags = ["blog", "dark-mode", "minimal", "responsive", "russian"]
 features = ["dark mode", "syntax highlighting", "katex", "series", "search-ready"]
-min_version = "0.146.0"
+min_version = "0.164.0"
 
 [author]
   name = "твоё имя"

@@ -57,6 +57,7 @@ body {
   color: var(--color-text);
   background: var(--color-page-bg);
   transition: background-color 0.2s ease, color 0.2s ease;
+  overscroll-behavior-x: none; /* <-- ДОБАВИТЬ ЭТО: запрещает браузеру делать "резинку" по горизонтали */
 }
 
 a {
@@ -1039,8 +1040,8 @@ pre code {
 
 @media (max-width: 640px) {
   .content {
-    padding-left: 0;
-    padding-right: 0;
+    /* Убираем padding-left: 0 и padding-right: 0, оставляем только вертикальный */
+    padding: 2rem 0.5rem; /* 0.5rem по бокам не даст карточке прилипнуть к краю и вызвать баг */
   }
 
   .home-list {
@@ -1052,14 +1053,14 @@ pre code {
     border-right: none;
     border-radius: 0;
     padding: 1.2rem 1.1rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;
   }
 
   .article-card {
     border-left: none;
     border-right: none;
     padding: 1.2rem 1rem 1.8rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;
   }
 
   .article-content {

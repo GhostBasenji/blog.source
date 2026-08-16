@@ -102,10 +102,23 @@
   var btn = document.getElementById('back-to-top');
   if (!btn) return;
 
+  var article = document.querySelector('.article-content') || document.querySelector('.article-card');
   var ticking = false;
 
+  function getTriggerPoint() {
+    if (article) {
+      var rect = article.getBoundingClientRect();
+      var articleTop = rect.top + window.scrollY;
+      var articleHeight = article.offsetHeight;
+      return articleTop + articleHeight * 0.5;
+    }
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    return docHeight * 0.5;
+  }
+
   function toggleVisibility() {
-    if (window.scrollY > 400) {
+    var triggerPoint = getTriggerPoint();
+    if (window.scrollY > triggerPoint) {
       btn.classList.add('is-visible');
     } else {
       btn.classList.remove('is-visible');
@@ -123,5 +136,7 @@
   btn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  toggleVisibility();
 })();
 </script>

@@ -6,7 +6,8 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-06-18"
 
 categories = [
-    "backend"
+    "backend",
+    "csharp-development"
     ]
 
 tags = [
@@ -21,8 +22,8 @@ tags = [
 +++
 
 Мы уже разобрали два вида связей: один-ко-многим (пользователь → персонажи) и один-к-одному (персонаж → оружие). Остался третий и самый интересный — **многие-ко-многим**. Один персонаж может знать несколько умений, и одно умение может быть у нескольких персонажей. Добавим к нашим персонажам пул умений — Fireball, Frenzy, Blizzard.
+<!--more-->
 
----
 
 ## Почему многие-ко-многим — особый случай
 
@@ -45,7 +46,6 @@ Characters           CharacterSkills               Skills
 
 > 💡 **EF Core 5+ поддерживает многие-ко-многим без промежуточного класса** — достаточно добавить `List<Skill>` в `Character` и `List<Character>` в `Skill`, и EF создаст промежуточную таблицу автоматически. Но в нашем проекте мы создаём промежуточный класс явно — это даёт больше контроля и лучше объясняет, что происходит в базе данных.
 
----
 
 ## Модель Skill
 
@@ -65,7 +65,6 @@ public class Skill
 
 Обращаем внимание: здесь нет `List<Character>` — вместо этого `List<CharacterSkill>`. Именно через промежуточный класс EF Core узнает о связи.
 
----
 
 ## Промежуточная модель CharacterSkill
 
@@ -93,7 +92,6 @@ public class CharacterSkill
 public List<CharacterSkill> CharacterSkills { get; set; } = [];
 ```
 
----
 
 ## DataContext — составной ключ через Fluent API
 
@@ -118,7 +116,6 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 **`HasKey(cs => new { cs.CharacterId, cs.SkillId })`** — говорим EF Core: «первичный ключ таблицы `CharacterSkills` — это комбинация двух полей». Анонимный объект `new { ... }` — синтаксис для передачи нескольких свойств сразу. Благодаря соглашениям об именовании (`CharacterId`, `SkillId`) EF сам поймёт, что это внешние ключи к `Characters` и `Skills`.
 
----
 
 ## Миграция
 
@@ -150,7 +147,6 @@ EF сгенерировал конфигурацию автоматически:
 
 ![gb043.png](https://i.postimg.cc/cHfQVshs/gb043.png)
 
----
 
 ## Добавляю умения в базу вручную через SSMS
 
@@ -167,9 +163,8 @@ EF сгенерировал конфигурацию автоматически:
 |  3  | Blizzard  |   25   |
 ```
 
-[![gb044.png](https://i.postimg.cc/cHfQVshd/gb044.png)](https://postimg.cc/hzPzmRNY)
+![gb044.png](https://i.postimg.cc/cHfQVshd/gb044.png)
 
----
 
 ## DTO
 
@@ -205,7 +200,6 @@ public List<GetSkillDto> Skills { get; set; } = [];
 
 Обратите внимание: здесь `List<GetSkillDto>`, а не `List<GetCharacterSkillDto>`. Клиент получает умения напрямую, минуя промежуточную сущность. Как именно это работает — покажу ниже в AutoMapper.
 
----
 
 ## CharacterSkillService
 
@@ -303,8 +297,6 @@ Character
         └── Skill (ThenInclude)  ← без этого Skill = null
 ```
 
----
-
 ## CharacterSkillController
 
 Создаю `Controllers/CharacterSkillController.cs`:
@@ -343,7 +335,6 @@ public class CharacterSkillController : ControllerBase
 builder.Services.AddScoped<ICharacterSkillService, CharacterSkillService>();
 ```
 
----
 
 ## AutoMapper — прыжок через промежуточную таблицу
 
@@ -379,8 +370,6 @@ var dbCharacters = await _context.Characters
     .ToListAsync();
 ```
 
----
-
 ## Тестирую в Bruno
 
 `POST /characterskill` с Bearer-токеном:
@@ -407,7 +396,6 @@ var dbCharacters = await _context.Characters
 
 В SSMS таблица `CharacterSkills` теперь содержит две строки — `(1, 1)` и `(1, 2)`.
 
----
 
 ## Итог
 

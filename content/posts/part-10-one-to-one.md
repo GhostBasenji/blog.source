@@ -6,7 +6,8 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-06-15"
 
 categories = [
-    "backend"
+    "backend",
+    "csharp-development"
     ]
 
 tags = [
@@ -21,8 +22,7 @@ tags = [
 +++
 
 В девятой части построил связь один-ко-многим между пользователями и персонажами. Теперь построю связь **один-к-одному**: у каждого персонажа может быть ровно одно оружие, и у каждого оружия — ровно один владелец. Также наткнусь на ту же ловушку с `Include`, что и в прошлый раз, но в новом контексте.
-
----
+<!--more-->
 
 ## Модель Weapon
 
@@ -54,8 +54,6 @@ public Weapon? Weapon { get; set; }
 ```csharp
 public DbSet<Weapon> Weapons { get; set; }
 ```
-
----
 
 ## Первая попытка миграции — и ошибка
 
@@ -95,8 +93,6 @@ dotnet ef database update
 
 Теперь всё проходит успешно.
 
----
-
 ## Что отличает один-к-одному от один-ко-многим в базе
 
 Заглянем в файл миграции — там есть интересная деталь:
@@ -124,8 +120,6 @@ One-to-Many (Users → Characters)        One-to-One (Characters → Weapon)
 ```
 
 [![gb039.png](https://i.postimg.cc/zvN6c1mt/gb039.png)](https://postimg.cc/mzdmPJgC)
-
----
 
 ## WeaponService
 
@@ -269,8 +263,6 @@ public class WeaponController : ControllerBase
 builder.Services.AddScoped<IWeaponService, WeaponService>();
 ```
 
----
-
 ## Тестирую в Bruno
 
 Вхожу, получаю токен, и отправляю `POST /weapon` с заголовком `Authorization: Bearer ...`:
@@ -306,8 +298,6 @@ Cannot insert duplicate key row in object 'dbo.Weapons' with unique index 'IX_We
 ```
 
 Это и есть работа уникального индекса — база данных физически не позволяет создать вторую запись с тем же `CharacterId`. Связь один-к-одному соблюдается на уровне СУБД, а не только в коде приложения.
-
----
 
 ## Почему оружие не отображается у персонажа — снова Include
 
@@ -393,8 +383,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 [![gb042.png](https://i.postimg.cc/vTykNdRj/gb042.png)](https://postimg.cc/ZBfwW25F)
 
 > 💡 Это полезное правило для запоминания: **каждый раз, когда DTO ответа включает связанную сущность, в запросе должен быть соответствующий `Include`**. Если добавили новое связанное поле в DTO, но забыли `Include` — получите `null` вместо ошибки, что может остаться незамеченным.
-
----
 
 ## Итог
 

@@ -6,7 +6,8 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-06-05"
 
 categories = [
-    "backend"
+    "backend",
+    "csharp-development"
     ]
 
 tags = [
@@ -22,8 +23,6 @@ tags = [
 
 В прошлой части я подключил базу данных и создал таблицу `Characters` через миграцию. Теперь обновляю сервис — вместо хранения данных в памяти все операции будут идти через Entity Framework в настоящую базу данных.
 <!--more-->
-
----
 
 ## Внедряем DataContext в сервис
 
@@ -57,7 +56,6 @@ public class CharacterService : ICharacterService
 
 Теперь `_context` доступен во всех методах сервиса. Статический список `characters` удаляю — он больше не нужен.
 
----
 
 ## GET — получаем всех персонажей из базы
 
@@ -79,7 +77,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 
 ![](https://i.postimg.cc/rFNhrtC6/gb025.png)
 
----
 
 ## GET — получаем одного персонажа
 
@@ -95,7 +92,6 @@ public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id)
 
 `FirstOrDefaultAsync` — асинхронная версия `FirstOrDefault`. Выполняет SQL-запрос `SELECT TOP 1 * FROM Characters WHERE Id = @id`. Entity Framework сам строит SQL из нашей лямбды — это и есть LINQ to Entities.
 
----
 
 ## POST — добавляем персонажа в базу
 
@@ -136,7 +132,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharac
 
 В ответе Фродо получил Id = 1 — SQL Server сам его назначил.
 
----
 
 ## PUT — обновляем персонажа в базе
 
@@ -184,7 +179,6 @@ Entity Framework **отслеживает** объекты, которые бы�
 
 ![](https://i.postimg.cc/QxJ6TWkG/gb027.png)
 
----
 
 ## DELETE — удаляем персонажа из базы
 
@@ -218,7 +212,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> DeleteCharacter(int id
 
 ![](https://i.postimg.cc/PrQ6w8bB/gb028.png)
 
----
 
 ## Полный код CharacterService
 
@@ -314,8 +307,6 @@ public class CharacterService : ICharacterService
     }
 }
 ```
-
----
 
 ## Итог
 

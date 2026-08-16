@@ -6,7 +6,8 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-06-10"
 
 categories = [
-    "backend"
+    "backend",
+    "csharp-development"
     ]
 
 tags = [
@@ -22,8 +23,7 @@ tags = [
 +++
 
 В прошлой части реализовал регистрацию и вход, но после входа возвращался просто Id пользователя. Это не защищает API — любой может обращаться к нашим эндпоинтам. Сейчас добавим JSON Web Tokens: при входе пользователь получит токен, и только с этим токеном сможет обращаться к защищённым методам.
-
----
+<!--more-->
 
 ## Что такое JWT и зачем он нужен
 
@@ -57,7 +57,6 @@ SflKxwRJSMeKKF2QT4fwpM ← Signature (подпись)
 
 Посмотреть содержимое любого JWT можно на [jwt.io](https://jwt.io).
 
----
 
 ## Устанавливаем пакет
 
@@ -69,7 +68,6 @@ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ![](https://i.postimg.cc/Hnn4J2kK/gb032.png)
 
----
 
 ## Секретный ключ в appsettings.json
 
@@ -91,7 +89,6 @@ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 
 В реальном проекте этот ключ хранится в переменных окружения или в секретном хранилище — не в `appsettings.json`, который попадает в репозиторий. Но для учебного проекта так сойдёт.
 
----
 
 ## Генерация JWT-токена в AuthRepository
 
@@ -168,8 +165,6 @@ else
 }
 ```
 
----
-
 ## Настраиваю JWT-аутентификацию в Program.cs
 
 Открываю `Program.cs` и добавляю конфигурацию аутентификации:
@@ -210,8 +205,6 @@ app.UseAuthorization();
 
 Порядок важен: сначала ASP.NET должен опознать пользователя (Authentication), и только потом проверить его права (Authorization).
 
----
-
 ## Защита контроллера атрибутом [Authorize]
 
 Открываю `Controllers/CharacterController.cs` и добавляю атрибут над классом:
@@ -226,8 +219,6 @@ public class CharacterController : ControllerBase
 Теперь все методы контроллера требуют аутентификации. Попытка обратиться без токена вернёт `401 Unauthorized`.
 
 ![](https://i.postimg.cc/4NbVJqPn/gb035.png)
-
----
 
 ## Тестирую в Bruno
 
@@ -265,7 +256,6 @@ public class CharacterController : ControllerBase
 
 > 💡 В Bruno можно настроить переменные окружения, чтобы не копировать токен вручную. В разделе **Environments** создать переменную `token`, и в заголовке использовать `Bearer {{token}}`. Удобно для разработки.
 
----
 
 ## Читаю Claims — возвращаю только персонажей текущего пользователя
 
@@ -309,7 +299,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int u
 
 `Where(c => c.User!.Id == userId)` — EF Core сделает JOIN с таблицей Users и вернёт только персонажей этого пользователя. `!` после `User` — подавляем предупреждение nullable (мы уверены, что у персонажа есть пользователь).
 
----
 > 💡 **Если вернулся к проекту через день и больше:** JWT-токен, который мы настроили, живёт **1 день** (`DateTime.UtcNow.AddDays(1)` в методе `CreateToken`). После истечения все защищённые запросы будут возвращать `401 Unauthorized` — это нормально, токен просто устарел.
 >
 > Что делать: отправь `POST /auth/login` с логином и паролем, скопируй новый токен из поля `data` и обнови переменную окружения `token` в Bruno. Все запросы с `Bearer {{token}}` подхватят его автоматически.

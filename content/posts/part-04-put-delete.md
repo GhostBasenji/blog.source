@@ -6,7 +6,8 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-05-31"
 
 categories = [
-    "backend"
+    "backend",
+    "csharp-development"
     ]
 
 tags = [
@@ -20,8 +21,6 @@ tags = [
 
 В предыдущих частях мы научились создавать и получать персонажей. Теперь добавим оставшиеся две операции — обновление (PUT) и удаление (DELETE). Заодно разберемся с тем, как правильно обрабатывать ошибки и возвращать осмысленные HTTP-статусы.
 <!--more-->
-
----
 
 ## ServiceResponse — единый формат ответа
 
@@ -50,7 +49,6 @@ public class ServiceResponse<T>
 
 Теперь обновляем интерфейс сервиса, чтобы все методы возвращали `ServiceResponse<T>`.
 
----
 
 ## Обновление интерфейса и существующих методов
 
@@ -135,7 +133,6 @@ public async Task<IActionResult> AddCharacter(AddCharacterDto newCharacter)
 
 Клиент всегда знает: есть ли данные, успешна ли операция, и если нет — почему.
 
----
 
 ## UpdateCharacterDto — DTO для обновления
 
@@ -168,7 +165,6 @@ CreateMap<AddCharacterDto, Character>();
 CreateMap<UpdateCharacterDto, Character>();
 ```
 
----
 
 ## PUT — обновляем персонаж
 
@@ -283,7 +279,6 @@ public async Task<IActionResult> UpdateCharacter(UpdateCharacterDto updatedChara
 
 Статус `404 Not Found`, тело содержит понятное сообщение. 
 
----
 
 ## DELETE — удаляем персонаж
 

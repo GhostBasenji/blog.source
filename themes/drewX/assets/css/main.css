@@ -291,11 +291,6 @@ pre code {
   margin: 0;
 }
 
-@media (max-width: 560px) {
-  .site-header-inner {
-    padding: 1.1rem 1rem;
-  }
-
 @media (max-width: 640px) {
   .article-card {
     padding: 1.2rem 1rem 1.8rem;
@@ -309,6 +304,11 @@ pre code {
     padding: 1.1rem 1.2rem;
   }
 }
+
+@media (max-width: 560px) {
+  .site-header-inner {
+    padding: 1.1rem 1rem;
+  }
 
   .site-title {
     font-size: 1.3rem;

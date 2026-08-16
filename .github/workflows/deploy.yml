@@ -1,10 +1,8 @@
 name: Deploy Hugo site
-
 on:
   push:
     branches: [master]
   workflow_dispatch:
-
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -14,16 +12,16 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.164.0'
           extended: true
-
       - name: Build
         run: hugo --gc --minify
-
+      - name: Get short SHA
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
       - name: Deploy to ghostbasenji.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:

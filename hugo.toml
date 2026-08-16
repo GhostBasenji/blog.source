@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://ghostbasenji.github.io"
 title = "Блог призрака Басенджи"
 theme = "drewX"
 locale = "ru-RU"
@@ -11,7 +11,7 @@ enableRobotsTXT = true
 # ПАГИНАЦИЯ
 # ============================================================
 [pagination]
-pagerSize = 10
+pagerSize = 7
 
 # ============================================================
 # URL-СТРУКТУРА
@@ -59,8 +59,8 @@ showSeriesBadge = false
 enableSearch = false
 chromaStyleLight = "catppuccin-latte"
 chromaStyleDark = "catppuccin-frappe"
-themeName = "Nova"
-themeURL = "https://github.com/твой-юзернейм/nova-test"
+themeName = "drewX"
+themeURL = "https://github.com/GhostBasenji/hugo-drewx"
 
 [params.labels]
 projectsTitle = "Мои проекты"

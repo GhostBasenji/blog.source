@@ -1,0 +1,35 @@
+name: Deploy Hugo site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build
+        run: hugo --gc --minify
+
+      - name: Deploy to ghostbasenji.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          external_repository: GhostBasenji/ghostbasenji.github.io
+          publish_branch: main
+          publish_dir: ./public
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"
+

@@ -31,4 +31,4 @@ jobs:
           external_repository: GhostBasenji/ghostbasenji.github.io
           publish_branch: master
           publish_dir: ./public
-          commit_message: "[@${{ steps.vars.outputs.sha_short }}](https://github.com/GhostBasenji/blog.source/commit/${{ github.sha }})"
+          commit_message: "GhostBasenji/blog.source@${{ steps.vars.outputs.sha_short }}"

@@ -2,7 +2,7 @@ name: Deploy Hugo site
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           external_repository: GhostBasenji/ghostbasenji.github.io
-          publish_branch: main
+          publish_branch: master
           publish_dir: ./public
           commit_message: "Deploy: ${{ github.event.head_commit.message }}"
 

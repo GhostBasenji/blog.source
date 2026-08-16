@@ -37,8 +37,8 @@ Characters           CharacterSkills               Skills
 ├────┼───────┤      ├─────────────┼────────┤      ├────┼──────────┼────────┤
 │  1 │ Frodo │ ─┐   │      1      │   1    │ ─┐   │  1 │ Fireball │   30   │
 │  2 │  Sam  │  ├─► │      1      │   2    │  ├─► │  2 │  Frenzy  │   20   │
-└────┴───────┘  │   │      2      │   1    │  │   │  3 │ Blizzard │   25   │
-                └─► └─────────────┴────────┘  └─► └────┴──────────┴────────┘
+└────┴───────┘  └─► │      2      │   1    │  └─► │  3 │ Blizzard │   25   │
+                    └─────────────┴────────┘      └────┴──────────┴────────┘
 ```
 
 Фродо знает Fireball и Frenzy. Сэм знает только Fireball. Fireball знают оба.
@@ -148,7 +148,7 @@ modelBuilder.Entity("dotnet_rpg.Models.CharacterSkill", b =>
 
 EF сгенерировал конфигурацию автоматически: `CharacterSkill` связан с `Character` через `HasOne...WithMany`, и то же самое для `Skill`. `OnDelete(DeleteBehavior.Cascade)` — если удалить персонажа, все его записи в `CharacterSkills` тоже удалятся.
 
-[![gb043.png](https://i.postimg.cc/cHfQVshs/gb043.png)](https://postimg.cc/9RFR9HsS)
+![gb043.png](https://i.postimg.cc/cHfQVshs/gb043.png)
 
 ---
 

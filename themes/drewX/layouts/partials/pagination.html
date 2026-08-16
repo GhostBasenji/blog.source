@@ -1,0 +1,32 @@
+{{ $paginator := .Paginator }}
+{{ if gt $paginator.TotalPages 1 }}
+{{ $current := $paginator.PageNumber }}
+{{ $total := $paginator.TotalPages }}
+{{ $delta := 2 }}
+
+{{ $start := sub $current $delta }}
+{{ if lt $start 1 }}{{ $start = 1 }}{{ end }}
+
+{{ $end := add $current $delta }}
+{{ if gt $end $total }}{{ $end = $total }}{{ end }}
+
+<nav class="pagination">
+  {{ if $paginator.HasPrev }}
+  <a href="{{ $paginator.Prev.URL }}" class="page-arrow">«</a>
+  {{ end }}
+
+  {{ range $paginator.Pagers }}
+    {{ if and (ge .PageNumber $start) (le .PageNumber $end) }}
+      {{ if eq .PageNumber $current }}
+      <span class="page-num page-current">{{ .PageNumber }}</span>
+      {{ else }}
+      <a href="{{ .URL }}" class="page-num">{{ .PageNumber }}</a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $paginator.HasNext }}
+  <a href="{{ $paginator.Next.URL }}" class="page-arrow">»</a>
+  {{ end }}
+</nav>
+{{ end }}

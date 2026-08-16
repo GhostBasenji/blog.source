@@ -1,0 +1,3 @@
+{{/* Использование: {{ partial "series-description.html" $slug }} */}}
+{{- $entry := index hugo.Data.series.series . -}}
+{{- if $entry -}}{{- $entry.description | default "" -}}{{- end -}}

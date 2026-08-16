@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $pageTitle := "" -}}
+{{- if .IsHome -}}
+  {{- $pageTitle = site.Title -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $pageTitle = printf "%s · %s" (partial "taxonomy-title.html" .Data.Plural) site.Title -}}
+{{- else if eq .Kind "term" -}}
+  {{- $slug := path.Base (strings.TrimRight "/" .RelPermalink) -}}
+  {{- $pageTitle = printf "%s · %s" (partial "term-label.html" (dict "type" .Type "slug" $slug)) site.Title -}}
+{{- else if and (eq .Kind "section") (eq .Section "projects") -}}
+  {{- $pageTitle = printf "%s · %s" (site.Params.labels.projectsTitle | default .Title) site.Title -}}
+{{- else -}}
+  {{- $pageTitle = printf "%s · %s" .Title site.Title -}}
+{{- end -}}
+<title>{{ $pageTitle }}</title>
+{{ with .Description | default site.Params.description }}
+<meta name="description" content="{{ . }}">
+{{ end }}
+
+{{/* Инициализация темы до отрисовки CSS — без мигания */}}
+<script>
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+{{ $css := resources.Get "css/main.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+{{ $chromaLight := resources.Get "css/chroma-light.css" | resources.Minify }}
+{{ $chromaDark := resources.Get "css/chroma-dark.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $chromaLight.RelPermalink }}">
+<link rel="stylesheet" href="{{ $chromaDark.RelPermalink }}">
+
+{{/* Переопределяем ширину ПОСЛЕ main.css, чтобы значения из hugo.toml всегда побеждали */}}
+<style>
+  :root {
+    --content-width: {{ site.Params.contentWidth | default "760px" }};
+    --article-width: {{ site.Params.articleWidth | default "900px" }};
+  }
+</style>

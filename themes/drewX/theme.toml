@@ -1,0 +1,12 @@
+name = "drewX"
+license = "MIT"
+licenselink = "https://github.com/твой-юзернейм/hugo-drewx/blob/main/LICENSE"
+description = "Минималистичная Hugo-тема для технического блога: светлая/тёмная темы, подсветка кода Chroma, формулы KaTeX, серии статей, теги и категории с кастомными названиями."
+homepage = "https://github.com/твой-юзернейм/hugo-drewx"
+tags = ["blog", "dark-mode", "minimal", "responsive", "russian"]
+features = ["dark mode", "syntax highlighting", "katex", "series", "search-ready"]
+min_version = "0.146.0"
+
+[author]
+  name = "твоё имя"
+  homepage = "https://github.com/твой-юзернейм"

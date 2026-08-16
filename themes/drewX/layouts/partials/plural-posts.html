@@ -1,0 +1,9 @@
+{{/* Использование: {{ partial "plural-posts.html" .Count }} */}}
+{{ $n := . }}
+{{ $mod10 := mod $n 10 }}
+{{ $mod100 := mod $n 100 }}
+{{ if and (ge $mod100 11) (le $mod100 14) }}статей
+{{ else if eq $mod10 1 }}статья
+{{ else if and (ge $mod10 2) (le $mod10 4) }}статьи
+{{ else }}статей
+{{ end }}

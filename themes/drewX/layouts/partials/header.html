@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <a class="site-brand" href="{{ "/" | relLangURL }}">
+      <span class="site-brand-text">
+        <span class="site-title">{{ site.Title }}</span>
+        {{ with site.Params.slogan }}
+        <span class="site-slogan">{{ . }}</span>
+        {{ end }}
+      </span>
+    </a>
+
+    <nav class="nav">
+      {{ range site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+
+      {{ if site.Params.enableSearch }}
+      <div class="nav-search">
+        <input type="search" id="site-search-input" placeholder="Поиск по сайту…" autocomplete="off">
+        <div id="site-search-results" class="search-results"></div>
+      </div>
+      {{ end }}
+    </nav>
+  </div>
+</header>
+
+{{ if site.Params.enableSearch }}
+{{ $search := resources.Get "js/search.js" | resources.Minify }}
+<script src="{{ $search.RelPermalink }}" defer></script>
+{{ end }}

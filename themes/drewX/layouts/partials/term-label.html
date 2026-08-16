@@ -1,0 +1,17 @@
+{{- $type := .type -}}
+{{- $slug := .slug -}}
+{{- if eq $type "series" -}}
+  {{- $entry := index hugo.Data.series.series $slug -}}
+  {{- if $entry -}}
+    {{- $entry.name -}}
+  {{- else -}}
+    {{- $slug -}}
+  {{- end -}}
+{{- else -}}
+  {{- $data := index hugo.Data.tagnames $type -}}
+  {{- if $data -}}
+    {{- index $data $slug | default $slug -}}
+  {{- else -}}
+    {{- $slug -}}
+  {{- end -}}
+{{- end -}}

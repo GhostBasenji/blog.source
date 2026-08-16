@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $type := .Type }}
+{{ $slug := path.Base (strings.TrimRight "/" .RelPermalink) }}
+<h1 class="term-title">
+  {{ partial "term-label.html" (dict "type" $type "slug" $slug) }}
+</h1>
+<div class="home-list">
+  {{ $paginator := .Paginate .Pages }}
+  {{ range $paginator.Pages }}
+    {{ partial "post-card.html" . }}
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,33 @@
+{{ if site.Params.showSeriesBadge }}
+{{ with .Params.series }}
+<div class="series">
+  {{ range . }}
+  <a class="series-badge" href="{{ "/series/" | relLangURL }}{{ . | urlize }}/">
+    {{ partial "term-label.html" (dict "type" "series" "slug" .) }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}
+
+{{ if or .Params.categories .Params.tags }}
+<div class="meta-row">
+  {{ with .Params.categories }}
+  <div class="categories">
+    {{ range . }}
+    <a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">
+      {{ partial "term-label.html" (dict "type" "categories" "slug" .) }}
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ with .Params.tags }}
+  <div class="tags">
+    {{ range . }}
+    <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{- partial "term-label.html" (dict "type" "tags" "slug" .) }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

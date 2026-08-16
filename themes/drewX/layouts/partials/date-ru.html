@@ -1,0 +1,6 @@
+{{/* Использование: {{ partial "date-ru.html" .Date }} */}}
+{{ $months := slice "января" "февраля" "марта" "апреля" "мая" "июня" "июля" "августа" "сентября" "октября" "ноября" "декабря" }}
+{{ $day := .Day }}
+{{ $month := index $months (sub .Month 1) }}
+{{ $year := .Year }}
+{{ printf "%d %s %d" $day $month $year }}

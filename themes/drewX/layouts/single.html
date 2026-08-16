@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="article-card">
+  <article>
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Type "posts" }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ partial "date-ru.html" .Date }}
+      </time>
+      {{ end }}
+    </header>
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+
+    {{ partial "article-meta.html" . }}
+  </article>
+</div>
+
+{{ $hasMath := or (strings.Contains .RawContent "$$") (strings.Contains .RawContent "\\(") (strings.Contains .RawContent "\\[") }}
+{{ if $hasMath }}
+  {{ partial "katex.html" . }}
+{{ end }}
+{{ end }}

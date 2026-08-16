@@ -1,0 +1,100 @@
+baseURL = "https://example.com"
+title = "Блог призрака Басенджи"
+theme = "drewX"
+locale = "ru-RU"
+defaultContentLanguage = "ru"
+hasCJKLanguage = false
+copyright = "© 2026"
+enableRobotsTXT = true
+
+# ============================================================
+# ПАГИНАЦИЯ
+# ============================================================
+[pagination]
+pagerSize = 10
+
+# ============================================================
+# URL-СТРУКТУРА
+# ============================================================
+[permalinks]
+posts = "/posts/:contentbasename/"
+projects = "/projects/:slugorcontentbasename/"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+# ============================================================
+# ВЫВОД
+# ============================================================
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+# ============================================================
+# MARKDOWN / GOLDMARK
+# ============================================================
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)']]
+
+# ============================================================
+# ПАРАМЕТРЫ ТЕМЫ
+# ============================================================
+[params]
+slogan = "Мысли, код и заметки"
+contentWidth = "900px"
+articleWidth = "900px"
+showSeriesBadge = false
+enableSearch = false
+chromaStyleLight = "catppuccin-latte"
+chromaStyleDark = "catppuccin-frappe"
+themeName = "Nova"
+themeURL = "https://github.com/твой-юзернейм/nova-test"
+
+[params.labels]
+projectsTitle = "Мои проекты"
+projectsDescription = "Небольшие проекты, созданные для развлечения или для решения реальных проблем."
+
+[params.social]
+email = "you@example.com"
+telegram = "https://t.me/yourusername"
+github = "https://github.com/yourusername"
+
+# ============================================================
+# МЕНЮ
+# ============================================================
+[[menus.main]]
+name = "Категории"
+url = "/categories/"
+weight = 10
+
+[[menus.main]]
+name = "Теги"
+url = "/tags/"
+weight = 20
+
+[[menus.main]]
+name = "Серии"
+url = "/series/"
+weight = 30
+
+[[menus.main]]
+name = "Мои проекты"
+url = "/projects/"
+weight = 40
+
+[[menus.main]]
+name = "About"
+url = "/about/"
+weight = 50

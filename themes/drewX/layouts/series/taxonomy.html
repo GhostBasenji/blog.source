@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1 class="term-title">Серии статей</h1>
+<p class="term-subtitle">Статьи, объединённые одной темой.</p>
+
+<div class="home-list">
+  {{ range .Data.Terms.Alphabetical }}
+  <a class="post-summary term-card" href="{{ .Page.RelPermalink }}">
+    <h2>{{ partial "term-label.html" (dict "type" "series" "slug" .Name) }}</h2>
+    {{ with partial "series-description.html" .Name }}
+    <p class="post-excerpt">{{ . }}</p>
+    {{ end }}
+    <span class="term-card-count">{{ .Count }} {{ partial "plural-posts.html" .Count }}</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

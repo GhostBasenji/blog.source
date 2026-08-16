@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1 class="term-title">{{ partial "taxonomy-title.html" .Data.Plural }}</h1>
+
+<div class="home-list term-grid">
+  {{ range .Data.Terms.ByCount }}
+  <a class="post-summary term-card" href="{{ .Page.RelPermalink }}">
+    <h2>#{{ partial "term-label.html" (dict "type" $.Data.Plural "slug" .Name) }}</h2>
+    <span class="term-card-count">{{ .Count }} {{ partial "plural-posts.html" .Count }}</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

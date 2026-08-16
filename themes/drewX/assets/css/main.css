@@ -291,34 +291,6 @@ pre code {
   margin: 0;
 }
 
-@media (max-width: 640px) {
-  .content {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .home-list {
-    gap: 0;
-  }
-
-  .post-summary {
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    padding: 1.2rem 1.1rem;
-  }
-
-  .article-card {
-    border-left: none;
-    border-right: none;
-    padding: 1.2rem 1rem 1.8rem;
-  }
-
-  .article-content {
-    padding: 0.4rem;
-  }
-}
-
 @media (max-width: 560px) {
   .site-header-inner {
     padding: 1.1rem 1rem;
@@ -1062,4 +1034,33 @@ pre code {
 
 .article-content sup a {
   text-decoration: none;
+}
+
+
+@media (max-width: 640px) {
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .home-list {
+    gap: 0;
+  }
+
+  .post-summary {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    padding: 1.2rem 1.1rem;
+  }
+
+  .article-card {
+    border-left: none;
+    border-right: none;
+    padding: 1.2rem 1rem 1.8rem;
+  }
+
+  .article-content {
+    padding: 0.4rem;
+  }
 }

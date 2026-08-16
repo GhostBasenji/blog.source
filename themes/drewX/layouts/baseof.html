@@ -9,56 +9,5 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
-
-  <!-- Lightbox -->
-  <div class="lightbox-overlay" id="lightbox">
-    <img id="lightbox-img" src="" alt="" />
-  </div>
-
-  <!-- Lightbox Script -->
-  <script>
-    (function () {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImg = document.getElementById('lightbox-img');
-
-      function openLightbox(src, alt) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
-        lightbox.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-
-      // Ищем картинки в статье
-      var images = document.querySelectorAll('.article-content img, .content img, .post-content img');
-      
-      images.forEach(function (img) {
-        // Игнорируем маленькие иконки
-        if (img.width < 30 && img.height < 30) return;
-        
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function (e) {
-          e.preventDefault();
-          openLightbox(this.src, this.alt);
-        });
-      });
-
-      // Закрыть по клику на фон
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-
-      // Закрыть по Escape
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
-          closeLightbox();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

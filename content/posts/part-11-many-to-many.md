@@ -381,7 +381,7 @@ var dbCharacters = await _context.Characters
 }
 ```
 
-[![gb045.png](https://i.postimg.cc/xCLKW05j/gb045.png)](https://postimg.cc/ZBKBNzXX)
+![gb045.png](https://i.postimg.cc/xCLKW05j/gb045.png)
 
 Добавляю второе умение — `skillId: 2`:
 
@@ -392,10 +392,9 @@ var dbCharacters = await _context.Characters
 }
 ```
 
-[![gb046.png](https://i.postimg.cc/SscWwydS/gb046.png)](https://postimg.cc/6252ZxFg)
+![gb046.png](https://i.postimg.cc/SscWwydS/gb046.png)
 
 В SSMS таблица `CharacterSkills` теперь содержит две строки — `(1, 1)` и `(1, 2)`.
-
 
 ## Итог
 

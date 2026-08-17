@@ -1,4 +1,4 @@
 series:
   bystriy-start-aspnet-core-web-api-ef:
     name: "Быстрый старт: ASP.NET Web API + Entity Framework"
-    description: "Заметки о создании небольшой backend для текстовой RPG на ASP.NET Core Web API и EF Core — от первого контроллера до аутентификации и работы с базой данных. Небольшой, но достаточно реальный, чтобы разобраться со стеком."
+    description: "Заметки о создании backend для текстовой RPG на ASP.NET Core Web API и EF Core — от первого контроллера до аутентификации и работы с базой данных. Небольшой проект, но достаточно реальный, чтобы разобраться со стеком."

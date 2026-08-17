@@ -52,3 +52,91 @@
 
 {{ $js := resources.Get "js/theme-toggle.js" | resources.Minify }}
 <script src="{{ $js.RelPermalink }}"></script>
+
+<script>
+(function () {
+  var images = document.querySelectorAll('.article-content img');
+  if (!images.length) return;
+
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  var overlayImg = document.createElement('img');
+  overlay.appendChild(overlayImg);
+  document.body.appendChild(overlay);
+
+  function open(src, alt) {
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  images.forEach(function (img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  overlay.addEventListener('click', close);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+</script>
+
+<button id="back-to-top" class="back-to-top" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  var article = document.querySelector('.article-content') || document.querySelector('.article-card');
+  var ticking = false;
+
+  function getTriggerPoint() {
+    if (article) {
+      var rect = article.getBoundingClientRect();
+      var articleTop = rect.top + window.scrollY;
+      var articleHeight = article.offsetHeight;
+      return articleTop + articleHeight * 0.5;
+    }
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    return docHeight * 0.5;
+  }
+
+  function toggleVisibility() {
+    var triggerPoint = getTriggerPoint();
+    if (window.scrollY > triggerPoint) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(toggleVisibility);
+      ticking = true;
+    }
+  });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  toggleVisibility();
+})();
+</script>

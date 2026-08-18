@@ -6,14 +6,12 @@ series = "bystriy-start-aspnet-core-web-api-ef"
 date = "2026-05-31"
 
 categories = [
-    "backend",
-    "csharp-development"
+    "backend"
     ]
 
 tags = [
   "aspnet-core",
   "csharp",
-  "dotnet-backend",
   "web-api",
   "vs-code"
 ]

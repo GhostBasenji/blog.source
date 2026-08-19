@@ -10,10 +10,10 @@ categories = [
     ]
 
 tags = [
+  "dotnet",
   "aspnet-core",
   "csharp",
   "web-api",
-  "vs-code",
   "ef-core"
 ]
 +++

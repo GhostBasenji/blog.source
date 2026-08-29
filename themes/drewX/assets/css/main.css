@@ -1044,7 +1044,7 @@ pre code {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .content {
     padding-left: 0;
     padding-right: 0;
@@ -1059,14 +1059,14 @@ pre code {
     border-right: none;
     border-radius: 0;
     padding: 1.2rem 1.1rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;
   }
 
   .article-card {
     border-left: none;
     border-right: none;
     padding: 1.2rem 1rem 1.8rem;
-    margin-bottom: 1rem;  /* ← Добавляем отступ снизу */
+    margin-bottom: 1rem;
   }
 
   .article-content {

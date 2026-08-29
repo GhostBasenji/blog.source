@@ -1043,6 +1043,35 @@ pre code {
   text-decoration: none;
 }
 
+@media (max-width: 640px) {
+  .content {
+     padding-left: 0;
+     padding-right: 0;
+  }
+
+ .home-list {
+    gap: 0.5rem;
+  }
+   
+ .post-summary {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    padding: 1.2rem 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+ .article-card {
+    border-left: none;
+    border-right: none;
+    padding: 1.2rem 1rem 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content {
+    padding: 0.4rem;
+  }
+}
 
 @media (max-width: 1024px) {
   .content {

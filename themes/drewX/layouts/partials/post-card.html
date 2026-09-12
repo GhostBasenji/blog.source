@@ -36,7 +36,7 @@
     {{ with .Params.tags }}
     <div class="tags">
       {{ range . }}
-      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{- partial "term-label.html" (dict "type" "tags" "slug" .) }}</a>
+      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{- partial "term-label.html" (dict "type" "tags" "slug" .) }}</a>
       {{ end }}
     </div>
     {{ end }}

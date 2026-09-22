@@ -436,4 +436,4 @@ dotnet-rpg/
 
 ---
 
-*Следующая часть: Боевая система — больше чем просто CRUD.*
+[*Следующая часть: Боевая система — больше чем просто CRUD.*](https://ghostbasenji.github.io/posts/part-12-fight-service/)

@@ -434,4 +434,5 @@ private static int DoSkillAttack(Character attacker, Character opponent, int ski
 
 В следующей части: реализуем автоматический бой, где персонажи атакуют друг друга по очереди до победного конца, а также таблицу лидеров.
 
-*Следующая часть: Автоматический бой и таблица лидеров.*
+---
+[*Следующая часть: Автоматический бой и таблица лидеров.*](https://ghostbasenji.github.io/posts/part-13-fight-auto/)

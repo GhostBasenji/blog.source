@@ -381,5 +381,4 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 В следующей части: заменю Id на JWT-токен в ответе на вход и защищу контроллер персонажей атрибутом `[Authorize]`.
 
 ---
-
 [*Следующая часть: JSON Web Tokens — генерируем токен, защищаем эндпоинты, читаем Claims.*](https://ghostbasenji.github.io/posts/part-08-jwt/)

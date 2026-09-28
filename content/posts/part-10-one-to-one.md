@@ -388,5 +388,4 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 В следующей части: связь многие-ко-многим — добавим умения (skills), которые может изучить несколько персонажей, и каждый персонаж может знать несколько умений.
 
 ---
-
 [*Следующая часть: Связь многие-ко-многим — умения персонажей.*](https://ghostbasenji.github.io/posts/part-11-many-to-many)

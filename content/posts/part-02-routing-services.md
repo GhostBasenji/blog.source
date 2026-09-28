@@ -362,5 +362,4 @@ public class CharacterController : ControllerBase
 В следующей части: переведём все методы на `async/await`, разберём DTO и зачем они нужны, добавим AutoMapper, PUT и DELETE.
 
 ---
-
 [*Следующая часть: Асинхронные вызовы, Data Transfer Objects и AutoMapper.*](https://ghostbasenji.github.io/posts/part-03-async-dto-automapper/)

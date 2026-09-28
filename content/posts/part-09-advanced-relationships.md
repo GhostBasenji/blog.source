@@ -290,5 +290,4 @@ public async Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharac
 В следующей части: добавим оружие персонажу — это будет связь один-к-одному, и разберём, чем она отличается от один-ко-многим, которую мы только что построили.
 
 ---
-
 [*Следующая часть: Связь один-к-одному — добавляем оружие персонажу.*](https://ghostbasenji.github.io/posts/part-10-one-to-one/)

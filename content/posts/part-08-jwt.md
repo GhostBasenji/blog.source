@@ -309,5 +309,4 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int u
 В следующей части: добавим связь между пользователем и создаваемыми персонажами — когда пользователь создаёт персонажа через POST, тот автоматически привязывается к нему.
 
 ---
-
 [*Следующая часть: Связи в EF Core — привязываем персонажей к пользователям, связи один-к-одному.*](https://ghostbasenji.github.io/posts/part-09-advanced-relationships/)

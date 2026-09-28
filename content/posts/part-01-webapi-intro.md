@@ -341,5 +341,4 @@ builder.Services.AddControllers()
 В следующей части: разберу атрибутный роутинг, добавлю несколько HTTP-методов, познакомлюсь с LINQ и вынесу логику в отдельный сервис через dependency injection.
 
 ---
-
 [*Следующая часть: Атрибутный роутинг, HTTP-методы и сервисный слой.*](https://ghostbasenji.github.io/posts/part-02-routing-services/)

@@ -373,5 +373,4 @@ dotnet-rpg/
 В следующей части переходим к Entity Framework Core — подключим настоящую базу данных, уберём хранение данных в памяти и научимся делать Code First Migration.
 
 ---
-
 [*Следующая часть: Entity Framework Core, Code First Migration и подключение базы данных.*](https://ghostbasenji.github.io/posts/part-05-ef-core-migration/)

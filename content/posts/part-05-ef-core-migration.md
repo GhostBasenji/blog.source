@@ -303,5 +303,4 @@ Entity Framework сам разберётся, какие именно измен
 В следующей части: подключу сервис к базе данных и переведу все CRUD-операции на EF Core.
 
 ---
-
 [*Следующая часть: Полный CRUD через Entity Framework Core — GET, POST, PUT, DELETE с настоящей базой данных.*](https://ghostbasenji.github.io/posts/part-06-ef-core-crud/)

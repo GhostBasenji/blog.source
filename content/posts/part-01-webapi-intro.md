@@ -333,7 +333,6 @@ builder.Services.AddControllers()
 
 После этого `"class"` будет возвращаться как `"Knight"` — читать ответы сразу приятнее.
 
-
 ## Итог
 
 Создал Web API проект на .NET 9, разобрался со структурой `Program.cs` и паттерном MVC, написал первую модель `Character` и контроллер с одним GET-методом, получил первый JSON-ответ через Bruno.
@@ -341,4 +340,4 @@ builder.Services.AddControllers()
 В следующей части: разберу атрибутный роутинг, добавлю несколько HTTP-методов, познакомлюсь с LINQ и вынесу логику в отдельный сервис через dependency injection.
 
 ---
-[*Следующая часть: Атрибутный роутинг, HTTP-методы и сервисный слой.*](https://ghostbasenji.github.io/posts/part-02-routing-services/)
+**Следующая часть:** [Атрибутный роутинг, HTTP-методы и сервисный слой](https://ghostbasenji.github.io/posts/part-02-routing-services/)

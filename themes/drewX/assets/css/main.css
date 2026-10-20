@@ -2,19 +2,19 @@
    ПЕРЕМЕННЫЕ
    ============================================================ */
 :root {
-  --color-page-bg: #eef1f4;
-  --color-card-bg: #ffffff;
-  --color-text: #1f2937;
-  --color-text-secondary: #7a8697;
-  --color-heading: #263449;
-  --color-link: #3b6bc7;
-  --color-link-hover: #2c56a8;
-  --color-border: #e6e9ed;
-  --color-accent: #3b6bc7;
-  --color-badge-bg: #37475e;
-  --color-badge-text: #ffffff;
-  --card-shadow: 0 1px 3px rgba(30, 41, 59, 0.08), 0 1px 2px rgba(30, 41, 59, 0.06);
-  --grid-line: rgba(31, 41, 55, 0.06);
+  --color-page-bg: #e9edf2;
+  --color-card-bg: #fafbfc;
+  --color-text: #3a4556;
+  --color-text-secondary: #7f8b9c;
+  --color-heading: #2f3d52;
+  --color-link: #4f78b8;
+  --color-link-hover: #3f649c;
+  --color-border: #dfe5ec;
+  --color-accent: #4f78b8;
+  --color-badge-bg: #4a5b73;
+  --color-badge-text: #f4f7fb;
+  --card-shadow: 0 1px 2px rgba(30, 41, 59, 0.05), 0 2px 8px rgba(30, 41, 59, 0.04);
+  --grid-line: rgba(60, 75, 100, 0.05);
   --grid-size: 24px;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -27,19 +27,19 @@
 }
 
 [data-theme="dark"] {
-  --color-page-bg: #1b2330;
-  --color-card-bg: #232d3d;
-  --color-text: #e5e9f0;
-  --color-text-secondary: #93a0b3;
-  --color-heading: #f0f3f7;
-  --color-link: #6ea8fe;
-  --color-link-hover: #8ec0ff;
-  --color-border: #384457;
-  --color-accent: #6ea8fe;
-  --color-badge-bg: #4a5b73;
-  --color-badge-text: #ffffff;
+  --color-page-bg: #222b38;
+  --color-card-bg: #2a3444;
+  --color-text: #cdd5e0;
+  --color-text-secondary: #94a0b3;
+  --color-heading: #e2e8f0;
+  --color-link: #86b3ee;
+  --color-link-hover: #a3c6f5;
+  --color-border: #3b4759;
+  --color-accent: #86b3ee;
+  --color-badge-bg: #4a5d78;
+  --color-badge-text: #eef2f8;
   --card-shadow: none;
-  --grid-line: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(255, 255, 255, 0.05);
 }
 
 /* ============================================================

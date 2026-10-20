@@ -1132,3 +1132,22 @@ pre code {
     height: 40px;
   }
 }
+
+/* ===== Футер на мобильных: всё по центру колонкой ===== */
+@media (max-width: 640px) {
+  .site-footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.9rem;
+  }
+
+  .footer-copy {
+    text-align: center;
+  }
+
+  .footer-actions {
+    justify-content: center;
+  }
+}

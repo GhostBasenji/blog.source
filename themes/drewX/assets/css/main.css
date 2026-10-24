@@ -1151,3 +1151,29 @@ pre code {
     justify-content: center;
   }
 }
+
+/* ===== Блоки кода: визуальное отделение от текста ===== */
+.article-content .highlight,
+.article-content pre {
+  margin: 1.2rem 0;
+}
+
+.article-content pre,
+.article-content pre.chroma {
+  border: 1px solid var(--color-border);
+}
+
+/* Тёмная тема: фон кода темнее карточки статьи.
+   Селектор специально «тяжёлый», чтобы победить стили Chroma,
+   которые подключаются в head.html после main.css. */
+[data-theme="dark"] .article-content pre,
+[data-theme="dark"] .article-content pre.chroma {
+  background-color: #171d27;
+  border-color: #3b4759;
+}
+
+/* Код внутри строки текста в тёмной теме тоже слегка выделяем */
+[data-theme="dark"] :not(pre) > code {
+  background: #171d27;
+  border: 1px solid #3b4759;
+}

@@ -364,4 +364,4 @@ public async Task<IActionResult> GetHighscore()
 
 В следующей части: ролевая авторизация — добавим роль `Admin`, которая видит персонажей всех пользователей, а обычные `Player` видят только своих.
 
-**Следующая часть**: *[Ролевая авторизация — Admin и Player]*(https://ghostbasenji.github.io/posts/part-14-role-based-auth/)
+**Следующая часть**: [*Ролевая авторизация — Admin и Player*](https://ghostbasenji.github.io/posts/part-14-role-based-auth/)

@@ -190,7 +190,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 
 Если роль `Admin` — берём всех персонажей без фильтра. Если нет — фильтруем по `UserId` как раньше.
 
----
 
 ## Тестирую в Bruno
 
@@ -206,7 +205,6 @@ public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
 
 ![gb059.png](https://i.postimg.cc/rFpbqJxV/gb059.png)]
 
----
 
 ## Итог
 
